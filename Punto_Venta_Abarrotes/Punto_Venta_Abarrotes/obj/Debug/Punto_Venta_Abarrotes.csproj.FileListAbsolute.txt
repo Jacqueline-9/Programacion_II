@@ -1,0 +1,10 @@
+C:\Users\Jacquilin\Documents\4° Semestre\Programación II\Punto_Venta_Abarrotes\Punto_Venta_Abarrotes\obj\Debug\Punto_Venta_Abarrotes.csprojAssemblyReference.cache
+C:\Users\Jacquilin\Documents\4° Semestre\Programación II\Punto_Venta_Abarrotes\Punto_Venta_Abarrotes\obj\Debug\Punto_Venta_Abarrotes.Form1.resources
+C:\Users\Jacquilin\Documents\4° Semestre\Programación II\Punto_Venta_Abarrotes\Punto_Venta_Abarrotes\obj\Debug\Punto_Venta_Abarrotes.csproj.GenerateResource.cache
+C:\Users\Jacquilin\Documents\4° Semestre\Programación II\Punto_Venta_Abarrotes\Punto_Venta_Abarrotes\bin\Debug\Punto_Venta_Abarrotes.exe.config
+C:\Users\Jacquilin\Documents\4° Semestre\Programación II\Punto_Venta_Abarrotes\Punto_Venta_Abarrotes\bin\Debug\Punto_Venta_Abarrotes.exe
+C:\Users\Jacquilin\Documents\4° Semestre\Programación II\Punto_Venta_Abarrotes\Punto_Venta_Abarrotes\bin\Debug\Punto_Venta_Abarrotes.pdb
+C:\Users\Jacquilin\Documents\4° Semestre\Programación II\Punto_Venta_Abarrotes\Punto_Venta_Abarrotes\obj\Debug\Punto_Venta_Abarrotes.Properties.Resources.resources
+C:\Users\Jacquilin\Documents\4° Semestre\Programación II\Punto_Venta_Abarrotes\Punto_Venta_Abarrotes\obj\Debug\Punto_Venta_Abarrotes.csproj.CoreCompileInputs.cache
+C:\Users\Jacquilin\Documents\4° Semestre\Programación II\Punto_Venta_Abarrotes\Punto_Venta_Abarrotes\obj\Debug\Punto_Venta_Abarrotes.exe
+C:\Users\Jacquilin\Documents\4° Semestre\Programación II\Punto_Venta_Abarrotes\Punto_Venta_Abarrotes\obj\Debug\Punto_Venta_Abarrotes.pdb
