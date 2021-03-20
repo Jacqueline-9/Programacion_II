@@ -23,6 +23,16 @@ namespace Punto_Venta_Abarrotes
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
 
+        private void InterfazPrincipal_Load(object sender, EventArgs e)
+        {
+            ptbLogo_Click(null, e);
+        }
+
+        private void ptbLogo_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(new Inicio());
+        }
+
         private void panelBarraTitulo_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
@@ -71,7 +81,5 @@ namespace Punto_Venta_Abarrotes
             ptbRestaurar.Visible = false;
             ptbMaximizar.Visible = true;
         }
-
-        
     }
 }

@@ -30,12 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InterfazPrincipal));
             this.panelBarraTitulo = new System.Windows.Forms.Panel();
+            this.ptbRestaurar = new System.Windows.Forms.PictureBox();
+            this.ptbCerrar = new System.Windows.Forms.PictureBox();
+            this.ptbMinimizar = new System.Windows.Forms.PictureBox();
+            this.ptbMaximizar = new System.Windows.Forms.PictureBox();
             this.panelMenu = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panelSubmenuReportes = new System.Windows.Forms.Panel();
             this.btnReporteVentas = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panelContenedor = new System.Windows.Forms.Panel();
             this.btnReportes = new System.Windows.Forms.Button();
             this.btnCompras = new System.Windows.Forms.Button();
             this.btnProveedores = new System.Windows.Forms.Button();
@@ -44,21 +46,19 @@
             this.btnClientes = new System.Windows.Forms.Button();
             this.btnPerdidas = new System.Windows.Forms.Button();
             this.btnProductos = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.ptbLogo = new System.Windows.Forms.PictureBox();
-            this.ptbRestaurar = new System.Windows.Forms.PictureBox();
-            this.ptbCerrar = new System.Windows.Forms.PictureBox();
-            this.ptbMinimizar = new System.Windows.Forms.PictureBox();
-            this.ptbMaximizar = new System.Windows.Forms.PictureBox();
+            this.panelContenedor = new System.Windows.Forms.Panel();
             this.panelBarraTitulo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbRestaurar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbCerrar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbMinimizar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbMaximizar)).BeginInit();
             this.panelMenu.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panelSubmenuReportes.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbLogo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbRestaurar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbCerrar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbMinimizar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbMaximizar)).BeginInit();
             this.SuspendLayout();
             // 
             // panelBarraTitulo
@@ -74,6 +74,59 @@
             this.panelBarraTitulo.Size = new System.Drawing.Size(1300, 35);
             this.panelBarraTitulo.TabIndex = 0;
             this.panelBarraTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelBarraTitulo_MouseDown);
+            // 
+            // ptbRestaurar
+            // 
+            this.ptbRestaurar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ptbRestaurar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ptbRestaurar.Image = ((System.Drawing.Image)(resources.GetObject("ptbRestaurar.Image")));
+            this.ptbRestaurar.Location = new System.Drawing.Point(1232, 4);
+            this.ptbRestaurar.Name = "ptbRestaurar";
+            this.ptbRestaurar.Size = new System.Drawing.Size(25, 25);
+            this.ptbRestaurar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ptbRestaurar.TabIndex = 7;
+            this.ptbRestaurar.TabStop = false;
+            this.ptbRestaurar.Visible = false;
+            this.ptbRestaurar.Click += new System.EventHandler(this.ptbRestaurar_Click);
+            // 
+            // ptbCerrar
+            // 
+            this.ptbCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ptbCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ptbCerrar.Image = ((System.Drawing.Image)(resources.GetObject("ptbCerrar.Image")));
+            this.ptbCerrar.Location = new System.Drawing.Point(1263, 4);
+            this.ptbCerrar.Name = "ptbCerrar";
+            this.ptbCerrar.Size = new System.Drawing.Size(25, 25);
+            this.ptbCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ptbCerrar.TabIndex = 4;
+            this.ptbCerrar.TabStop = false;
+            this.ptbCerrar.Click += new System.EventHandler(this.ptbCerrar_Click);
+            // 
+            // ptbMinimizar
+            // 
+            this.ptbMinimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ptbMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ptbMinimizar.Image = ((System.Drawing.Image)(resources.GetObject("ptbMinimizar.Image")));
+            this.ptbMinimizar.Location = new System.Drawing.Point(1201, 4);
+            this.ptbMinimizar.Name = "ptbMinimizar";
+            this.ptbMinimizar.Size = new System.Drawing.Size(25, 25);
+            this.ptbMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ptbMinimizar.TabIndex = 6;
+            this.ptbMinimizar.TabStop = false;
+            this.ptbMinimizar.Click += new System.EventHandler(this.ptbMinimizar_Click);
+            // 
+            // ptbMaximizar
+            // 
+            this.ptbMaximizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ptbMaximizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ptbMaximizar.Image = ((System.Drawing.Image)(resources.GetObject("ptbMaximizar.Image")));
+            this.ptbMaximizar.Location = new System.Drawing.Point(1232, 4);
+            this.ptbMaximizar.Name = "ptbMaximizar";
+            this.ptbMaximizar.Size = new System.Drawing.Size(25, 25);
+            this.ptbMaximizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ptbMaximizar.TabIndex = 5;
+            this.ptbMaximizar.TabStop = false;
+            this.ptbMaximizar.Click += new System.EventHandler(this.ptbMaximizar_Click);
             // 
             // panelMenu
             // 
@@ -128,24 +181,6 @@
             this.btnReporteVentas.Text = "Reporte Ventas";
             this.btnReporteVentas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnReporteVentas.UseVisualStyleBackColor = false;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.ptbLogo);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(220, 119);
-            this.panel1.TabIndex = 0;
-            // 
-            // panelContenedor
-            // 
-            this.panelContenedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(40)))));
-            this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContenedor.Location = new System.Drawing.Point(220, 35);
-            this.panelContenedor.Name = "panelContenedor";
-            this.panelContenedor.Size = new System.Drawing.Size(1080, 615);
-            this.panelContenedor.TabIndex = 2;
             // 
             // btnReportes
             // 
@@ -292,6 +327,15 @@
             this.btnProductos.UseVisualStyleBackColor = true;
             this.btnProductos.Click += new System.EventHandler(this.btnProductos_Click);
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.ptbLogo);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(220, 119);
+            this.panel1.TabIndex = 0;
+            // 
             // ptbLogo
             // 
             this.ptbLogo.Image = global::Punto_Venta_Abarrotes.Properties.Resources._4891328874_8fa2d91b_78f1_4a00_8da8_33624cb14079;
@@ -301,59 +345,16 @@
             this.ptbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.ptbLogo.TabIndex = 0;
             this.ptbLogo.TabStop = false;
+            this.ptbLogo.Click += new System.EventHandler(this.ptbLogo_Click);
             // 
-            // ptbRestaurar
+            // panelContenedor
             // 
-            this.ptbRestaurar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ptbRestaurar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ptbRestaurar.Image = ((System.Drawing.Image)(resources.GetObject("ptbRestaurar.Image")));
-            this.ptbRestaurar.Location = new System.Drawing.Point(1232, 4);
-            this.ptbRestaurar.Name = "ptbRestaurar";
-            this.ptbRestaurar.Size = new System.Drawing.Size(25, 25);
-            this.ptbRestaurar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.ptbRestaurar.TabIndex = 7;
-            this.ptbRestaurar.TabStop = false;
-            this.ptbRestaurar.Visible = false;
-            this.ptbRestaurar.Click += new System.EventHandler(this.ptbRestaurar_Click);
-            // 
-            // ptbCerrar
-            // 
-            this.ptbCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ptbCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ptbCerrar.Image = ((System.Drawing.Image)(resources.GetObject("ptbCerrar.Image")));
-            this.ptbCerrar.Location = new System.Drawing.Point(1263, 4);
-            this.ptbCerrar.Name = "ptbCerrar";
-            this.ptbCerrar.Size = new System.Drawing.Size(25, 25);
-            this.ptbCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.ptbCerrar.TabIndex = 4;
-            this.ptbCerrar.TabStop = false;
-            this.ptbCerrar.Click += new System.EventHandler(this.ptbCerrar_Click);
-            // 
-            // ptbMinimizar
-            // 
-            this.ptbMinimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ptbMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ptbMinimizar.Image = ((System.Drawing.Image)(resources.GetObject("ptbMinimizar.Image")));
-            this.ptbMinimizar.Location = new System.Drawing.Point(1201, 4);
-            this.ptbMinimizar.Name = "ptbMinimizar";
-            this.ptbMinimizar.Size = new System.Drawing.Size(25, 25);
-            this.ptbMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.ptbMinimizar.TabIndex = 6;
-            this.ptbMinimizar.TabStop = false;
-            this.ptbMinimizar.Click += new System.EventHandler(this.ptbMinimizar_Click);
-            // 
-            // ptbMaximizar
-            // 
-            this.ptbMaximizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ptbMaximizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ptbMaximizar.Image = ((System.Drawing.Image)(resources.GetObject("ptbMaximizar.Image")));
-            this.ptbMaximizar.Location = new System.Drawing.Point(1232, 4);
-            this.ptbMaximizar.Name = "ptbMaximizar";
-            this.ptbMaximizar.Size = new System.Drawing.Size(25, 25);
-            this.ptbMaximizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.ptbMaximizar.TabIndex = 5;
-            this.ptbMaximizar.TabStop = false;
-            this.ptbMaximizar.Click += new System.EventHandler(this.ptbMaximizar_Click);
+            this.panelContenedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(40)))));
+            this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelContenedor.Location = new System.Drawing.Point(220, 35);
+            this.panelContenedor.Name = "panelContenedor";
+            this.panelContenedor.Size = new System.Drawing.Size(1080, 615);
+            this.panelContenedor.TabIndex = 2;
             // 
             // InterfazPrincipal
             // 
@@ -367,16 +368,17 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "InterfazPrincipal";
             this.Text = "InterfazPrincipal";
+            this.Load += new System.EventHandler(this.InterfazPrincipal_Load);
             this.panelBarraTitulo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ptbRestaurar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbCerrar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbMinimizar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbMaximizar)).EndInit();
             this.panelMenu.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panelSubmenuReportes.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ptbLogo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbRestaurar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbCerrar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbMinimizar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbMaximizar)).EndInit();
             this.ResumeLayout(false);
 
         }

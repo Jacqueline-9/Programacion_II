@@ -14,3 +14,4 @@ C:\Users\Jacquilin\Documents\4° Semestre\Programación II\Punto_Venta_Abarrotes
 C:\Users\Jacquilin\Documents\4° Semestre\Programación II\Punto_Venta_Abarrotes\Punto_Venta_Abarrotes\obj\Debug\Punto_Venta_Abarrotes.Empleados.resources
 C:\Users\Jacquilin\Documents\4° Semestre\Programación II\Punto_Venta_Abarrotes\Punto_Venta_Abarrotes\obj\Debug\Punto_Venta_Abarrotes.Proveedores.resources
 C:\Users\Jacquilin\Documents\4° Semestre\Programación II\Punto_Venta_Abarrotes\Punto_Venta_Abarrotes\obj\Debug\Punto_Venta_Abarrotes.Ventas.resources
+C:\Users\Jacquilin\Documents\4° Semestre\Programación II\Punto_Venta_Abarrotes\Punto_Venta_Abarrotes\obj\Debug\Punto_Venta_Abarrotes.Inicio.resources
