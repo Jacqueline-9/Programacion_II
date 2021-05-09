@@ -1057,6 +1057,7 @@
             this.txtNumExt.Name = "txtNumExt";
             this.txtNumExt.Size = new System.Drawing.Size(117, 23);
             this.txtNumExt.TabIndex = 78;
+            this.txtNumExt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumExt_KeyPress);
             // 
             // btnRegistrarDomicilio
             // 
@@ -1087,6 +1088,7 @@
             this.txtNumInt.Name = "txtNumInt";
             this.txtNumInt.Size = new System.Drawing.Size(134, 23);
             this.txtNumInt.TabIndex = 35;
+            this.txtNumInt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumInt_KeyPress);
             // 
             // lblNumInt
             // 

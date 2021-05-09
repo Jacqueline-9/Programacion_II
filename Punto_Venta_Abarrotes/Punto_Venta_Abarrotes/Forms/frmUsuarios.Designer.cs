@@ -108,6 +108,7 @@
             this.txtEstatus.Name = "txtEstatus";
             this.txtEstatus.Size = new System.Drawing.Size(367, 23);
             this.txtEstatus.TabIndex = 41;
+            this.txtEstatus.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEstatus_KeyPress);
             // 
             // lblEstatus
             // 
@@ -127,6 +128,7 @@
             this.txtContrasenia.Name = "txtContrasenia";
             this.txtContrasenia.Size = new System.Drawing.Size(364, 23);
             this.txtContrasenia.TabIndex = 33;
+            this.txtContrasenia.Enter += new System.EventHandler(this.txtContrasenia_Enter);
             // 
             // txtCorreo
             // 

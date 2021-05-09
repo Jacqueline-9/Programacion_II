@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace Punto_Venta_Abarrotes
 {
@@ -36,6 +37,24 @@ namespace Punto_Venta_Abarrotes
 
         private void btnRegistrarEntidades_Click(object sender, EventArgs e)
         {
+            Regex reRazonSocial = new Regex("^[a-zA-Z]*$", RegexOptions.Compiled);
+            if (!reRazonSocial.IsMatch(txtRazonSocial.Text))
+            {
+                erpProveedores.SetError(txtRazonSocial, "Debe colocar un nombre válido");
+                txtRazonSocial.Focus();
+                return;
+            }
+            erpProveedores.SetError(txtRazonSocial, "");
+
+            Regex reTelefono = new Regex("[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]", RegexOptions.Compiled);
+            if (!reTelefono.IsMatch(txtTelefonoEmpleado.Text))
+            {
+                erpProveedores.SetError(txtTelefonoEmpleado, "Debe colocar un telefono valido");
+                txtTelefonoEmpleado.Focus();
+                return;
+            }
+            erpProveedores.SetError(txtTelefonoEmpleado, "");
+
             if (txtRazonSocial.Text == "")
             {
                 erpProveedores.SetError(txtRazonSocial, "Favor de ingresar el nombre de la entidad");
@@ -67,6 +86,7 @@ namespace Punto_Venta_Abarrotes
                 return;
             }
             erpProveedores.SetError(txtEstatus, "");
+
 
             txtRazonSocial.Clear();
             txtIdDomicilioEntidad.Clear();

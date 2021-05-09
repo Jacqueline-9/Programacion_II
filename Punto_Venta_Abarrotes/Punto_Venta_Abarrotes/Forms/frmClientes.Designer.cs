@@ -309,6 +309,7 @@
             this.txtEstatus.Name = "txtEstatus";
             this.txtEstatus.Size = new System.Drawing.Size(162, 23);
             this.txtEstatus.TabIndex = 37;
+            this.txtEstatus.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEstatus_KeyPress);
             // 
             // lblEstatus
             // 
@@ -351,6 +352,7 @@
             this.txtIdDomicilioCliente.Name = "txtIdDomicilioCliente";
             this.txtIdDomicilioCliente.Size = new System.Drawing.Size(94, 23);
             this.txtIdDomicilioCliente.TabIndex = 33;
+            this.txtIdDomicilioCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIdDomicilioCliente_KeyPress_1);
             // 
             // txtTelefonoCliente
             // 

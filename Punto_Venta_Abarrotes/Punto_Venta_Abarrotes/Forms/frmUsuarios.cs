@@ -37,22 +37,6 @@ namespace Punto_Venta_Abarrotes
 
         private void btnRegistrarEntidades_Click(object sender, EventArgs e)
         {
-            if (txtNombreUsuario.Text == "")
-            {
-                erpUsuarios.SetError(txtNombreUsuario, "Favor de ingresar el nombre de usuario");
-                txtNombreUsuario.Focus();
-                return;
-            }
-            erpUsuarios.SetError(txtNombreUsuario, "");
-
-            if (txtCorreo.Text == "")
-            {
-                erpUsuarios.SetError(txtCorreo, "Favor de ingresar el correo del usuario");
-                txtCorreo.Focus();
-                return;
-            }
-            erpUsuarios.SetError(txtCorreo, "");
-
             Regex regEmail = new Regex(@"^(([^<>()[\]\\.,;:\s@\""]+"
                                     + @"(\.[^<>()[\]\\.,;:\s@\""]+)*)|(\"".+\""))@"
                                     + @"((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}]"
@@ -67,6 +51,14 @@ namespace Punto_Venta_Abarrotes
             }
             erpUsuarios.SetError(txtCorreo, "");
 
+            if (txtNombreUsuario.Text == "")
+            {
+                erpUsuarios.SetError(txtNombreUsuario, "Favor de ingresar el nombre de usuario");
+                txtNombreUsuario.Focus();
+                return;
+            }
+            erpUsuarios.SetError(txtNombreUsuario, "");
+
             if (txtEstatus.Text == "")
             {
                 erpUsuarios.SetError(txtEstatus, "Favor de ingresar el estatus del usuario");
@@ -75,15 +67,44 @@ namespace Punto_Venta_Abarrotes
             }
             erpUsuarios.SetError(txtEstatus, "");
 
+            if (txtCorreo.Text == "")
+            {
+                erpUsuarios.SetError(txtCorreo, "Favor de ingresar el correo del usuario");
+                txtCorreo.Focus();
+                return;
+            }
+            erpUsuarios.SetError(txtCorreo, "");
+
             txtNombreUsuario.Clear();
             txtCorreo.Clear();
             txtContrasenia.Clear();
             txtEstatus.Clear();
         }
 
+        private void txtEstatus_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 32 && e.KeyChar <= 45) || (e.KeyChar >= 58 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("Solo se permiten números", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
+
         private void btnBuscarUsuarios_Click(object sender, EventArgs e)
         {
             txtNombreUserBuscar.Clear();
+        }
+
+        #endregion
+
+        #region Evento Enter
+
+        private void txtContrasenia_Enter(object sender, EventArgs e)
+        {
+            txtContrasenia.Text = "";
+            txtContrasenia.ForeColor = Color.Black;
+            txtContrasenia.UseSystemPasswordChar = true;
         }
 
         #endregion

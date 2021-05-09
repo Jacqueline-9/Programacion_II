@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace Punto_Venta_Abarrotes
 {
@@ -110,6 +111,15 @@ namespace Punto_Venta_Abarrotes
             }
             erpProductos.SetError(nudExistencia, "");
 
+            Regex reNombre = new Regex("^[a-zA-Z]*$", RegexOptions.Compiled);
+            if (!reNombre.IsMatch(txtNombre.Text))
+            {
+                erpProductos.SetError(txtNombre, "Debe colocar un nombre válido");
+                txtNombre.Focus();
+                return;
+            }
+            erpProductos.SetError(txtNombre, "");
+
             txtNombre.Clear();
             txtPrecio.Clear();
             txtContenidoNeto.Clear();
@@ -119,6 +129,15 @@ namespace Punto_Venta_Abarrotes
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+            Regex reNombre = new Regex("^[a-zA-Z]*$", RegexOptions.Compiled);
+            if (!reNombre.IsMatch(txtNombreBuscar.Text))
+            {
+                erpProductos.SetError(txtNombreBuscar, "Debe colocar un nombre válido");
+                txtNombreBuscar.Focus();
+                return;
+            }
+            erpProductos.SetError(txtNombreBuscar, "");
+
             txtNombreBuscar.Clear();
             txtPrecioBuscar.Clear();
             nudExistenciaBuscar.Value = 0;
@@ -158,6 +177,17 @@ namespace Punto_Venta_Abarrotes
             }
         }
 
+        private void txtEstatus_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 32 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("Solo se permiten números", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
         #endregion
+
+
     }
 }

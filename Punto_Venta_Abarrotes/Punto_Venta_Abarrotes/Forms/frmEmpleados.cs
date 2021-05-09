@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace Punto_Venta_Abarrotes
 {
@@ -71,6 +72,51 @@ namespace Punto_Venta_Abarrotes
 
         private void btnRegistrarEmpleados_Click(object sender, EventArgs e)
         {
+
+            Regex reNombre = new Regex("^[a-zA-Z]*$", RegexOptions.Compiled);
+            if (!reNombre.IsMatch(txtNombreEmpleado.Text))
+            {
+                erpEmpleados.SetError(txtNombreEmpleado, "Debe colocar un nombre válido");
+                txtNombreEmpleado.Focus();
+                return;
+            }
+            erpEmpleados.SetError(txtNombreEmpleado, "");
+
+            Regex reApellido = new Regex("^[a-zA-Z]*$", RegexOptions.Compiled);
+            if (!reApellido.IsMatch(txtApePatEmpleado.Text))
+            {
+                erpEmpleados.SetError(txtApePatEmpleado, "Debe colocar un apellido válido");
+                txtApePatEmpleado.Focus();
+                return;
+            }
+            erpEmpleados.SetError(txtApePatEmpleado, "");
+
+            if (!reApellido.IsMatch(txtApeMatEmpleado.Text))
+            {
+                erpEmpleados.SetError(txtApeMatEmpleado, "Debe colocar un apellido válido");
+                txtApeMatEmpleado.Focus();
+                return;
+            }
+            erpEmpleados.SetError(txtApeMatEmpleado, "");
+
+            Regex reTelefono = new Regex("[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]", RegexOptions.Compiled);
+            if (!reTelefono.IsMatch(txtTelefonoEmpleado.Text))
+            {
+                erpEmpleados.SetError(txtTelefonoEmpleado, "Debe colocar un telefono valido");
+                txtTelefonoEmpleado.Focus();
+                return;
+            }
+            erpEmpleados.SetError(txtTelefonoEmpleado, "");
+
+            Regex reRFC = new Regex("[A-Z][A-Z][A-Z][A-Z][0-9][0-9][0-9][0-9][0-9][0-9][A-Z][A-Z][0-9]", RegexOptions.Compiled);
+            if (!reRFC.IsMatch(txtRFC.Text))
+            {
+                erpEmpleados.SetError(txtRFC, "Debe colocar un RFC válido");
+                txtRFC.Focus();
+                return;
+            }
+            erpEmpleados.SetError(txtRFC, "");
+
             if (txtNombreEmpleado.Text == "")
             {
                 erpEmpleados.SetError(txtNombreEmpleado, "Favor de ingresar el nombre del empleado");
@@ -135,14 +181,6 @@ namespace Punto_Venta_Abarrotes
             }
             erpEmpleados.SetError(txtEstatus, "");
 
-            if (int.Parse(txtEstatus.Text) != 0 && int.Parse(txtEstatus.Text) != 1)
-            {
-                erpEmpleados.SetError(txtEstatus, "Solo puede ser 0 o 1");
-                txtEstatus.Focus();
-                return;
-            }
-            erpEmpleados.SetError(txtEstatus, "");
-
             txtNombreEmpleado.Clear();
             txtApePatEmpleado.Clear();
             txtApeMatEmpleado.Clear();
@@ -156,6 +194,32 @@ namespace Punto_Venta_Abarrotes
 
         private void btnBuscarEmpleados_Click(object sender, EventArgs e)
         {
+            Regex reNombre = new Regex("^[a-zA-Z]*$", RegexOptions.Compiled);
+            if (!reNombre.IsMatch(txtNombreBuscar.Text))
+            {
+                erpEmpleados.SetError(txtNombreBuscar, "Debe colocar un nombre válido");
+                txtNombreBuscar.Focus();
+                return;
+            }
+            erpEmpleados.SetError(txtNombreBuscar, "");
+
+            Regex reApellido = new Regex("^[a-zA-Z]*$", RegexOptions.Compiled);
+            if (!reApellido.IsMatch(txtApPatBuscar.Text))
+            {
+                erpEmpleados.SetError(txtApPatBuscar, "Debe colocar un apellido válido");
+                txtApPatBuscar.Focus();
+                return;
+            }
+            erpEmpleados.SetError(txtApPatBuscar, "");
+
+            if (!reApellido.IsMatch(txtApeMatBuscar.Text))
+            {
+                erpEmpleados.SetError(txtApeMatBuscar, "Debe colocar un apellido válido");
+                txtApeMatBuscar.Focus();
+                return;
+            }
+            erpEmpleados.SetError(txtApeMatBuscar, "");
+
             txtNombreEmpleado.Clear();
             txtApePatEmpleado.Clear();
             txtApeMatEmpleado.Clear();

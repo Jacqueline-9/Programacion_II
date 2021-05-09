@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace Punto_Venta_Abarrotes
 {
@@ -37,6 +38,50 @@ namespace Punto_Venta_Abarrotes
 
         private void btnRegistrarClientes_Click(object sender, EventArgs e)
         {
+            Regex reNombre = new Regex("^[a-zA-Z]*$", RegexOptions.Compiled);
+            if (!reNombre.IsMatch(txtNombreCliente.Text))
+            {
+                erpClientes.SetError(txtNombreCliente, "Debe colocar un nombre válido");
+                txtNombreCliente.Focus();
+                return;
+            }
+            erpClientes.SetError(txtNombreCliente, "");
+
+            Regex reApellido = new Regex("^[a-zA-Z]*$", RegexOptions.Compiled);
+            if (!reApellido.IsMatch(txtApePatCliente.Text))
+            {
+                erpClientes.SetError(txtApePatCliente, "Debe colocar un apellido válido");
+                txtApePatCliente.Focus();
+                return;
+            }
+            erpClientes.SetError(txtApePatCliente, "");
+
+            if (!reApellido.IsMatch(txtApeMatCliente.Text))
+            {
+                erpClientes.SetError(txtApeMatCliente, "Debe colocar un apellido válido");
+                txtApeMatCliente.Focus();
+                return;
+            }
+            erpClientes.SetError(txtApeMatCliente, "");
+
+            Regex reCurp = new Regex("^.*(?=.{18})(?=.*[0-9])(?=.*[A-ZÑ]).*$", RegexOptions.Compiled);
+            if (!reCurp.IsMatch(txtCurp.Text))
+            {
+                erpClientes.SetError(txtCurp, "Debe colocar una curp válida");
+                txtCurp.Focus();
+                return;
+            }
+            erpClientes.SetError(txtCurp, "");
+
+            Regex reTelefono = new Regex("[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]", RegexOptions.Compiled);
+            if (!reTelefono.IsMatch(txtTelefonoCliente.Text))
+            {
+                erpClientes.SetError(txtTelefonoCliente, "Debe colocar un telefono valido");
+                txtTelefonoCliente.Focus();
+                return;
+            }
+            erpClientes.SetError(txtTelefonoCliente, "");
+
             if (txtNombreCliente.Text == "")
             {
                 erpClientes.SetError(txtNombreCliente, "Favor de ingresar el nombre del cliente");
@@ -96,6 +141,32 @@ namespace Punto_Venta_Abarrotes
 
         private void btnBuscarClientes_Click(object sender, EventArgs e)
         {
+            Regex reNombre = new Regex("^[a-zA-Z]*$", RegexOptions.Compiled);
+            if (!reNombre.IsMatch(txtNombreBuscar.Text))
+            {
+                erpClientes.SetError(txtNombreBuscar, "Debe colocar un nombre válido");
+                txtNombreBuscar.Focus();
+                return;
+            }
+            erpClientes.SetError(txtNombreBuscar, "");
+
+            Regex reApellido = new Regex("^[a-zA-Z]*$", RegexOptions.Compiled);
+            if (!reApellido.IsMatch(txtApPatBuscar.Text))
+            {
+                erpClientes.SetError(txtApPatBuscar, "Debe colocar un apellido válido");
+                txtApPatBuscar.Focus();
+                return;
+            }
+            erpClientes.SetError(txtApPatBuscar, "");
+
+            if (!reApellido.IsMatch(txtApeMatBuscar.Text))
+            {
+                erpClientes.SetError(txtApeMatBuscar, "Debe colocar un apellido válido");
+                txtApeMatBuscar.Focus();
+                return;
+            }
+            erpClientes.SetError(txtApeMatBuscar, "");
+
             txtNombreCliente.Clear();
             txtApePatCliente.Clear();
             txtApeMatCliente.Clear();
@@ -105,7 +176,17 @@ namespace Punto_Venta_Abarrotes
 
         #region Validaciones de solo letras o numeros
 
-        private void txtIdDomicilioCliente_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtIdDomicilioCliente_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 32 && e.KeyChar <= 45) || (e.KeyChar >= 58 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("Solo se permiten números", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void txtEstatus_KeyPress(object sender, KeyPressEventArgs e)
         {
             if ((e.KeyChar >= 32 && e.KeyChar <= 45) || (e.KeyChar >= 58 && e.KeyChar <= 255))
             {

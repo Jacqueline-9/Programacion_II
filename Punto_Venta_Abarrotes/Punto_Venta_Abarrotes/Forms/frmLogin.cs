@@ -156,7 +156,7 @@ namespace Punto_Venta_Abarrotes
 
         #endregion
 
-        #region Contraseña Olvidada
+        #region Mostrar y Ocultar Contraseña
 
         private void ckbMostrarContra_CheckedChanged(object sender, EventArgs e)
         {

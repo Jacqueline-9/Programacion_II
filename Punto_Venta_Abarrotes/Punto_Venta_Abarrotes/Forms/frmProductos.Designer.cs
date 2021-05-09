@@ -124,6 +124,7 @@
             this.txtEstatus.Name = "txtEstatus";
             this.txtEstatus.Size = new System.Drawing.Size(178, 23);
             this.txtEstatus.TabIndex = 35;
+            this.txtEstatus.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEstatus_KeyPress);
             // 
             // lblEstatus
             // 
