@@ -16,7 +16,7 @@ namespace Punto_Venta_Abarrotes
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login());
+            Application.Run(new frmLogin());
         }
     }
 }
