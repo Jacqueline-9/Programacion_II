@@ -82,10 +82,26 @@ namespace Punto_Venta_Abarrotes
             }
             erpEmpleados.SetError(txtNombreEmpleado, "");
 
+            if (txtNombreEmpleado.Text == "")
+            {
+                erpEmpleados.SetError(txtNombreEmpleado, "Favor de ingresar el nombre del empleado");
+                txtNombreEmpleado.Focus();
+                return;
+            }
+            erpEmpleados.SetError(txtNombreEmpleado, "");
+
             Regex reApellido = new Regex("^[a-zA-Z]*$", RegexOptions.Compiled);
             if (!reApellido.IsMatch(txtApePatEmpleado.Text))
             {
                 erpEmpleados.SetError(txtApePatEmpleado, "Debe colocar un apellido válido");
+                txtApePatEmpleado.Focus();
+                return;
+            }
+            erpEmpleados.SetError(txtApePatEmpleado, "");
+
+            if (txtApePatEmpleado.Text == "")
+            {
+                erpEmpleados.SetError(txtApePatEmpleado, "Favor de ingresar el apellido paterno del empleado");
                 txtApePatEmpleado.Focus();
                 return;
             }
@@ -108,6 +124,14 @@ namespace Punto_Venta_Abarrotes
             }
             erpEmpleados.SetError(txtTelefonoEmpleado, "");
 
+            if (txtTelefonoEmpleado.Text == "")
+            {
+                erpEmpleados.SetError(txtTelefonoEmpleado, "Favor de ingresar el teléfono del empleado");
+                txtTelefonoEmpleado.Focus();
+                return;
+            }
+            erpEmpleados.SetError(txtTelefonoEmpleado, "");
+
             Regex reRFC = new Regex("[A-Z][A-Z][A-Z][A-Z][0-9][0-9][0-9][0-9][0-9][0-9][A-Z][A-Z][0-9]", RegexOptions.Compiled);
             if (!reRFC.IsMatch(txtRFC.Text))
             {
@@ -116,30 +140,6 @@ namespace Punto_Venta_Abarrotes
                 return;
             }
             erpEmpleados.SetError(txtRFC, "");
-
-            if (txtNombreEmpleado.Text == "")
-            {
-                erpEmpleados.SetError(txtNombreEmpleado, "Favor de ingresar el nombre del empleado");
-                txtNombreEmpleado.Focus();
-                return;
-            }
-            erpEmpleados.SetError(txtNombreEmpleado, "");
-
-            if (txtApePatEmpleado.Text == "")
-            {
-                erpEmpleados.SetError(txtApePatEmpleado, "Favor de ingresar el apellido paterno del empleado");
-                txtApePatEmpleado.Focus();
-                return;
-            }
-            erpEmpleados.SetError(txtApePatEmpleado, "");
-
-            if (txtTelefonoEmpleado.Text == "")
-            {
-                erpEmpleados.SetError(txtTelefonoEmpleado, "Favor de ingresar el teléfono del empleado");
-                txtTelefonoEmpleado.Focus();
-                return;
-            }
-            erpEmpleados.SetError(txtTelefonoEmpleado, "");
 
             if (txtRFC.Text == "")
             {

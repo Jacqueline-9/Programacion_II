@@ -47,10 +47,26 @@ namespace Punto_Venta_Abarrotes
             }
             erpClientes.SetError(txtNombreCliente, "");
 
+            if (txtNombreCliente.Text == "")
+            {
+                erpClientes.SetError(txtNombreCliente, "Favor de ingresar el nombre del cliente");
+                txtNombreCliente.Focus();
+                return;
+            }
+            erpClientes.SetError(txtNombreCliente, "");
+
             Regex reApellido = new Regex("^[a-zA-Z]*$", RegexOptions.Compiled);
             if (!reApellido.IsMatch(txtApePatCliente.Text))
             {
                 erpClientes.SetError(txtApePatCliente, "Debe colocar un apellido válido");
+                txtApePatCliente.Focus();
+                return;
+            }
+            erpClientes.SetError(txtApePatCliente, "");
+
+            if (txtApePatCliente.Text == "")
+            {
+                erpClientes.SetError(txtApePatCliente, "Favor de ingresar el apellido paterno del cliente");
                 txtApePatCliente.Focus();
                 return;
             }
@@ -64,15 +80,6 @@ namespace Punto_Venta_Abarrotes
             }
             erpClientes.SetError(txtApeMatCliente, "");
 
-            Regex reCurp = new Regex("^.*(?=.{18})(?=.*[0-9])(?=.*[A-ZÑ]).*$", RegexOptions.Compiled);
-            if (!reCurp.IsMatch(txtCurp.Text))
-            {
-                erpClientes.SetError(txtCurp, "Debe colocar una curp válida");
-                txtCurp.Focus();
-                return;
-            }
-            erpClientes.SetError(txtCurp, "");
-
             Regex reTelefono = new Regex("[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]", RegexOptions.Compiled);
             if (!reTelefono.IsMatch(txtTelefonoCliente.Text))
             {
@@ -82,22 +89,6 @@ namespace Punto_Venta_Abarrotes
             }
             erpClientes.SetError(txtTelefonoCliente, "");
 
-            if (txtNombreCliente.Text == "")
-            {
-                erpClientes.SetError(txtNombreCliente, "Favor de ingresar el nombre del cliente");
-                txtNombreCliente.Focus();
-                return;
-            }
-            erpClientes.SetError(txtNombreCliente, "");
-
-            if (txtApePatCliente.Text == "")
-            {
-                erpClientes.SetError(txtApePatCliente, "Favor de ingresar el apellido paterno del cliente");
-                txtApePatCliente.Focus();
-                return;
-            }
-            erpClientes.SetError(txtApePatCliente, "");
-
             if (txtTelefonoCliente.Text == "")
             {
                 erpClientes.SetError(txtTelefonoCliente, "Favor de ingresar el teléfono del cliente");
@@ -105,6 +96,15 @@ namespace Punto_Venta_Abarrotes
                 return;
             }
             erpClientes.SetError(txtTelefonoCliente, "");
+
+            Regex reCurp = new Regex("^.*(?=.{18})(?=.*[0-9])(?=.*[A-ZÑ]).*$", RegexOptions.Compiled);
+            if (!reCurp.IsMatch(txtCurp.Text))
+            {
+                erpClientes.SetError(txtCurp, "Debe colocar una curp válida");
+                txtCurp.Focus();
+                return;
+            }
+            erpClientes.SetError(txtCurp, "");
 
             if (txtCurp.Text == "")
             {
@@ -167,9 +167,9 @@ namespace Punto_Venta_Abarrotes
             }
             erpClientes.SetError(txtApeMatBuscar, "");
 
-            txtNombreCliente.Clear();
+            txtNombreBuscar.Clear();
             txtApePatCliente.Clear();
-            txtApeMatCliente.Clear();
+            txtApeMatBuscar.Clear();
         }
 
         #endregion

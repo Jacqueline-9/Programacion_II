@@ -101,7 +101,7 @@ namespace Punto_Venta_Abarrotes
 
             if (int.Parse(txtSubtotal.Text) <= 0)
             {
-                erpVentas.SetError(txtPrecio, "El subtotal debe ser mayor a 0");
+                erpVentas.SetError(txtSubtotal, "El subtotal debe ser mayor a 0");
                 txtSubtotal.Focus();
                 return;
             }
@@ -109,7 +109,7 @@ namespace Punto_Venta_Abarrotes
 
             if (int.Parse(txtIVA.Text) <= 0)
             {
-                erpVentas.SetError(txtPrecio, "El Iva debe ser mayor a 0");
+                erpVentas.SetError(txtIVA, "El Iva debe ser mayor a 0");
                 txtIVA.Focus();
                 return;
             }
@@ -117,7 +117,7 @@ namespace Punto_Venta_Abarrotes
 
             if (int.Parse(txtTotal.Text) <= 0)
             {
-                erpVentas.SetError(txtPrecio, "El total debe ser mayor a 0");
+                erpVentas.SetError(txtTotal, "El total debe ser mayor a 0");
                 txtTotal.Focus();
                 return;
             }

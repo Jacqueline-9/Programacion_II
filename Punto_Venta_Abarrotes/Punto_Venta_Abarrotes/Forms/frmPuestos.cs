@@ -48,11 +48,11 @@ namespace Punto_Venta_Abarrotes
 
             if (txtDescripcionTurno.Text == "")
             {
-                erpPuestosTurnos.SetError(txtSalario, "Favor de ingresar la descripción del puesto");
-                txtSalario.Focus();
+                erpPuestosTurnos.SetError(txtDescripcionTurno, "Favor de ingresar la descripción del puesto");
+                txtDescripcionTurno.Focus();
                 return;
             }
-            erpPuestosTurnos.SetError(txtSalario, "");
+            erpPuestosTurnos.SetError(txtDescripcionTurno, "");
 
             if (txtEstatusPuesto.Text == "")
             {

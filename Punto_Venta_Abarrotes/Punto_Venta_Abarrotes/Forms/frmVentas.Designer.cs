@@ -217,7 +217,6 @@
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Size = new System.Drawing.Size(129, 24);
             this.txtTotal.TabIndex = 46;
-            this.txtTotal.Text = "$";
             // 
             // txtIVA
             // 
@@ -228,7 +227,6 @@
             this.txtIVA.Name = "txtIVA";
             this.txtIVA.Size = new System.Drawing.Size(129, 24);
             this.txtIVA.TabIndex = 45;
-            this.txtIVA.Text = "$";
             // 
             // lblSubtotal
             // 
@@ -250,7 +248,6 @@
             this.txtSubtotal.Name = "txtSubtotal";
             this.txtSubtotal.Size = new System.Drawing.Size(128, 24);
             this.txtSubtotal.TabIndex = 42;
-            this.txtSubtotal.Text = "$";
             // 
             // lblIVA
             // 
@@ -374,7 +371,6 @@
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(131, 24);
             this.txtPrecio.TabIndex = 32;
-            this.txtPrecio.Text = "$";
             // 
             // lblCantidad
             // 

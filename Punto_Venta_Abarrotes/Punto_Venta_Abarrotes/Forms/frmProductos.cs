@@ -39,6 +39,15 @@ namespace Punto_Venta_Abarrotes
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
+            Regex reNombre = new Regex("^[a-zA-Z]*$", RegexOptions.Compiled);
+            if (!reNombre.IsMatch(txtNombre.Text))
+            {
+                erpProductos.SetError(txtNombre, "Debe colocar un nombre válido");
+                txtNombre.Focus();
+                return;
+            }
+            erpProductos.SetError(txtNombre, "");
+
             if (txtNombre.Text == "")
             {
                 erpProductos.SetError(txtNombre, "Favor de ingresar el nombre del producto");
@@ -110,15 +119,6 @@ namespace Punto_Venta_Abarrotes
                 return;
             }
             erpProductos.SetError(nudExistencia, "");
-
-            Regex reNombre = new Regex("^[a-zA-Z]*$", RegexOptions.Compiled);
-            if (!reNombre.IsMatch(txtNombre.Text))
-            {
-                erpProductos.SetError(txtNombre, "Debe colocar un nombre válido");
-                txtNombre.Focus();
-                return;
-            }
-            erpProductos.SetError(txtNombre, "");
 
             txtNombre.Clear();
             txtPrecio.Clear();

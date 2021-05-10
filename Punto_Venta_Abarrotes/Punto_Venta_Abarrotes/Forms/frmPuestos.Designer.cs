@@ -667,7 +667,6 @@
             this.txtSalario.Name = "txtSalario";
             this.txtSalario.Size = new System.Drawing.Size(147, 23);
             this.txtSalario.TabIndex = 18;
-            this.txtSalario.Text = "$";
             // 
             // lblSalario
             // 

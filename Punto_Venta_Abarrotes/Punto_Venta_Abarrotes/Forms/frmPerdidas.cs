@@ -64,7 +64,6 @@ namespace Punto_Venta_Abarrotes
             erpPerdidas.SetError(txtEstatus, "");
         }
 
-
         #endregion
 
         #region Validaciones de solo números o letras 
