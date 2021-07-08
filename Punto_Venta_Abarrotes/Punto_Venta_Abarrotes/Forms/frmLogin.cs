@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 
+
 namespace Punto_Venta_Abarrotes
 {
     public partial class frmLogin : Form
@@ -27,6 +28,12 @@ namespace Punto_Venta_Abarrotes
             this.tltHelp.SetToolTip(this.linkLblContrasenia, "De click en caso de que haya olvidado su contraseña");
             this.tltHelp.SetToolTip(this.ptbClose, "De click para cerrar el programa");
             this.tltHelp.SetToolTip(this.ptbMinimix, "De click para miximizar la pantalla");
+        }
+
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+           // Conexion conex = new Conexion();
+            //conex.abrir();
         }
 
         #region Mover formulario
@@ -206,5 +213,6 @@ namespace Punto_Venta_Abarrotes
         }
 
         #endregion
+
     }
 }

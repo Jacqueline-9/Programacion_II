@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class Class1
+    class D_Cliente
     {
+        public int idPersona { get; set; }
+        public string curp { get; set; }
+        public int status { get; set; }
     }
 }

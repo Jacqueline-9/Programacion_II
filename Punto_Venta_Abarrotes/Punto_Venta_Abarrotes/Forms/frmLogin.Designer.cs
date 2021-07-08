@@ -259,6 +259,7 @@
             this.Name = "frmLogin";
             this.Opacity = 0.9D;
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.frmLogin_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Login_MouseDown);
             this.panelTop.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ptbClose)).EndInit();

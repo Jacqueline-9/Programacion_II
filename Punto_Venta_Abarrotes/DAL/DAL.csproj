@@ -41,12 +41,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="D_Conexion.cs" />
+    <Compile Include="Modelos\D_Reportes.cs" />
+    <Compile Include="Modelos\D_Usuario.cs" />
+    <Compile Include="Modelos\D_Unidad.cs" />
+    <Compile Include="Modelos\D_Turno.cs" />
+    <Compile Include="Modelos\D_Tipo.cs" />
+    <Compile Include="Modelos\D_Puesto.cs" />
+    <Compile Include="Modelos\D_Proveedor.cs" />
+    <Compile Include="Modelos\D_Municipio.cs" />
+    <Compile Include="Modelos\D_Perdida.cs" />
+    <Compile Include="Modelos\D_Productos.cs" />
+    <Compile Include="Modelos\D_Localidad.cs" />
+    <Compile Include="Modelos\D_Domicilio.cs" />
+    <Compile Include="Modelos\D_Dia.cs" />
+    <Compile Include="Modelos\D_DetalleTurnoDia.cs" />
+    <Compile Include="Modelos\D_DetallePuestoTurno.cs" />
+    <Compile Include="Modelos\D_DetalleCompraProductos.cs" />
+    <Compile Include="Modelos\D_DetalleVentaProductos.cs" />
+    <Compile Include="Modelos\D_Colonia.cs" />
+    <Compile Include="Modelos\D_Compra.cs" />
+    <Compile Include="Modelos\D_Venta.cs" />
+    <Compile Include="Modelos\D_Calle.cs" />
+    <Compile Include="Modelos\D_Cliente.cs" />
+    <Compile Include="Modelos\D_Empleados.cs" />
+    <Compile Include="Modelos\D_Persona.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="CRUD\" />
-    <Folder Include="Modelos\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

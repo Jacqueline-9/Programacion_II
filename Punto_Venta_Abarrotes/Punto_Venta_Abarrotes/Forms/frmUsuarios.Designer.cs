@@ -169,7 +169,7 @@
             this.btnRegistrarUsuarios.TabIndex = 31;
             this.btnRegistrarUsuarios.Text = "Registrar";
             this.btnRegistrarUsuarios.UseVisualStyleBackColor = false;
-            this.btnRegistrarUsuarios.Click += new System.EventHandler(this.btnRegistrarEntidades_Click);
+            this.btnRegistrarUsuarios.Click += new System.EventHandler(this.btnRegistrarUsuarios_Click);
             // 
             // lblCorreo
             // 
@@ -291,9 +291,9 @@
             this.btnVerUsuarios.ForeColor = System.Drawing.Color.White;
             this.btnVerUsuarios.Location = new System.Drawing.Point(758, 220);
             this.btnVerUsuarios.Name = "btnVerUsuarios";
-            this.btnVerUsuarios.Size = new System.Drawing.Size(224, 31);
+            this.btnVerUsuarios.Size = new System.Drawing.Size(199, 31);
             this.btnVerUsuarios.TabIndex = 77;
-            this.btnVerUsuarios.Text = "Ver Entidades";
+            this.btnVerUsuarios.Text = "Ver Usuarios";
             this.btnVerUsuarios.UseVisualStyleBackColor = false;
             // 
             // btnBorrarUsuarios
@@ -306,7 +306,7 @@
             this.btnBorrarUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBorrarUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBorrarUsuarios.ForeColor = System.Drawing.Color.White;
-            this.btnBorrarUsuarios.Location = new System.Drawing.Point(758, 165);
+            this.btnBorrarUsuarios.Location = new System.Drawing.Point(787, 165);
             this.btnBorrarUsuarios.Name = "btnBorrarUsuarios";
             this.btnBorrarUsuarios.Size = new System.Drawing.Size(127, 31);
             this.btnBorrarUsuarios.TabIndex = 64;
@@ -323,7 +323,7 @@
             this.btnActualizarUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnActualizarUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnActualizarUsuarios.ForeColor = System.Drawing.Color.White;
-            this.btnActualizarUsuarios.Location = new System.Drawing.Point(758, 108);
+            this.btnActualizarUsuarios.Location = new System.Drawing.Point(787, 108);
             this.btnActualizarUsuarios.Name = "btnActualizarUsuarios";
             this.btnActualizarUsuarios.Size = new System.Drawing.Size(125, 31);
             this.btnActualizarUsuarios.TabIndex = 65;

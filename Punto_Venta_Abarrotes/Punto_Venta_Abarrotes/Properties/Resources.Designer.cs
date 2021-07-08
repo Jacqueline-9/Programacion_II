@@ -203,6 +203,16 @@ namespace Punto_Venta_Abarrotes.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ReporteCompras {
+            get {
+                object obj = ResourceManager.GetObject("ReporteCompras", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap tbEmpleado {
             get {
                 object obj = ResourceManager.GetObject("tbEmpleado", resourceCulture);

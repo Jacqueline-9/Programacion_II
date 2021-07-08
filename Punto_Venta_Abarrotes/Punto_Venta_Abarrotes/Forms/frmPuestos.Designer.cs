@@ -42,7 +42,6 @@
             this.gpbRegistrarTurnos = new System.Windows.Forms.GroupBox();
             this.lblDescripcionTurno = new System.Windows.Forms.Label();
             this.txtDescripción = new System.Windows.Forms.TextBox();
-            this.dtpDia = new System.Windows.Forms.DateTimePicker();
             this.lblDia = new System.Windows.Forms.Label();
             this.lblEstatusTurno = new System.Windows.Forms.Label();
             this.dtpHoraSalida = new System.Windows.Forms.DateTimePicker();
@@ -82,6 +81,7 @@
             this.tmrFechaHora = new System.Windows.Forms.Timer(this.components);
             this.erpPuestosTurnos = new System.Windows.Forms.ErrorProvider(this.components);
             this.tltBuscar = new System.Windows.Forms.ToolTip(this.components);
+            this.cmbDia = new System.Windows.Forms.ComboBox();
             this.gpbTurnos.SuspendLayout();
             this.gpbBuscarTurnos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -241,9 +241,9 @@
             // 
             // gpbRegistrarTurnos
             // 
+            this.gpbRegistrarTurnos.Controls.Add(this.cmbDia);
             this.gpbRegistrarTurnos.Controls.Add(this.lblDescripcionTurno);
             this.gpbRegistrarTurnos.Controls.Add(this.txtDescripción);
-            this.gpbRegistrarTurnos.Controls.Add(this.dtpDia);
             this.gpbRegistrarTurnos.Controls.Add(this.lblDia);
             this.gpbRegistrarTurnos.Controls.Add(this.lblEstatusTurno);
             this.gpbRegistrarTurnos.Controls.Add(this.dtpHoraSalida);
@@ -284,15 +284,6 @@
             this.txtDescripción.Size = new System.Drawing.Size(118, 23);
             this.txtDescripción.TabIndex = 73;
             // 
-            // dtpDia
-            // 
-            this.dtpDia.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpDia.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDia.Location = new System.Drawing.Point(155, 116);
-            this.dtpDia.Name = "dtpDia";
-            this.dtpDia.Size = new System.Drawing.Size(118, 23);
-            this.dtpDia.TabIndex = 72;
-            // 
             // lblDia
             // 
             this.lblDia.AutoSize = true;
@@ -300,9 +291,9 @@
             this.lblDia.ForeColor = System.Drawing.Color.White;
             this.lblDia.Location = new System.Drawing.Point(15, 119);
             this.lblDia.Name = "lblDia";
-            this.lblDia.Size = new System.Drawing.Size(103, 18);
+            this.lblDia.Size = new System.Drawing.Size(30, 18);
             this.lblDia.TabIndex = 71;
-            this.lblDia.Text = "Hora de salida";
+            this.lblDia.Text = "Dia";
             // 
             // lblEstatusTurno
             // 
@@ -757,6 +748,26 @@
             // 
             this.erpPuestosTurnos.ContainerControl = this;
             // 
+            // cmbDia
+            // 
+            this.cmbDia.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbDia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbDia.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbDia.FormattingEnabled = true;
+            this.cmbDia.Items.AddRange(new object[] {
+            "Lunes",
+            "Martes",
+            "Miercoles",
+            "Jueves",
+            "Viernes",
+            "Sabado",
+            "Domingo"});
+            this.cmbDia.Location = new System.Drawing.Point(155, 115);
+            this.cmbDia.Name = "cmbDia";
+            this.cmbDia.Size = new System.Drawing.Size(118, 24);
+            this.cmbDia.TabIndex = 75;
+            // 
             // frmPuestos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -805,7 +816,6 @@
         private System.Windows.Forms.GroupBox gpbRegistrarTurnos;
         private System.Windows.Forms.Label lblDescripcionTurno;
         private System.Windows.Forms.TextBox txtDescripción;
-        private System.Windows.Forms.DateTimePicker dtpDia;
         private System.Windows.Forms.Label lblDia;
         private System.Windows.Forms.Label lblEstatusTurno;
         private System.Windows.Forms.DateTimePicker dtpHoraSalida;
@@ -845,5 +855,6 @@
         private System.Windows.Forms.Timer tmrFechaHora;
         private System.Windows.Forms.ErrorProvider erpPuestosTurnos;
         private System.Windows.Forms.ToolTip tltBuscar;
+        private System.Windows.Forms.ComboBox cmbDia;
     }
 }

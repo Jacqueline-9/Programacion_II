@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Business
+namespace DAL.Modelos
 {
-    public class Class1
+    class D_Reportes
     {
     }
 }

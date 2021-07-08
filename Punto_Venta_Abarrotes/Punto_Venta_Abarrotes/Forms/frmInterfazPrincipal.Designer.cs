@@ -30,11 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmInterfazPrincipal));
             this.panelBarraTitulo = new System.Windows.Forms.Panel();
+            this.ptbRestaurar = new System.Windows.Forms.PictureBox();
+            this.ptbCerrar = new System.Windows.Forms.PictureBox();
+            this.ptbMinimizar = new System.Windows.Forms.PictureBox();
+            this.ptbMaximizar = new System.Windows.Forms.PictureBox();
             this.panelMenu = new System.Windows.Forms.Panel();
             this.panelSubmenuRepor = new System.Windows.Forms.Panel();
             this.brnReportesVentas = new System.Windows.Forms.Button();
-            this.panelLogo = new System.Windows.Forms.Panel();
-            this.panelContenedor = new System.Windows.Forms.Panel();
             this.btnReportes = new System.Windows.Forms.Button();
             this.btnPerdidas = new System.Windows.Forms.Button();
             this.ibtnDomicilio = new FontAwesome.Sharp.IconButton();
@@ -46,20 +48,19 @@
             this.btnEmpleados = new System.Windows.Forms.Button();
             this.btnClientes = new System.Windows.Forms.Button();
             this.btnProductos = new System.Windows.Forms.Button();
+            this.panelLogo = new System.Windows.Forms.Panel();
             this.ptbLogo = new System.Windows.Forms.PictureBox();
-            this.ptbRestaurar = new System.Windows.Forms.PictureBox();
-            this.ptbCerrar = new System.Windows.Forms.PictureBox();
-            this.ptbMinimizar = new System.Windows.Forms.PictureBox();
-            this.ptbMaximizar = new System.Windows.Forms.PictureBox();
+            this.panelContenedor = new System.Windows.Forms.Panel();
+            this.btnReporteCompras = new System.Windows.Forms.Button();
             this.panelBarraTitulo.SuspendLayout();
-            this.panelMenu.SuspendLayout();
-            this.panelSubmenuRepor.SuspendLayout();
-            this.panelLogo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbRestaurar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbCerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbMinimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbMaximizar)).BeginInit();
+            this.panelMenu.SuspendLayout();
+            this.panelSubmenuRepor.SuspendLayout();
+            this.panelLogo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // panelBarraTitulo
@@ -75,6 +76,59 @@
             this.panelBarraTitulo.Size = new System.Drawing.Size(1300, 35);
             this.panelBarraTitulo.TabIndex = 0;
             this.panelBarraTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelBarraTitulo_MouseDown);
+            // 
+            // ptbRestaurar
+            // 
+            this.ptbRestaurar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ptbRestaurar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ptbRestaurar.Image = ((System.Drawing.Image)(resources.GetObject("ptbRestaurar.Image")));
+            this.ptbRestaurar.Location = new System.Drawing.Point(1232, 4);
+            this.ptbRestaurar.Name = "ptbRestaurar";
+            this.ptbRestaurar.Size = new System.Drawing.Size(25, 25);
+            this.ptbRestaurar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ptbRestaurar.TabIndex = 7;
+            this.ptbRestaurar.TabStop = false;
+            this.ptbRestaurar.Visible = false;
+            this.ptbRestaurar.Click += new System.EventHandler(this.ptbRestaurar_Click);
+            // 
+            // ptbCerrar
+            // 
+            this.ptbCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ptbCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ptbCerrar.Image = ((System.Drawing.Image)(resources.GetObject("ptbCerrar.Image")));
+            this.ptbCerrar.Location = new System.Drawing.Point(1263, 4);
+            this.ptbCerrar.Name = "ptbCerrar";
+            this.ptbCerrar.Size = new System.Drawing.Size(25, 25);
+            this.ptbCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ptbCerrar.TabIndex = 4;
+            this.ptbCerrar.TabStop = false;
+            this.ptbCerrar.Click += new System.EventHandler(this.ptbCerrar_Click);
+            // 
+            // ptbMinimizar
+            // 
+            this.ptbMinimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ptbMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ptbMinimizar.Image = ((System.Drawing.Image)(resources.GetObject("ptbMinimizar.Image")));
+            this.ptbMinimizar.Location = new System.Drawing.Point(1201, 4);
+            this.ptbMinimizar.Name = "ptbMinimizar";
+            this.ptbMinimizar.Size = new System.Drawing.Size(25, 25);
+            this.ptbMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ptbMinimizar.TabIndex = 6;
+            this.ptbMinimizar.TabStop = false;
+            this.ptbMinimizar.Click += new System.EventHandler(this.ptbMinimizar_Click);
+            // 
+            // ptbMaximizar
+            // 
+            this.ptbMaximizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ptbMaximizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ptbMaximizar.Image = ((System.Drawing.Image)(resources.GetObject("ptbMaximizar.Image")));
+            this.ptbMaximizar.Location = new System.Drawing.Point(1232, 4);
+            this.ptbMaximizar.Name = "ptbMaximizar";
+            this.ptbMaximizar.Size = new System.Drawing.Size(25, 25);
+            this.ptbMaximizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ptbMaximizar.TabIndex = 5;
+            this.ptbMaximizar.TabStop = false;
+            this.ptbMaximizar.Click += new System.EventHandler(this.ptbMaximizar_Click);
             // 
             // panelMenu
             // 
@@ -101,11 +155,12 @@
             // 
             // panelSubmenuRepor
             // 
+            this.panelSubmenuRepor.Controls.Add(this.btnReporteCompras);
             this.panelSubmenuRepor.Controls.Add(this.brnReportesVentas);
             this.panelSubmenuRepor.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelSubmenuRepor.Location = new System.Drawing.Point(0, 585);
             this.panelSubmenuRepor.Name = "panelSubmenuRepor";
-            this.panelSubmenuRepor.Size = new System.Drawing.Size(227, 53);
+            this.panelSubmenuRepor.Size = new System.Drawing.Size(227, 115);
             this.panelSubmenuRepor.TabIndex = 61;
             // 
             // brnReportesVentas
@@ -125,24 +180,6 @@
             this.brnReportesVentas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.brnReportesVentas.UseVisualStyleBackColor = false;
             this.brnReportesVentas.Click += new System.EventHandler(this.brnReportesVentas_Click);
-            // 
-            // panelLogo
-            // 
-            this.panelLogo.Controls.Add(this.ptbLogo);
-            this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelLogo.Location = new System.Drawing.Point(0, 0);
-            this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(227, 93);
-            this.panelLogo.TabIndex = 0;
-            // 
-            // panelContenedor
-            // 
-            this.panelContenedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(40)))));
-            this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContenedor.Location = new System.Drawing.Point(244, 35);
-            this.panelContenedor.Name = "panelContenedor";
-            this.panelContenedor.Size = new System.Drawing.Size(1056, 615);
-            this.panelContenedor.TabIndex = 2;
             // 
             // btnReportes
             // 
@@ -355,6 +392,15 @@
             this.btnProductos.UseVisualStyleBackColor = true;
             this.btnProductos.Click += new System.EventHandler(this.btnProductos_Click);
             // 
+            // panelLogo
+            // 
+            this.panelLogo.Controls.Add(this.ptbLogo);
+            this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelLogo.Location = new System.Drawing.Point(0, 0);
+            this.panelLogo.Name = "panelLogo";
+            this.panelLogo.Size = new System.Drawing.Size(227, 93);
+            this.panelLogo.TabIndex = 0;
+            // 
             // ptbLogo
             // 
             this.ptbLogo.Image = global::Punto_Venta_Abarrotes.Properties.Resources._4891328874_8fa2d91b_78f1_4a00_8da8_33624cb14079;
@@ -366,58 +412,32 @@
             this.ptbLogo.TabStop = false;
             this.ptbLogo.Click += new System.EventHandler(this.ptbLogo_Click);
             // 
-            // ptbRestaurar
+            // panelContenedor
             // 
-            this.ptbRestaurar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ptbRestaurar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ptbRestaurar.Image = ((System.Drawing.Image)(resources.GetObject("ptbRestaurar.Image")));
-            this.ptbRestaurar.Location = new System.Drawing.Point(1232, 4);
-            this.ptbRestaurar.Name = "ptbRestaurar";
-            this.ptbRestaurar.Size = new System.Drawing.Size(25, 25);
-            this.ptbRestaurar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.ptbRestaurar.TabIndex = 7;
-            this.ptbRestaurar.TabStop = false;
-            this.ptbRestaurar.Visible = false;
-            this.ptbRestaurar.Click += new System.EventHandler(this.ptbRestaurar_Click);
+            this.panelContenedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(40)))));
+            this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelContenedor.Location = new System.Drawing.Point(244, 35);
+            this.panelContenedor.Name = "panelContenedor";
+            this.panelContenedor.Size = new System.Drawing.Size(1056, 615);
+            this.panelContenedor.TabIndex = 2;
             // 
-            // ptbCerrar
+            // btnReporteCompras
             // 
-            this.ptbCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ptbCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ptbCerrar.Image = ((System.Drawing.Image)(resources.GetObject("ptbCerrar.Image")));
-            this.ptbCerrar.Location = new System.Drawing.Point(1263, 4);
-            this.ptbCerrar.Name = "ptbCerrar";
-            this.ptbCerrar.Size = new System.Drawing.Size(25, 25);
-            this.ptbCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.ptbCerrar.TabIndex = 4;
-            this.ptbCerrar.TabStop = false;
-            this.ptbCerrar.Click += new System.EventHandler(this.ptbCerrar_Click);
-            // 
-            // ptbMinimizar
-            // 
-            this.ptbMinimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ptbMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ptbMinimizar.Image = ((System.Drawing.Image)(resources.GetObject("ptbMinimizar.Image")));
-            this.ptbMinimizar.Location = new System.Drawing.Point(1201, 4);
-            this.ptbMinimizar.Name = "ptbMinimizar";
-            this.ptbMinimizar.Size = new System.Drawing.Size(25, 25);
-            this.ptbMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.ptbMinimizar.TabIndex = 6;
-            this.ptbMinimizar.TabStop = false;
-            this.ptbMinimizar.Click += new System.EventHandler(this.ptbMinimizar_Click);
-            // 
-            // ptbMaximizar
-            // 
-            this.ptbMaximizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ptbMaximizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ptbMaximizar.Image = ((System.Drawing.Image)(resources.GetObject("ptbMaximizar.Image")));
-            this.ptbMaximizar.Location = new System.Drawing.Point(1232, 4);
-            this.ptbMaximizar.Name = "ptbMaximizar";
-            this.ptbMaximizar.Size = new System.Drawing.Size(25, 25);
-            this.ptbMaximizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.ptbMaximizar.TabIndex = 5;
-            this.ptbMaximizar.TabStop = false;
-            this.ptbMaximizar.Click += new System.EventHandler(this.ptbMaximizar_Click);
+            this.btnReporteCompras.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(40)))));
+            this.btnReporteCompras.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnReporteCompras.FlatAppearance.BorderSize = 0;
+            this.btnReporteCompras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReporteCompras.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReporteCompras.ForeColor = System.Drawing.Color.LightGray;
+            this.btnReporteCompras.Location = new System.Drawing.Point(0, 44);
+            this.btnReporteCompras.Name = "btnReporteCompras";
+            this.btnReporteCompras.Padding = new System.Windows.Forms.Padding(75, 0, 0, 0);
+            this.btnReporteCompras.Size = new System.Drawing.Size(227, 44);
+            this.btnReporteCompras.TabIndex = 5;
+            this.btnReporteCompras.Text = "Reporte Compras";
+            this.btnReporteCompras.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReporteCompras.UseVisualStyleBackColor = false;
+            this.btnReporteCompras.Click += new System.EventHandler(this.btnReporteCompras_Click_1);
             // 
             // frmInterfazPrincipal
             // 
@@ -433,14 +453,14 @@
             this.Text = "InterfazPrincipal";
             this.Load += new System.EventHandler(this.InterfazPrincipal_Load);
             this.panelBarraTitulo.ResumeLayout(false);
-            this.panelMenu.ResumeLayout(false);
-            this.panelSubmenuRepor.ResumeLayout(false);
-            this.panelLogo.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ptbLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbRestaurar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbCerrar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbMinimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbMaximizar)).EndInit();
+            this.panelMenu.ResumeLayout(false);
+            this.panelSubmenuRepor.ResumeLayout(false);
+            this.panelLogo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ptbLogo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -469,5 +489,6 @@
         private System.Windows.Forms.Panel panelSubmenuRepor;
         private System.Windows.Forms.Button brnReportesVentas;
         private System.Windows.Forms.Button btnReportes;
+        private System.Windows.Forms.Button btnReporteCompras;
     }
 }

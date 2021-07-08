@@ -8,11 +8,17 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Business;
 
 namespace Punto_Venta_Abarrotes
 {
     public partial class frmUsuarios : Form
     {
+        private B_OperacionesUsuarios bUsuarios = new B_OperacionesUsuarios();
+
+        string nombre, correo, contrasenia;
+        int status;
+
         public frmUsuarios()
         {
             InitializeComponent();
@@ -35,7 +41,7 @@ namespace Punto_Venta_Abarrotes
 
         #region Validaciones
 
-        private void btnRegistrarEntidades_Click(object sender, EventArgs e)
+        private void btnRegistrarUsuarios_Click(object sender, EventArgs e)
         {
             Regex regEmail = new Regex(@"^(([^<>()[\]\\.,;:\s@\""]+"
                                     + @"(\.[^<>()[\]\\.,;:\s@\""]+)*)|(\"".+\""))@"
@@ -75,6 +81,9 @@ namespace Punto_Venta_Abarrotes
             }
             erpUsuarios.SetError(txtCorreo, "");
 
+            Conversiones();
+            MessageBox.Show(bUsuarios.insertarUsuario(nombre, correo, contrasenia, status));
+
             txtNombreUsuario.Clear();
             txtCorreo.Clear();
             txtContrasenia.Clear();
@@ -108,5 +117,13 @@ namespace Punto_Venta_Abarrotes
         }
 
         #endregion
+
+        public void Conversiones()
+        {
+            nombre = txtNombreUsuario.Text.ToUpper();
+            correo = txtCorreo.Text.ToUpper();
+            contrasenia = txtContrasenia.Text.ToUpper();
+            status = int.Parse(txtEstatus.Text.ToUpper());
+        }
     }
 }

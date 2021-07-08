@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gpbBuscarEmpleados = new System.Windows.Forms.GroupBox();
             this.btnVerEmpleados = new System.Windows.Forms.Button();
             this.txtApeMatBuscar = new System.Windows.Forms.TextBox();
@@ -42,7 +43,7 @@
             this.txtNombreBuscar = new System.Windows.Forms.TextBox();
             this.btnBorrarEmpleados = new System.Windows.Forms.Button();
             this.btnActualizarEmpleados = new System.Windows.Forms.Button();
-            this.dgvClientes = new System.Windows.Forms.DataGridView();
+            this.dgvEmpleados = new System.Windows.Forms.DataGridView();
             this.btnBuscarEmpleados = new System.Windows.Forms.Button();
             this.gpbDatosPersonales = new System.Windows.Forms.GroupBox();
             this.txtEstatus = new System.Windows.Forms.TextBox();
@@ -76,7 +77,7 @@
             this.tltBuscar = new System.Windows.Forms.ToolTip(this.components);
             this.erpEmpleados = new System.Windows.Forms.ErrorProvider(this.components);
             this.gpbBuscarEmpleados.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).BeginInit();
             this.gpbDatosPersonales.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbEmpleados)).BeginInit();
             this.paneFechaHora.SuspendLayout();
@@ -98,7 +99,7 @@
             this.gpbBuscarEmpleados.Controls.Add(this.txtNombreBuscar);
             this.gpbBuscarEmpleados.Controls.Add(this.btnBorrarEmpleados);
             this.gpbBuscarEmpleados.Controls.Add(this.btnActualizarEmpleados);
-            this.gpbBuscarEmpleados.Controls.Add(this.dgvClientes);
+            this.gpbBuscarEmpleados.Controls.Add(this.dgvEmpleados);
             this.gpbBuscarEmpleados.Controls.Add(this.btnBuscarEmpleados);
             this.gpbBuscarEmpleados.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gpbBuscarEmpleados.ForeColor = System.Drawing.Color.White;
@@ -126,6 +127,7 @@
             this.btnVerEmpleados.TabIndex = 77;
             this.btnVerEmpleados.Text = "Ver Empleados";
             this.btnVerEmpleados.UseVisualStyleBackColor = false;
+            this.btnVerEmpleados.Click += new System.EventHandler(this.btnVerEmpleados_Click);
             // 
             // txtApeMatBuscar
             // 
@@ -228,32 +230,42 @@
             this.btnActualizarEmpleados.Text = "Actualizar";
             this.btnActualizarEmpleados.UseVisualStyleBackColor = false;
             // 
-            // dgvClientes
+            // dgvEmpleados
             // 
-            this.dgvClientes.AllowUserToAddRows = false;
-            this.dgvClientes.AllowUserToDeleteRows = false;
-            this.dgvClientes.AllowUserToOrderColumns = true;
+            this.dgvEmpleados.AllowUserToAddRows = false;
+            this.dgvEmpleados.AllowUserToDeleteRows = false;
+            this.dgvEmpleados.AllowUserToOrderColumns = true;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvClientes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvClientes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvEmpleados.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvEmpleados.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvClientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgvClientes.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgvClientes.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgvClientes.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvClientes.Location = new System.Drawing.Point(16, 158);
-            this.dgvClientes.Name = "dgvClientes";
-            this.dgvClientes.ReadOnly = true;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            this.dgvClientes.RowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvClientes.Size = new System.Drawing.Size(535, 151);
-            this.dgvClientes.TabIndex = 63;
+            this.dgvEmpleados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvEmpleados.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvEmpleados.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvEmpleados.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvEmpleados.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEmpleados.Location = new System.Drawing.Point(16, 158);
+            this.dgvEmpleados.Name = "dgvEmpleados";
+            this.dgvEmpleados.ReadOnly = true;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvEmpleados.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvEmpleados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvEmpleados.Size = new System.Drawing.Size(535, 151);
+            this.dgvEmpleados.TabIndex = 63;
             // 
             // btnBuscarEmpleados
             // 
@@ -629,7 +641,7 @@
             this.Text = "Empleados";
             this.gpbBuscarEmpleados.ResumeLayout(false);
             this.gpbBuscarEmpleados.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).EndInit();
             this.gpbDatosPersonales.ResumeLayout(false);
             this.gpbDatosPersonales.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbEmpleados)).EndInit();
@@ -654,7 +666,7 @@
         private System.Windows.Forms.TextBox txtNombreBuscar;
         private System.Windows.Forms.Button btnBorrarEmpleados;
         private System.Windows.Forms.Button btnActualizarEmpleados;
-        public System.Windows.Forms.DataGridView dgvClientes;
+        public System.Windows.Forms.DataGridView dgvEmpleados;
         private System.Windows.Forms.Button btnBuscarEmpleados;
         private System.Windows.Forms.GroupBox gpbDatosPersonales;
         private System.Windows.Forms.TextBox txtRFC;

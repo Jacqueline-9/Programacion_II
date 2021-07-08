@@ -712,7 +712,7 @@
             this.ptbVentas.Image = global::Punto_Venta_Abarrotes.Properties.Resources.ptbVentas;
             this.ptbVentas.Location = new System.Drawing.Point(438, 12);
             this.ptbVentas.Name = "ptbVentas";
-            this.ptbVentas.Size = new System.Drawing.Size(307, 76);
+            this.ptbVentas.Size = new System.Drawing.Size(283, 76);
             this.ptbVentas.TabIndex = 0;
             this.ptbVentas.TabStop = false;
             // 

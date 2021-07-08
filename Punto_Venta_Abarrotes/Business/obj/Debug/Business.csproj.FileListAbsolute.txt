@@ -1,0 +1,9 @@
+C:\Users\Jacquilin\Documents\4° Semestre\Programación II\Punto_Venta_Abarrotes\Business\bin\Debug\Business.dll
+C:\Users\Jacquilin\Documents\4° Semestre\Programación II\Punto_Venta_Abarrotes\Business\bin\Debug\Business.pdb
+C:\Users\Jacquilin\Documents\4° Semestre\Programación II\Punto_Venta_Abarrotes\Business\obj\Debug\Business.csprojAssemblyReference.cache
+C:\Users\Jacquilin\Documents\4° Semestre\Programación II\Punto_Venta_Abarrotes\Business\obj\Debug\Business.csproj.CoreCompileInputs.cache
+C:\Users\Jacquilin\Documents\4° Semestre\Programación II\Punto_Venta_Abarrotes\Business\obj\Debug\Business.dll
+C:\Users\Jacquilin\Documents\4° Semestre\Programación II\Punto_Venta_Abarrotes\Business\obj\Debug\Business.pdb
+C:\Users\Jacquilin\Documents\4° Semestre\Programación II\Punto_Venta_Abarrotes\Business\bin\Debug\DAL.dll
+C:\Users\Jacquilin\Documents\4° Semestre\Programación II\Punto_Venta_Abarrotes\Business\bin\Debug\DAL.pdb
+C:\Users\Jacquilin\Documents\4° Semestre\Programación II\Punto_Venta_Abarrotes\Business\obj\Debug\Business.csproj.CopyComplete

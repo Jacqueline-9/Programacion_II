@@ -124,6 +124,11 @@ namespace Punto_Venta_Abarrotes
             AbrirFormulario(new frmReporteVentas());
         }
 
+        private void btnReporteCompras_Click_1(object sender, EventArgs e)
+        {
+            AbrirFormulario(new frmReporteCompras());
+        }
+
         #endregion
 
         #region Eventos Click
@@ -200,6 +205,6 @@ namespace Punto_Venta_Abarrotes
             MostrarSubmenu(panelSubmenuRepor);
         }
 
-        #endregion      
+        #endregion
     }
 }

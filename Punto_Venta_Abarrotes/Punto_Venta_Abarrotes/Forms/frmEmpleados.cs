@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using System.Data.SqlClient;
 using System.Text.RegularExpressions;
+using System.Windows.Forms;
+
 
 namespace Punto_Venta_Abarrotes
 {
@@ -22,6 +18,11 @@ namespace Punto_Venta_Abarrotes
             this.tltBuscar.SetToolTip(this.txtApPatBuscar, "Buscar empleado por apellido paterno");
             this.tltBuscar.SetToolTip(this.txtApeMatBuscar, "Buscar empleado por apellido materno");
             this.tltBuscar.SetToolTip(this.txtEstatus, "1 activo y 0 inactivo");
+        }
+
+        private void frmEmpleados_Load(object sender, EventArgs e)
+        {
+
         }
 
         #region Mostrar Fecha y Hora
@@ -226,5 +227,24 @@ namespace Punto_Venta_Abarrotes
         }
 
         #endregion
+
+        /*public DataTable MostrarTabla()
+         {
+             D_Conexion conex = new D_Conexion();
+             conex.abrir();
+             string cadena = "select nombre, apPaterno, apMaterno, fechaNac, telefono, rfc, status  from Persona INNER JOIN Empleado on Empleado.IdPersona = Persona.IdPersona";
+             SqlCommand comando = new SqlCommand(cadena, conex.conectarbd);
+             SqlDataAdapter adaptador = new SqlDataAdapter(comando);
+             DataTable tabla = new DataTable();
+             adaptador.Fill(tabla);
+             return (tabla);
+         }*/
+
+        private void btnVerEmpleados_Click(object sender, EventArgs e)
+        {
+            //dgvEmpleados.DataSource = MostrarTabla();
+            //dgvEmpleados.Columns[0].Visible = false;
+        }
+
     }
 }
