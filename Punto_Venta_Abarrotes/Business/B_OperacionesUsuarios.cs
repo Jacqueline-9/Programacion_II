@@ -10,8 +10,28 @@ namespace Business
 {
     public class B_OperacionesUsuarios
     {
+        #region Objetos 
+
         public D_Usuario dUsuarios = new D_Usuario();
 
+        #endregion
+
+        #region Operaciones CRUD
+
+        //Método para mostrar
+        public DataTable mostrarUsuario()
+        {
+            try
+            {
+                return dUsuarios.Mostrar();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        //Método para insertar
         public string insertarUsuario (string nombre, string correo, string contrasenia, int status)
         {
             try
@@ -37,19 +57,7 @@ namespace Business
             }
         }
 
-        public DataTable mostrarUsuario(string nombre)
-        {
-            try
-            {
-                dUsuarios.Nombre = nombre;
-                return dUsuarios.Mostrar();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
+        //Método para actualizar
         public string actualizarUsuario(string nombre, string correo, string contrasenia, int status)
         {
             try
@@ -68,5 +76,20 @@ namespace Business
             }
         }
 
+        //Método para buscar
+        public DataTable BuscarUsuario(string nombre)
+        {
+            try
+            {
+                dUsuarios.Nombre = nombre;
+                return dUsuarios.Buscar();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        #endregion
     }
 }

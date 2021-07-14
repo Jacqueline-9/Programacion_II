@@ -7,20 +7,32 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Business;
 
 namespace Punto_Venta_Abarrotes
 {
     public partial class frmVentas : Form
     {
+        #region Objeto 
+
+        private B_OperacionesVenta bVenta = new B_OperacionesVenta();
+
+        #endregion
+
+        #region Variables globales
+
+        int idProducto, cantidad, idCliente, idEmpleado;
+
+        #endregion
+
+        #region Constructor 
+
         public frmVentas()
         {
             InitializeComponent();
-
-            /*Mensajes de acciones de cada herramienta*/
-            this.tltBuscar.SetToolTip(this.txtSubtotalBuscar, "Buscar venta por subtotal");
-            this.tltBuscar.SetToolTip(this.dtpFechaRealiBuscar, "Buscar venta por fecha de relización");
-            this.tltBuscar.SetToolTip(this.txtPosicion, "La posición comienza en 0");
         }
+
+        #endregion
 
         #region Mostrar Fecha y Hora
 
@@ -36,60 +48,13 @@ namespace Punto_Venta_Abarrotes
 
         private void btnRegistrarProducto_Click(object sender, EventArgs e)
         {
-            if (txtIdProducto.Text == "")
-            {
-                erpVentas.SetError(txtIdProducto, "Ingresar el producto");
-                txtIdProducto.Focus();
-                return;
-            }
-            erpVentas.SetError(txtIdProducto, "");
 
-            if (txtPrecio.Text == "")
-            {
-                erpVentas.SetError(txtPrecio, "Ingresar el precio del producto");
-                txtPrecio.Focus();
-                return;
-            }
-            erpVentas.SetError(txtPrecio, "");
-
-            if (txtCantidad.Text == "")
-            {
-                erpVentas.SetError(txtCantidad, "Ingresar la cantidad de producto a comprar");
-                txtCantidad.Focus();
-                return;
-            }
-            erpVentas.SetError(txtCantidad, "");
-
-            if (int.Parse(txtPrecio.Text) <= 0)
-            {
-                erpVentas.SetError(txtPrecio, "El precio debe ser mayor a 0");
-                txtPrecio.Focus();
-                return;
-            }
-            erpVentas.SetError(txtPrecio, "");
-
-            if (int.Parse(txtCantidad.Text) <= 0)
-            {
-                erpVentas.SetError(txtCantidad, "La cantidad de un producto debe ser mayor a 0");
-                txtCantidad.Focus();
-                return;
-            }
-            erpVentas.SetError(txtCantidad, "");
-
-            txtIdProducto.Clear();
-            txtPrecio.Clear();
-            txtCantidad.Clear();
         }
 
         private void btnRegistrarVenta_Click(object sender, EventArgs e)
         {
-            if (txtIdCliente.Text == "")
-            {
-                erpVentas.SetError(txtIdCliente, "Ingresar el id del cliente");
-                txtIdCliente.Focus();
-                return;
-            }
-            erpVentas.SetError(txtIdCliente, "");
+            
+            
 
             if (txtIdEmpleado.Text == "")
             {
@@ -99,50 +64,14 @@ namespace Punto_Venta_Abarrotes
             }
             erpVentas.SetError(txtIdEmpleado, "");
 
-            if (int.Parse(txtSubtotal.Text) <= 0)
-            {
-                erpVentas.SetError(txtSubtotal, "El subtotal debe ser mayor a 0");
-                txtSubtotal.Focus();
-                return;
-            }
-            erpVentas.SetError(txtSubtotal, "");
-
-            if (int.Parse(txtIVA.Text) <= 0)
-            {
-                erpVentas.SetError(txtIVA, "El Iva debe ser mayor a 0");
-                txtIVA.Focus();
-                return;
-            }
-            erpVentas.SetError(txtIVA, "");
-
-            if (int.Parse(txtTotal.Text) <= 0)
-            {
-                erpVentas.SetError(txtTotal, "El total debe ser mayor a 0");
-                txtTotal.Focus();
-                return;
-            }
-            erpVentas.SetError(txtTotal, "");
-
-            txtIdCliente.Clear();
-            txtIdEmpleado.Clear();
-            txtSubtotal.Clear();
-            txtIVA.Clear();
-            txtTotal.Clear();
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            txtSubtotalBuscar.Clear();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            txtIdCliente.Clear();
-            txtIdEmpleado.Clear();
-            txtSubtotal.Clear();
-            txtIVA.Clear();
-            txtTotal.Clear();
-            ListProductos.Items.Clear();
         }
 
         #endregion
@@ -197,6 +126,138 @@ namespace Punto_Venta_Abarrotes
                 e.Handled = true;
                 return;
             }
+        }
+
+        #endregion
+
+        #region Proceso para ver clientes 
+
+        private void btnVerClientes_Click(object sender, EventArgs e)
+        {
+            mostrarClientes();
+        }
+
+        private void dgvClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            lblIDClienteRes.Text = dgvClientes.CurrentRow.Cells[0].Value.ToString();
+            lblNombreRes.Text = dgvClientes.CurrentRow.Cells[1].Value.ToString();
+            lblApePaternoRes.Text = dgvClientes.CurrentRow.Cells[2].Value.ToString();
+            lblApeMaternoRes.Text = dgvClientes.CurrentRow.Cells[3].Value.ToString();
+            lblCurpRes.Text = dgvClientes.CurrentRow.Cells[4].Value.ToString();
+        }
+
+        public void mostrarClientes()
+        {
+            dgvClientes.DataSource = bVenta.MostrarClientes();
+            dgvClientes.Columns["idPersona"].Visible = false;
+        }
+
+        #endregion
+
+        #region Proceso para ver productos 
+
+        private void btnVerProductos_Click(object sender, EventArgs e)
+        {
+            mostrarProductos();
+        }
+
+        private void dgvProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            lblIdProductoRes.Text = dgvProductos.CurrentRow.Cells[0].Value.ToString();
+            lblNombreProductoRes.Text = dgvProductos.CurrentRow.Cells[1].Value.ToString();
+        }
+
+        public void mostrarProductos()
+        {
+            dgvProductos.DataSource = bVenta.MostrarProductos();
+            dgvProductos.Columns["idProducto"].Visible = false;
+        }
+
+        #endregion
+
+        #region Proceso para ver ventas 
+
+        private void btnVerVentas_Click(object sender, EventArgs e)
+        {
+            mostrarVenta();
+        }
+
+        public void mostrarVenta()
+        {
+            dgvVentas.DataSource = bVenta.MostrarVenta();
+        }
+
+        #endregion
+
+        #region Proceso para ver detalle de venta
+
+        private void btnVerDetalle_Click(object sender, EventArgs e)
+        {
+            mostrarDetalle();
+        }
+
+        public void mostrarDetalle()
+        {
+            dgvVentas.DataSource = bVenta.MostrarDetalle();
+        }
+
+        #endregion
+
+        #region Elegir cliente
+
+        private void btnElegirCliente_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Cliente seleccionado", "Mensaje", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            {
+                btnElegirCliente.Enabled = false;
+            }
+        }
+
+        #endregion
+
+        #region Método para agregar producto
+
+        private void btnAgregarProducto_Click(object sender, EventArgs e)
+        {
+            if (nudCantidad.Value == 0)
+            {
+                erpVentas.SetError(nudCantidad, "El campo no puede quedar vacio");
+                nudCantidad.Focus();
+                return;
+            }
+            erpVentas.SetError(nudCantidad, "");
+
+            if (MessageBox.Show("Producto seleccionado", "Mensaje", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            {
+                conversionesVenta();
+                MessageBox.Show(bVenta.insertarVenta(idProducto, cantidad, idEmpleado, idCliente), "Venta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                mostrarVentaProceso();
+            }
+        }
+
+        public void mostrarVentaProceso()
+        {
+            dgvVentas.DataSource = bVenta.MostrarVentaProceso();
+        }
+        #endregion
+
+        #region Método para insertar o realizar la venta
+
+        private void btnRealizarVenta_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("La venta a sido exitosa", "Mensaje", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+        }
+
+        #endregion
+
+        #region Conversiones de la venta 
+
+        private void conversionesVenta()
+        {
+            idProducto = Convert.ToInt32(lblIdProductoRes.Text);
+            cantidad = Convert.ToInt32(nudCantidad.Value);
+            idEmpleado = Convert.ToInt32(txtIdEmpleado.Text);
+            idCliente = Convert.ToInt32(lblIDClienteRes.Text);
         }
 
         #endregion

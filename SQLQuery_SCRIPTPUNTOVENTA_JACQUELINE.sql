@@ -1,6 +1,6 @@
 USE [master]
 GO
-/****** Object:  Database [Punto_Venta_Abarrotes]    Script Date: 07/07/2021 10:43:47 p. m. ******/
+/****** Object:  Database [Punto_Venta_Abarrotes]    Script Date: 14/07/2021 05:09:14 a. m. ******/
 CREATE DATABASE [Punto_Venta_Abarrotes]
  CONTAINMENT = NONE
  ON  PRIMARY 
@@ -80,10 +80,10 @@ ALTER DATABASE [Punto_Venta_Abarrotes] SET QUERY_STORE = OFF
 GO
 USE [Punto_Venta_Abarrotes]
 GO
-/****** Object:  User [amusuario02]    Script Date: 07/07/2021 10:43:47 p. m. ******/
+/****** Object:  User [amusuario02]    Script Date: 14/07/2021 05:09:14 a. m. ******/
 CREATE USER [amusuario02] FOR LOGIN [amusuario02] WITH DEFAULT_SCHEMA=[dbo]
 GO
-/****** Object:  User [amusuario01]    Script Date: 07/07/2021 10:43:47 p. m. ******/
+/****** Object:  User [amusuario01]    Script Date: 14/07/2021 05:09:14 a. m. ******/
 CREATE USER [amusuario01] FOR LOGIN [amusuario01] WITH DEFAULT_SCHEMA=[dbo]
 GO
 ALTER ROLE [db_backupoperator] ADD MEMBER [amusuario02]
@@ -94,7 +94,7 @@ ALTER ROLE [db_datareader] ADD MEMBER [amusuario01]
 GO
 ALTER ROLE [db_datawriter] ADD MEMBER [amusuario01]
 GO
-/****** Object:  Table [dbo].[Calle]    Script Date: 07/07/2021 10:43:47 p. m. ******/
+/****** Object:  Table [dbo].[Calle]    Script Date: 14/07/2021 05:09:15 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -111,7 +111,7 @@ CREATE TABLE [dbo].[Calle](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Cliente]    Script Date: 07/07/2021 10:43:47 p. m. ******/
+/****** Object:  Table [dbo].[Cliente]    Script Date: 14/07/2021 05:09:15 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -126,7 +126,7 @@ CREATE TABLE [dbo].[Cliente](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Colonia]    Script Date: 07/07/2021 10:43:47 p. m. ******/
+/****** Object:  Table [dbo].[Colonia]    Script Date: 14/07/2021 05:09:15 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -142,7 +142,7 @@ CREATE TABLE [dbo].[Colonia](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Compra]    Script Date: 07/07/2021 10:43:47 p. m. ******/
+/****** Object:  Table [dbo].[Compra]    Script Date: 14/07/2021 05:09:15 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -154,7 +154,7 @@ CREATE TABLE [dbo].[Compra](
 	[subtotal] [decimal](18, 0) NOT NULL,
 	[iva] [decimal](18, 0) NOT NULL,
 	[total] [decimal](18, 0) NOT NULL,
-	[fecha] [date] NOT NULL,
+	[fecha] [datetime] NOT NULL,
 	[status] [bit] NOT NULL,
  CONSTRAINT [PK_idCompra] PRIMARY KEY CLUSTERED 
 (
@@ -162,7 +162,7 @@ CREATE TABLE [dbo].[Compra](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Compra_Auditado]    Script Date: 07/07/2021 10:43:47 p. m. ******/
+/****** Object:  Table [dbo].[Compra_Auditado]    Script Date: 14/07/2021 05:09:15 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -180,7 +180,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Detalle_Compra_Productos]    Script Date: 07/07/2021 10:43:47 p. m. ******/
+/****** Object:  Table [dbo].[Detalle_Compra_Productos]    Script Date: 14/07/2021 05:09:15 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -198,7 +198,7 @@ CREATE TABLE [dbo].[Detalle_Compra_Productos](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Detalle_Puesto_Turno]    Script Date: 07/07/2021 10:43:47 p. m. ******/
+/****** Object:  Table [dbo].[Detalle_Puesto_Turno]    Script Date: 14/07/2021 05:09:15 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -214,7 +214,7 @@ CREATE TABLE [dbo].[Detalle_Puesto_Turno](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Detalle_Turno_Dia]    Script Date: 07/07/2021 10:43:47 p. m. ******/
+/****** Object:  Table [dbo].[Detalle_Turno_Dia]    Script Date: 14/07/2021 05:09:15 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -229,7 +229,7 @@ CREATE TABLE [dbo].[Detalle_Turno_Dia](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Detalle_Venta_Productos]    Script Date: 07/07/2021 10:43:47 p. m. ******/
+/****** Object:  Table [dbo].[Detalle_Venta_Productos]    Script Date: 14/07/2021 05:09:15 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -247,7 +247,7 @@ CREATE TABLE [dbo].[Detalle_Venta_Productos](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Dia]    Script Date: 07/07/2021 10:43:47 p. m. ******/
+/****** Object:  Table [dbo].[Dia]    Script Date: 14/07/2021 05:09:15 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -262,7 +262,7 @@ CREATE TABLE [dbo].[Dia](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Domicilio]    Script Date: 07/07/2021 10:43:47 p. m. ******/
+/****** Object:  Table [dbo].[Domicilio]    Script Date: 14/07/2021 05:09:15 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -278,7 +278,7 @@ CREATE TABLE [dbo].[Domicilio](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Empleado]    Script Date: 07/07/2021 10:43:47 p. m. ******/
+/****** Object:  Table [dbo].[Empleado]    Script Date: 14/07/2021 05:09:15 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -295,7 +295,7 @@ CREATE TABLE [dbo].[Empleado](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Localidad]    Script Date: 07/07/2021 10:43:47 p. m. ******/
+/****** Object:  Table [dbo].[Localidad]    Script Date: 14/07/2021 05:09:15 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -311,7 +311,7 @@ CREATE TABLE [dbo].[Localidad](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Modulo]    Script Date: 07/07/2021 10:43:47 p. m. ******/
+/****** Object:  Table [dbo].[Modulo]    Script Date: 14/07/2021 05:09:15 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -325,7 +325,7 @@ CREATE TABLE [dbo].[Modulo](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Municipio]    Script Date: 07/07/2021 10:43:47 p. m. ******/
+/****** Object:  Table [dbo].[Municipio]    Script Date: 14/07/2021 05:09:15 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -340,7 +340,7 @@ CREATE TABLE [dbo].[Municipio](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Operaciones]    Script Date: 07/07/2021 10:43:47 p. m. ******/
+/****** Object:  Table [dbo].[Operaciones]    Script Date: 14/07/2021 05:09:15 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -355,7 +355,7 @@ CREATE TABLE [dbo].[Operaciones](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Perdida]    Script Date: 07/07/2021 10:43:47 p. m. ******/
+/****** Object:  Table [dbo].[Perdida]    Script Date: 14/07/2021 05:09:15 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -374,7 +374,7 @@ CREATE TABLE [dbo].[Perdida](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Perfil_Operacion]    Script Date: 07/07/2021 10:43:47 p. m. ******/
+/****** Object:  Table [dbo].[Perfil_Operacion]    Script Date: 14/07/2021 05:09:15 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -389,7 +389,7 @@ CREATE TABLE [dbo].[Perfil_Operacion](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Persona]    Script Date: 07/07/2021 10:43:47 p. m. ******/
+/****** Object:  Table [dbo].[Persona]    Script Date: 14/07/2021 05:09:15 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -399,7 +399,7 @@ CREATE TABLE [dbo].[Persona](
 	[nombre] [varchar](25) NOT NULL,
 	[apPaterno] [varchar](25) NOT NULL,
 	[apMaterno] [varchar](25) NULL,
-	[fechaNac] [date] NOT NULL,
+	[fechaNac] [datetime] NOT NULL,
 	[telefono] [varchar](10) NOT NULL,
 	[idDomicilio] [int] NULL,
  CONSTRAINT [PK_idPersona] PRIMARY KEY CLUSTERED 
@@ -408,7 +408,7 @@ CREATE TABLE [dbo].[Persona](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Productos]    Script Date: 07/07/2021 10:43:47 p. m. ******/
+/****** Object:  Table [dbo].[Productos]    Script Date: 14/07/2021 05:09:15 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -420,7 +420,7 @@ CREATE TABLE [dbo].[Productos](
 	[contenidoNeto] [decimal](18, 0) NOT NULL,
 	[idUnidad] [int] NULL,
 	[existencia] [int] NOT NULL,
-	[fechaCaducidad] [date] NOT NULL,
+	[fechaCaducidad] [datetime] NOT NULL,
 	[idTipo] [int] NULL,
 	[status] [bit] NOT NULL,
  CONSTRAINT [PK_idProducto] PRIMARY KEY CLUSTERED 
@@ -429,7 +429,7 @@ CREATE TABLE [dbo].[Productos](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Proveedor]    Script Date: 07/07/2021 10:43:47 p. m. ******/
+/****** Object:  Table [dbo].[Proveedor]    Script Date: 14/07/2021 05:09:15 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -446,7 +446,7 @@ CREATE TABLE [dbo].[Proveedor](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Puesto]    Script Date: 07/07/2021 10:43:47 p. m. ******/
+/****** Object:  Table [dbo].[Puesto]    Script Date: 14/07/2021 05:09:15 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -463,7 +463,7 @@ CREATE TABLE [dbo].[Puesto](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Rol]    Script Date: 07/07/2021 10:43:47 p. m. ******/
+/****** Object:  Table [dbo].[Rol]    Script Date: 14/07/2021 05:09:15 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -477,7 +477,7 @@ CREATE TABLE [dbo].[Rol](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Tipo]    Script Date: 07/07/2021 10:43:47 p. m. ******/
+/****** Object:  Table [dbo].[Tipo]    Script Date: 14/07/2021 05:09:15 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -493,7 +493,7 @@ CREATE TABLE [dbo].[Tipo](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Turno]    Script Date: 07/07/2021 10:43:47 p. m. ******/
+/****** Object:  Table [dbo].[Turno]    Script Date: 14/07/2021 05:09:15 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -510,7 +510,7 @@ CREATE TABLE [dbo].[Turno](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Unidad]    Script Date: 07/07/2021 10:43:47 p. m. ******/
+/****** Object:  Table [dbo].[Unidad]    Script Date: 14/07/2021 05:09:15 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -526,7 +526,7 @@ CREATE TABLE [dbo].[Unidad](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Usuario]    Script Date: 07/07/2021 10:43:47 p. m. ******/
+/****** Object:  Table [dbo].[Usuario]    Script Date: 14/07/2021 05:09:15 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -543,7 +543,7 @@ CREATE TABLE [dbo].[Usuario](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Venta]    Script Date: 07/07/2021 10:43:47 p. m. ******/
+/****** Object:  Table [dbo].[Venta]    Script Date: 14/07/2021 05:09:15 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -563,7 +563,7 @@ CREATE TABLE [dbo].[Venta](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Venta_Auditado]    Script Date: 07/07/2021 10:43:47 p. m. ******/
+/****** Object:  Table [dbo].[Venta_Auditado]    Script Date: 14/07/2021 05:09:15 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -581,7 +581,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Venta_Productos]    Script Date: 07/07/2021 10:43:47 p. m. ******/
+/****** Object:  Table [dbo].[Venta_Productos]    Script Date: 14/07/2021 05:09:15 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -639,17 +639,17 @@ SET IDENTITY_INSERT [dbo].[Colonia] OFF
 GO
 SET IDENTITY_INSERT [dbo].[Compra] ON 
 GO
-INSERT [dbo].[Compra] ([idCompra], [idProveedor], [idPersonaEmpleado], [subtotal], [iva], [total], [fecha], [status]) VALUES (1, 1, 2, CAST(55 AS Decimal(18, 0)), CAST(13 AS Decimal(18, 0)), CAST(68 AS Decimal(18, 0)), CAST(N'2021-05-10' AS Date), 1)
+INSERT [dbo].[Compra] ([idCompra], [idProveedor], [idPersonaEmpleado], [subtotal], [iva], [total], [fecha], [status]) VALUES (1, 1, 2, CAST(55 AS Decimal(18, 0)), CAST(13 AS Decimal(18, 0)), CAST(68 AS Decimal(18, 0)), CAST(N'2021-05-10T00:00:00.000' AS DateTime), 1)
 GO
-INSERT [dbo].[Compra] ([idCompra], [idProveedor], [idPersonaEmpleado], [subtotal], [iva], [total], [fecha], [status]) VALUES (2, 2, 3, CAST(100 AS Decimal(18, 0)), CAST(15 AS Decimal(18, 0)), CAST(115 AS Decimal(18, 0)), CAST(N'2021-05-11' AS Date), 1)
+INSERT [dbo].[Compra] ([idCompra], [idProveedor], [idPersonaEmpleado], [subtotal], [iva], [total], [fecha], [status]) VALUES (2, 2, 3, CAST(100 AS Decimal(18, 0)), CAST(15 AS Decimal(18, 0)), CAST(115 AS Decimal(18, 0)), CAST(N'2021-05-11T00:00:00.000' AS DateTime), 1)
 GO
-INSERT [dbo].[Compra] ([idCompra], [idProveedor], [idPersonaEmpleado], [subtotal], [iva], [total], [fecha], [status]) VALUES (3, 3, 1, CAST(50 AS Decimal(18, 0)), CAST(10 AS Decimal(18, 0)), CAST(60 AS Decimal(18, 0)), CAST(N'2021-05-12' AS Date), 0)
+INSERT [dbo].[Compra] ([idCompra], [idProveedor], [idPersonaEmpleado], [subtotal], [iva], [total], [fecha], [status]) VALUES (3, 3, 1, CAST(50 AS Decimal(18, 0)), CAST(10 AS Decimal(18, 0)), CAST(60 AS Decimal(18, 0)), CAST(N'2021-05-12T00:00:00.000' AS DateTime), 0)
 GO
-INSERT [dbo].[Compra] ([idCompra], [idProveedor], [idPersonaEmpleado], [subtotal], [iva], [total], [fecha], [status]) VALUES (4, 1, 2, CAST(38 AS Decimal(18, 0)), CAST(8 AS Decimal(18, 0)), CAST(45 AS Decimal(18, 0)), CAST(N'2021-05-10' AS Date), 1)
+INSERT [dbo].[Compra] ([idCompra], [idProveedor], [idPersonaEmpleado], [subtotal], [iva], [total], [fecha], [status]) VALUES (4, 1, 2, CAST(38 AS Decimal(18, 0)), CAST(8 AS Decimal(18, 0)), CAST(45 AS Decimal(18, 0)), CAST(N'2021-05-10T00:00:00.000' AS DateTime), 1)
 GO
-INSERT [dbo].[Compra] ([idCompra], [idProveedor], [idPersonaEmpleado], [subtotal], [iva], [total], [fecha], [status]) VALUES (5, 2, 3, CAST(100 AS Decimal(18, 0)), CAST(15 AS Decimal(18, 0)), CAST(115 AS Decimal(18, 0)), CAST(N'2021-05-11' AS Date), 1)
+INSERT [dbo].[Compra] ([idCompra], [idProveedor], [idPersonaEmpleado], [subtotal], [iva], [total], [fecha], [status]) VALUES (5, 2, 3, CAST(100 AS Decimal(18, 0)), CAST(15 AS Decimal(18, 0)), CAST(115 AS Decimal(18, 0)), CAST(N'2021-05-11T00:00:00.000' AS DateTime), 1)
 GO
-INSERT [dbo].[Compra] ([idCompra], [idProveedor], [idPersonaEmpleado], [subtotal], [iva], [total], [fecha], [status]) VALUES (6, 3, 1, CAST(50 AS Decimal(18, 0)), CAST(10 AS Decimal(18, 0)), CAST(60 AS Decimal(18, 0)), CAST(N'2021-05-12' AS Date), 1)
+INSERT [dbo].[Compra] ([idCompra], [idProveedor], [idPersonaEmpleado], [subtotal], [iva], [total], [fecha], [status]) VALUES (6, 3, 1, CAST(50 AS Decimal(18, 0)), CAST(10 AS Decimal(18, 0)), CAST(60 AS Decimal(18, 0)), CAST(N'2021-05-12T00:00:00.000' AS DateTime), 1)
 GO
 SET IDENTITY_INSERT [dbo].[Compra] OFF
 GO
@@ -687,9 +687,13 @@ INSERT [dbo].[Detalle_Venta_Productos] ([idVenta], [idProducto], [precio], [cant
 GO
 INSERT [dbo].[Detalle_Venta_Productos] ([idVenta], [idProducto], [precio], [cantidad], [subtotal]) VALUES (7, 11, CAST(6 AS Decimal(18, 0)), 1, CAST(27 AS Decimal(18, 0)))
 GO
-INSERT [dbo].[Detalle_Venta_Productos] ([idVenta], [idProducto], [precio], [cantidad], [subtotal]) VALUES (12, 11, CAST(27 AS Decimal(18, 0)), 1, CAST(27 AS Decimal(18, 0)))
+INSERT [dbo].[Detalle_Venta_Productos] ([idVenta], [idProducto], [precio], [cantidad], [subtotal]) VALUES (15, 7, CAST(15 AS Decimal(18, 0)), 2, CAST(30 AS Decimal(18, 0)))
 GO
-INSERT [dbo].[Detalle_Venta_Productos] ([idVenta], [idProducto], [precio], [cantidad], [subtotal]) VALUES (12, 12, CAST(20 AS Decimal(18, 0)), 1, CAST(20 AS Decimal(18, 0)))
+INSERT [dbo].[Detalle_Venta_Productos] ([idVenta], [idProducto], [precio], [cantidad], [subtotal]) VALUES (16, 7, CAST(15 AS Decimal(18, 0)), 2, CAST(30 AS Decimal(18, 0)))
+GO
+INSERT [dbo].[Detalle_Venta_Productos] ([idVenta], [idProducto], [precio], [cantidad], [subtotal]) VALUES (17, 7, CAST(15 AS Decimal(18, 0)), 2, CAST(30 AS Decimal(18, 0)))
+GO
+INSERT [dbo].[Detalle_Venta_Productos] ([idVenta], [idProducto], [precio], [cantidad], [subtotal]) VALUES (18, 13, CAST(15 AS Decimal(18, 0)), 2, CAST(30 AS Decimal(18, 0)))
 GO
 SET IDENTITY_INSERT [dbo].[Dia] ON 
 GO
@@ -715,13 +719,13 @@ INSERT [dbo].[Domicilio] ([idDomicilio], [numeroExt], [numeroInt], [status]) VAL
 GO
 SET IDENTITY_INSERT [dbo].[Domicilio] OFF
 GO
-INSERT [dbo].[Empleado] ([idPersona], [idPuesto], [idUsuario], [rfc], [status]) VALUES (1, 2, 3, N'RARD011009IM7', 1)
+INSERT [dbo].[Empleado] ([idPersona], [idPuesto], [idUsuario], [rfc], [status]) VALUES (1, 2, 1, N'RARD011009IM7', 1)
 GO
-INSERT [dbo].[Empleado] ([idPersona], [idPuesto], [idUsuario], [rfc], [status]) VALUES (2, 3, 1, N'REAL009159IH7', 1)
+INSERT [dbo].[Empleado] ([idPersona], [idPuesto], [idUsuario], [rfc], [status]) VALUES (2, 3, 2, N'REAL009159IH7', 1)
 GO
-INSERT [dbo].[Empleado] ([idPersona], [idPuesto], [idUsuario], [rfc], [status]) VALUES (3, 1, 2, N'LOLG980305TC4', 0)
+INSERT [dbo].[Empleado] ([idPersona], [idPuesto], [idUsuario], [rfc], [status]) VALUES (3, 1, 3, N'LOLG980305TC4', 0)
 GO
-INSERT [dbo].[Empleado] ([idPersona], [idPuesto], [idUsuario], [rfc], [status]) VALUES (9, 2, 3, N'CHOF750903TH7', 0)
+INSERT [dbo].[Empleado] ([idPersona], [idPuesto], [idUsuario], [rfc], [status]) VALUES (9, 2, 7, N'CHOF750903TH7', 0)
 GO
 SET IDENTITY_INSERT [dbo].[Localidad] ON 
 GO
@@ -1019,51 +1023,59 @@ INSERT [dbo].[Perfil_Operacion] ([idRol], [idOperacion]) VALUES (2, 42)
 GO
 SET IDENTITY_INSERT [dbo].[Persona] ON 
 GO
-INSERT [dbo].[Persona] ([idPersona], [nombre], [apPaterno], [apMaterno], [fechaNac], [telefono], [idDomicilio]) VALUES (1, N'Deisi Jacqueline', N'Ramos', N'Rosas', CAST(N'2001-10-09' AS Date), N'3241336213', 2)
+INSERT [dbo].[Persona] ([idPersona], [nombre], [apPaterno], [apMaterno], [fechaNac], [telefono], [idDomicilio]) VALUES (1, N'Deisi Jacqueline', N'Ramos', N'Rosas', CAST(N'2001-10-09T00:00:00.000' AS DateTime), N'3241336213', 2)
 GO
-INSERT [dbo].[Persona] ([idPersona], [nombre], [apPaterno], [apMaterno], [fechaNac], [telefono], [idDomicilio]) VALUES (2, N'Luis', N'Rendon', N'Aguirre', CAST(N'2000-09-15' AS Date), N'3241056413', 1)
+INSERT [dbo].[Persona] ([idPersona], [nombre], [apPaterno], [apMaterno], [fechaNac], [telefono], [idDomicilio]) VALUES (2, N'Luis', N'Rendon', N'Aguirre', CAST(N'2000-09-15T00:00:00.000' AS DateTime), N'3241056413', 1)
 GO
-INSERT [dbo].[Persona] ([idPersona], [nombre], [apPaterno], [apMaterno], [fechaNac], [telefono], [idDomicilio]) VALUES (3, N'Gerardo', N'Lopez', N'Lopez', CAST(N'1998-03-05' AS Date), N'3241267890', 3)
+INSERT [dbo].[Persona] ([idPersona], [nombre], [apPaterno], [apMaterno], [fechaNac], [telefono], [idDomicilio]) VALUES (3, N'Gerardo', N'Lopez', N'Lopez', CAST(N'1998-03-05T00:00:00.000' AS DateTime), N'3241267890', 3)
 GO
-INSERT [dbo].[Persona] ([idPersona], [nombre], [apPaterno], [apMaterno], [fechaNac], [telefono], [idDomicilio]) VALUES (4, N'Rita Mayra', N'Rosas', N'Garcia', CAST(N'1982-05-22' AS Date), N'3241265540', 2)
+INSERT [dbo].[Persona] ([idPersona], [nombre], [apPaterno], [apMaterno], [fechaNac], [telefono], [idDomicilio]) VALUES (4, N'Rita Mayra', N'Rosas', N'Garcia', CAST(N'1982-05-22T00:00:00.000' AS DateTime), N'3241265540', 2)
 GO
-INSERT [dbo].[Persona] ([idPersona], [nombre], [apPaterno], [apMaterno], [fechaNac], [telefono], [idDomicilio]) VALUES (6, N'Margarita', N'Garcia', N'Cueto', CAST(N'1983-10-20' AS Date), N'3241278900', 1)
+INSERT [dbo].[Persona] ([idPersona], [nombre], [apPaterno], [apMaterno], [fechaNac], [telefono], [idDomicilio]) VALUES (6, N'Margarita', N'Garcia', N'Cueto', CAST(N'1983-10-20T00:00:00.000' AS DateTime), N'3241278900', 1)
 GO
-INSERT [dbo].[Persona] ([idPersona], [nombre], [apPaterno], [apMaterno], [fechaNac], [telefono], [idDomicilio]) VALUES (7, N'Antonio', N'Rosas', N'Santos', CAST(N'1980-06-03' AS Date), N'3241267801', 3)
+INSERT [dbo].[Persona] ([idPersona], [nombre], [apPaterno], [apMaterno], [fechaNac], [telefono], [idDomicilio]) VALUES (7, N'Antonio', N'Rosas', N'Santos', CAST(N'1980-06-03T00:00:00.000' AS DateTime), N'3241267801', 3)
 GO
-INSERT [dbo].[Persona] ([idPersona], [nombre], [apPaterno], [apMaterno], [fechaNac], [telefono], [idDomicilio]) VALUES (8, N'Elisa Lorena', N'Rendon', N'Aguirre', CAST(N'1980-11-23' AS Date), N'3241336213', 2)
+INSERT [dbo].[Persona] ([idPersona], [nombre], [apPaterno], [apMaterno], [fechaNac], [telefono], [idDomicilio]) VALUES (8, N'Elisa Lorena', N'Rendon', N'Aguirre', CAST(N'1980-11-23T00:00:00.000' AS DateTime), N'3241336213', 2)
 GO
-INSERT [dbo].[Persona] ([idPersona], [nombre], [apPaterno], [apMaterno], [fechaNac], [telefono], [idDomicilio]) VALUES (9, N'Luis Fernando', N'Ornelas', N'Chavez', CAST(N'1975-09-03' AS Date), N'3241367809', 2)
+INSERT [dbo].[Persona] ([idPersona], [nombre], [apPaterno], [apMaterno], [fechaNac], [telefono], [idDomicilio]) VALUES (9, N'Luis Fernando', N'Ornelas', N'Chavez', CAST(N'1975-09-03T00:00:00.000' AS DateTime), N'3241367809', 2)
 GO
-INSERT [dbo].[Persona] ([idPersona], [nombre], [apPaterno], [apMaterno], [fechaNac], [telefono], [idDomicilio]) VALUES (24, N'Zaira', N'Gonzalez', N'Lopez', CAST(N'1999-10-22' AS Date), N'3241567890', 10)
+INSERT [dbo].[Persona] ([idPersona], [nombre], [apPaterno], [apMaterno], [fechaNac], [telefono], [idDomicilio]) VALUES (24, N'Zaira', N'Gonzalez', N'Lopez', CAST(N'1999-10-22T00:00:00.000' AS DateTime), N'3241567890', 10)
+GO
+INSERT [dbo].[Persona] ([idPersona], [nombre], [apPaterno], [apMaterno], [fechaNac], [telefono], [idDomicilio]) VALUES (25, N'Noemi', N'Gutierrez', N'Macias', CAST(N'2001-09-28T00:00:00.000' AS DateTime), N'3119098769', 2)
 GO
 SET IDENTITY_INSERT [dbo].[Persona] OFF
 GO
 SET IDENTITY_INSERT [dbo].[Productos] ON 
 GO
-INSERT [dbo].[Productos] ([idProducto], [nombre], [precio], [contenidoNeto], [idUnidad], [existencia], [fechaCaducidad], [idTipo], [status]) VALUES (7, N'Leche', CAST(15 AS Decimal(18, 0)), CAST(150 AS Decimal(18, 0)), 4, 6, CAST(N'2021-05-15' AS Date), 1, 1)
+INSERT [dbo].[Productos] ([idProducto], [nombre], [precio], [contenidoNeto], [idUnidad], [existencia], [fechaCaducidad], [idTipo], [status]) VALUES (7, N'Leche', CAST(15 AS Decimal(18, 0)), CAST(150 AS Decimal(18, 0)), 4, 0, CAST(N'2021-05-15T00:00:00.000' AS DateTime), 1, 1)
 GO
-INSERT [dbo].[Productos] ([idProducto], [nombre], [precio], [contenidoNeto], [idUnidad], [existencia], [fechaCaducidad], [idTipo], [status]) VALUES (8, N'Sabritas', CAST(13 AS Decimal(18, 0)), CAST(250 AS Decimal(18, 0)), 3, 10, CAST(N'2021-06-13' AS Date), 2, 0)
+INSERT [dbo].[Productos] ([idProducto], [nombre], [precio], [contenidoNeto], [idUnidad], [existencia], [fechaCaducidad], [idTipo], [status]) VALUES (8, N'Sabritas', CAST(13 AS Decimal(18, 0)), CAST(250 AS Decimal(18, 0)), 3, 10, CAST(N'2021-06-13T00:00:00.000' AS DateTime), 2, 0)
 GO
-INSERT [dbo].[Productos] ([idProducto], [nombre], [precio], [contenidoNeto], [idUnidad], [existencia], [fechaCaducidad], [idTipo], [status]) VALUES (9, N'Papas Sabritas', CAST(15 AS Decimal(18, 0)), CAST(1 AS Decimal(18, 0)), 1, 8, CAST(N'2021-05-11' AS Date), 3, 1)
+INSERT [dbo].[Productos] ([idProducto], [nombre], [precio], [contenidoNeto], [idUnidad], [existencia], [fechaCaducidad], [idTipo], [status]) VALUES (9, N'Papas Sabritas', CAST(15 AS Decimal(18, 0)), CAST(1 AS Decimal(18, 0)), 1, 8, CAST(N'2021-05-11T00:00:00.000' AS DateTime), 3, 1)
 GO
-INSERT [dbo].[Productos] ([idProducto], [nombre], [precio], [contenidoNeto], [idUnidad], [existencia], [fechaCaducidad], [idTipo], [status]) VALUES (10, N'Chuletas', CAST(38 AS Decimal(18, 0)), CAST(1 AS Decimal(18, 0)), 1, 10, CAST(N'2021-05-12' AS Date), 3, 1)
+INSERT [dbo].[Productos] ([idProducto], [nombre], [precio], [contenidoNeto], [idUnidad], [existencia], [fechaCaducidad], [idTipo], [status]) VALUES (10, N'Chuletas', CAST(38 AS Decimal(18, 0)), CAST(1 AS Decimal(18, 0)), 1, 10, CAST(N'2021-05-12T00:00:00.000' AS DateTime), 3, 1)
 GO
-INSERT [dbo].[Productos] ([idProducto], [nombre], [precio], [contenidoNeto], [idUnidad], [existencia], [fechaCaducidad], [idTipo], [status]) VALUES (11, N'Queso', CAST(27 AS Decimal(18, 0)), CAST(250 AS Decimal(18, 0)), 3, 5, CAST(N'2021-05-27' AS Date), 1, 1)
+INSERT [dbo].[Productos] ([idProducto], [nombre], [precio], [contenidoNeto], [idUnidad], [existencia], [fechaCaducidad], [idTipo], [status]) VALUES (11, N'Queso', CAST(27 AS Decimal(18, 0)), CAST(250 AS Decimal(18, 0)), 3, 6, CAST(N'2021-05-27T00:00:00.000' AS DateTime), 1, 1)
 GO
-INSERT [dbo].[Productos] ([idProducto], [nombre], [precio], [contenidoNeto], [idUnidad], [existencia], [fechaCaducidad], [idTipo], [status]) VALUES (12, N'Galletas Gamesa', CAST(13 AS Decimal(18, 0)), CAST(170 AS Decimal(18, 0)), 3, 10, CAST(N'2021-06-27' AS Date), 2, 1)
+INSERT [dbo].[Productos] ([idProducto], [nombre], [precio], [contenidoNeto], [idUnidad], [existencia], [fechaCaducidad], [idTipo], [status]) VALUES (12, N'Galletas Gamesa', CAST(13 AS Decimal(18, 0)), CAST(170 AS Decimal(18, 0)), 3, 10, CAST(N'2021-06-27T00:00:00.000' AS DateTime), 2, 1)
+GO
+INSERT [dbo].[Productos] ([idProducto], [nombre], [precio], [contenidoNeto], [idUnidad], [existencia], [fechaCaducidad], [idTipo], [status]) VALUES (13, N'GALLETAS MARIAS', CAST(15 AS Decimal(18, 0)), CAST(250 AS Decimal(18, 0)), 3, 1, CAST(N'2021-07-12T12:07:01.380' AS DateTime), 2, 1)
+GO
+INSERT [dbo].[Productos] ([idProducto], [nombre], [precio], [contenidoNeto], [idUnidad], [existencia], [fechaCaducidad], [idTipo], [status]) VALUES (14, N'PECHUGA DE POLLO', CAST(20 AS Decimal(18, 0)), CAST(250 AS Decimal(18, 0)), 3, 2, CAST(N'2021-07-14T03:40:50.837' AS DateTime), 3, 1)
 GO
 SET IDENTITY_INSERT [dbo].[Productos] OFF
 GO
 SET IDENTITY_INSERT [dbo].[Proveedor] ON 
 GO
-INSERT [dbo].[Proveedor] ([idProveedor], [razonSocial], [telefono], [idDomicilio], [status]) VALUES (1, N'LALA', N'3242456789', 1, 1)
+INSERT [dbo].[Proveedor] ([idProveedor], [razonSocial], [telefono], [idDomicilio], [status]) VALUES (1, N'SELLO ROJO', N'3242456789', 1, 1)
 GO
-INSERT [dbo].[Proveedor] ([idProveedor], [razonSocial], [telefono], [idDomicilio], [status]) VALUES (2, N'GAMESA', N'3242416243', 3, 1)
+INSERT [dbo].[Proveedor] ([idProveedor], [razonSocial], [telefono], [idDomicilio], [status]) VALUES (2, N'MARINELA', N'3242416243', 3, 1)
 GO
 INSERT [dbo].[Proveedor] ([idProveedor], [razonSocial], [telefono], [idDomicilio], [status]) VALUES (3, N'COCA COLA', N'3242417091', 2, 1)
 GO
 INSERT [dbo].[Proveedor] ([idProveedor], [razonSocial], [telefono], [idDomicilio], [status]) VALUES (4, N'Pepsi', N'3241567890', 26, 1)
+GO
+INSERT [dbo].[Proveedor] ([idProveedor], [razonSocial], [telefono], [idDomicilio], [status]) VALUES (5, N'BARCEL', N'3241567890', 2, 1)
 GO
 SET IDENTITY_INSERT [dbo].[Proveedor] OFF
 GO
@@ -1087,7 +1099,7 @@ SET IDENTITY_INSERT [dbo].[Rol] OFF
 GO
 SET IDENTITY_INSERT [dbo].[Tipo] ON 
 GO
-INSERT [dbo].[Tipo] ([idTipo], [nombre], [descripcion], [status]) VALUES (1, N'Frescos', N'Productos elaborados con leche de animal', 1)
+INSERT [dbo].[Tipo] ([idTipo], [nombre], [descripcion], [status]) VALUES (1, N'Lácteos', N'Productos elaborados con leche de animal', 1)
 GO
 INSERT [dbo].[Tipo] ([idTipo], [nombre], [descripcion], [status]) VALUES (2, N'Abarrotes', N'Sabritas, Refrescos y más', 1)
 GO
@@ -1121,9 +1133,13 @@ INSERT [dbo].[Usuario] ([idUsuario], [nombre], [correo], [contrasenia], [status]
 GO
 INSERT [dbo].[Usuario] ([idUsuario], [nombre], [correo], [contrasenia], [status]) VALUES (2, N'Luis15', N'LuisRendon@gmail.com', N'Septiembre15', 1)
 GO
-INSERT [dbo].[Usuario] ([idUsuario], [nombre], [correo], [contrasenia], [status]) VALUES (3, N'DeisiRamos', N'DeisiRamos09@gmail.com', N'RamosRosas09', 0)
+INSERT [dbo].[Usuario] ([idUsuario], [nombre], [correo], [contrasenia], [status]) VALUES (3, N'Gerardo_Lopez', N'DeisiRamos09@gmail.com', N'LopezLopez', 0)
 GO
-INSERT [dbo].[Usuario] ([idUsuario], [nombre], [correo], [contrasenia], [status]) VALUES (7, N'DEISI JACQUELINE', N'JACQUELINE9@GMAIL.COM', N'JACQUELINE9@GMAIL.COM', 1)
+INSERT [dbo].[Usuario] ([idUsuario], [nombre], [correo], [contrasenia], [status]) VALUES (7, N'Fernando_Orn', N'JACQUELINE9@GMAIL.COM', N'OrnelasFernando', 1)
+GO
+INSERT [dbo].[Usuario] ([idUsuario], [nombre], [correo], [contrasenia], [status]) VALUES (23, N'ANGELIQUE_10', N'ANGELIQUE10@GMAIL.COM', N'ANGELIQUE10@GMAIL.COM', 0)
+GO
+INSERT [dbo].[Usuario] ([idUsuario], [nombre], [correo], [contrasenia], [status]) VALUES (24, N'YAEL_ROSAS', N'YAELVARGASROSAS@GMAIL.COM', N'YAELVARGASROSAS@GMAIL.COM', 0)
 GO
 SET IDENTITY_INSERT [dbo].[Usuario] OFF
 GO
@@ -1143,7 +1159,13 @@ INSERT [dbo].[Venta] ([idVenta], [idPersonaCliente], [idPersonaEmpleado], [subto
 GO
 INSERT [dbo].[Venta] ([idVenta], [idPersonaCliente], [idPersonaEmpleado], [subtotal], [iva], [total], [fecha], [status]) VALUES (7, 4, 2, CAST(100 AS Decimal(18, 0)), CAST(15 AS Decimal(18, 0)), CAST(115 AS Decimal(18, 0)), CAST(N'2021-06-03' AS Date), 1)
 GO
-INSERT [dbo].[Venta] ([idVenta], [idPersonaCliente], [idPersonaEmpleado], [subtotal], [iva], [total], [fecha], [status]) VALUES (12, 2, 4, CAST(20 AS Decimal(18, 0)), CAST(6 AS Decimal(18, 0)), CAST(26 AS Decimal(18, 0)), CAST(N'2021-06-30' AS Date), 1)
+INSERT [dbo].[Venta] ([idVenta], [idPersonaCliente], [idPersonaEmpleado], [subtotal], [iva], [total], [fecha], [status]) VALUES (15, 4, 1, CAST(30 AS Decimal(18, 0)), CAST(5 AS Decimal(18, 0)), CAST(35 AS Decimal(18, 0)), CAST(N'2021-07-13' AS Date), 1)
+GO
+INSERT [dbo].[Venta] ([idVenta], [idPersonaCliente], [idPersonaEmpleado], [subtotal], [iva], [total], [fecha], [status]) VALUES (16, 8, 1, CAST(30 AS Decimal(18, 0)), CAST(5 AS Decimal(18, 0)), CAST(35 AS Decimal(18, 0)), CAST(N'2021-07-13' AS Date), 1)
+GO
+INSERT [dbo].[Venta] ([idVenta], [idPersonaCliente], [idPersonaEmpleado], [subtotal], [iva], [total], [fecha], [status]) VALUES (17, 24, 1, CAST(30 AS Decimal(18, 0)), CAST(5 AS Decimal(18, 0)), CAST(35 AS Decimal(18, 0)), CAST(N'2021-07-13' AS Date), 1)
+GO
+INSERT [dbo].[Venta] ([idVenta], [idPersonaCliente], [idPersonaEmpleado], [subtotal], [iva], [total], [fecha], [status]) VALUES (18, 7, 1, CAST(30 AS Decimal(18, 0)), CAST(5 AS Decimal(18, 0)), CAST(35 AS Decimal(18, 0)), CAST(N'2021-07-14' AS Date), 1)
 GO
 SET IDENTITY_INSERT [dbo].[Venta] OFF
 GO
@@ -1164,6 +1186,40 @@ GO
 INSERT [dbo].[Venta_Auditado] ([id], [operacion], [usuario], [host], [modificado], [tabla]) VALUES (7, N'insert', N'DESKTOP-BKOIH1I\Jacquilin', N'DESKTOP-BKOIH1I', CAST(N'2021-06-30T18:20:30.443' AS DateTime), N'Venta')
 GO
 INSERT [dbo].[Venta_Auditado] ([id], [operacion], [usuario], [host], [modificado], [tabla]) VALUES (8, N'Delete', N'DESKTOP-BKOIH1I\Jacquilin', N'DESKTOP-BKOIH1I', CAST(N'2021-06-30T18:20:44.170' AS DateTime), N'Venta')
+GO
+INSERT [dbo].[Venta_Auditado] ([id], [operacion], [usuario], [host], [modificado], [tabla]) VALUES (9, N'Delete', N'sa', N'DESKTOP-BKOIH1I', CAST(N'2021-07-13T19:05:17.460' AS DateTime), N'Venta')
+GO
+INSERT [dbo].[Venta_Auditado] ([id], [operacion], [usuario], [host], [modificado], [tabla]) VALUES (10, N'insert', N'DESKTOP-BKOIH1I\Jacquilin', N'DESKTOP-BKOIH1I', CAST(N'2021-07-13T22:38:07.460' AS DateTime), N'Venta')
+GO
+INSERT [dbo].[Venta_Auditado] ([id], [operacion], [usuario], [host], [modificado], [tabla]) VALUES (11, N'insert', N'DESKTOP-BKOIH1I\Jacquilin', N'DESKTOP-BKOIH1I', CAST(N'2021-07-13T22:38:07.470' AS DateTime), N'Venta')
+GO
+INSERT [dbo].[Venta_Auditado] ([id], [operacion], [usuario], [host], [modificado], [tabla]) VALUES (12, N'Update', N'DESKTOP-BKOIH1I\Jacquilin', N'DESKTOP-BKOIH1I', CAST(N'2021-07-13T22:38:07.523' AS DateTime), N'Venta')
+GO
+INSERT [dbo].[Venta_Auditado] ([id], [operacion], [usuario], [host], [modificado], [tabla]) VALUES (13, N'Update', N'DESKTOP-BKOIH1I\Jacquilin', N'DESKTOP-BKOIH1I', CAST(N'2021-07-13T22:38:07.527' AS DateTime), N'Venta')
+GO
+INSERT [dbo].[Venta_Auditado] ([id], [operacion], [usuario], [host], [modificado], [tabla]) VALUES (14, N'insert', N'DESKTOP-BKOIH1I\Jacquilin', N'DESKTOP-BKOIH1I', CAST(N'2021-07-13T22:41:31.547' AS DateTime), N'Venta')
+GO
+INSERT [dbo].[Venta_Auditado] ([id], [operacion], [usuario], [host], [modificado], [tabla]) VALUES (15, N'insert', N'DESKTOP-BKOIH1I\Jacquilin', N'DESKTOP-BKOIH1I', CAST(N'2021-07-13T22:41:31.547' AS DateTime), N'Venta')
+GO
+INSERT [dbo].[Venta_Auditado] ([id], [operacion], [usuario], [host], [modificado], [tabla]) VALUES (16, N'Update', N'DESKTOP-BKOIH1I\Jacquilin', N'DESKTOP-BKOIH1I', CAST(N'2021-07-13T22:41:31.580' AS DateTime), N'Venta')
+GO
+INSERT [dbo].[Venta_Auditado] ([id], [operacion], [usuario], [host], [modificado], [tabla]) VALUES (17, N'Update', N'DESKTOP-BKOIH1I\Jacquilin', N'DESKTOP-BKOIH1I', CAST(N'2021-07-13T22:41:31.583' AS DateTime), N'Venta')
+GO
+INSERT [dbo].[Venta_Auditado] ([id], [operacion], [usuario], [host], [modificado], [tabla]) VALUES (18, N'insert', N'DESKTOP-BKOIH1I\Jacquilin', N'DESKTOP-BKOIH1I', CAST(N'2021-07-13T22:42:46.697' AS DateTime), N'Venta')
+GO
+INSERT [dbo].[Venta_Auditado] ([id], [operacion], [usuario], [host], [modificado], [tabla]) VALUES (19, N'insert', N'DESKTOP-BKOIH1I\Jacquilin', N'DESKTOP-BKOIH1I', CAST(N'2021-07-13T22:42:46.700' AS DateTime), N'Venta')
+GO
+INSERT [dbo].[Venta_Auditado] ([id], [operacion], [usuario], [host], [modificado], [tabla]) VALUES (20, N'Update', N'DESKTOP-BKOIH1I\Jacquilin', N'DESKTOP-BKOIH1I', CAST(N'2021-07-13T22:42:46.780' AS DateTime), N'Venta')
+GO
+INSERT [dbo].[Venta_Auditado] ([id], [operacion], [usuario], [host], [modificado], [tabla]) VALUES (21, N'Update', N'DESKTOP-BKOIH1I\Jacquilin', N'DESKTOP-BKOIH1I', CAST(N'2021-07-13T22:42:46.780' AS DateTime), N'Venta')
+GO
+INSERT [dbo].[Venta_Auditado] ([id], [operacion], [usuario], [host], [modificado], [tabla]) VALUES (22, N'insert', N'DESKTOP-BKOIH1I\Jacquilin', N'DESKTOP-BKOIH1I', CAST(N'2021-07-14T00:29:16.380' AS DateTime), N'Venta')
+GO
+INSERT [dbo].[Venta_Auditado] ([id], [operacion], [usuario], [host], [modificado], [tabla]) VALUES (23, N'insert', N'DESKTOP-BKOIH1I\Jacquilin', N'DESKTOP-BKOIH1I', CAST(N'2021-07-14T00:29:16.380' AS DateTime), N'Venta')
+GO
+INSERT [dbo].[Venta_Auditado] ([id], [operacion], [usuario], [host], [modificado], [tabla]) VALUES (24, N'Update', N'DESKTOP-BKOIH1I\Jacquilin', N'DESKTOP-BKOIH1I', CAST(N'2021-07-14T00:29:16.430' AS DateTime), N'Venta')
+GO
+INSERT [dbo].[Venta_Auditado] ([id], [operacion], [usuario], [host], [modificado], [tabla]) VALUES (25, N'Update', N'DESKTOP-BKOIH1I\Jacquilin', N'DESKTOP-BKOIH1I', CAST(N'2021-07-14T00:29:16.430' AS DateTime), N'Venta')
 GO
 SET IDENTITY_INSERT [dbo].[Venta_Auditado] OFF
 GO
@@ -1221,11 +1277,51 @@ INSERT [dbo].[Venta_Productos] ([id], [operacion], [usuario], [host], [modificad
 GO
 INSERT [dbo].[Venta_Productos] ([id], [operacion], [usuario], [host], [modificado], [tabla]) VALUES (33, N'insert', N'DESKTOP-BKOIH1I\Jacquilin', N'DESKTOP-BKOIH1I', CAST(N'2021-06-30T18:20:30.450' AS DateTime), N'Venta')
 GO
+INSERT [dbo].[Venta_Productos] ([id], [operacion], [usuario], [host], [modificado], [tabla]) VALUES (34, N'Insert', N'DESKTOP-BKOIH1I\Jacquilin', N'DESKTOP-BKOIH1I', CAST(N'2021-07-13T22:38:07.473' AS DateTime), N'Empleado')
+GO
+INSERT [dbo].[Venta_Productos] ([id], [operacion], [usuario], [host], [modificado], [tabla]) VALUES (35, N'Insert', N'DESKTOP-BKOIH1I\Jacquilin', N'DESKTOP-BKOIH1I', CAST(N'2021-07-13T22:38:07.490' AS DateTime), N'Venta')
+GO
+INSERT [dbo].[Venta_Productos] ([id], [operacion], [usuario], [host], [modificado], [tabla]) VALUES (36, N'insert', N'DESKTOP-BKOIH1I\Jacquilin', N'DESKTOP-BKOIH1I', CAST(N'2021-07-13T22:38:07.490' AS DateTime), N'Venta')
+GO
+INSERT [dbo].[Venta_Productos] ([id], [operacion], [usuario], [host], [modificado], [tabla]) VALUES (37, N'insert', N'DESKTOP-BKOIH1I\Jacquilin', N'DESKTOP-BKOIH1I', CAST(N'2021-07-13T22:38:07.490' AS DateTime), N'Venta')
+GO
+INSERT [dbo].[Venta_Productos] ([id], [operacion], [usuario], [host], [modificado], [tabla]) VALUES (38, N'insert', N'DESKTOP-BKOIH1I\Jacquilin', N'DESKTOP-BKOIH1I', CAST(N'2021-07-13T22:38:07.490' AS DateTime), N'Venta')
+GO
+INSERT [dbo].[Venta_Productos] ([id], [operacion], [usuario], [host], [modificado], [tabla]) VALUES (39, N'Insert', N'DESKTOP-BKOIH1I\Jacquilin', N'DESKTOP-BKOIH1I', CAST(N'2021-07-13T22:41:31.550' AS DateTime), N'Empleado')
+GO
+INSERT [dbo].[Venta_Productos] ([id], [operacion], [usuario], [host], [modificado], [tabla]) VALUES (40, N'Insert', N'DESKTOP-BKOIH1I\Jacquilin', N'DESKTOP-BKOIH1I', CAST(N'2021-07-13T22:41:31.553' AS DateTime), N'Venta')
+GO
+INSERT [dbo].[Venta_Productos] ([id], [operacion], [usuario], [host], [modificado], [tabla]) VALUES (41, N'insert', N'DESKTOP-BKOIH1I\Jacquilin', N'DESKTOP-BKOIH1I', CAST(N'2021-07-13T22:41:31.553' AS DateTime), N'Venta')
+GO
+INSERT [dbo].[Venta_Productos] ([id], [operacion], [usuario], [host], [modificado], [tabla]) VALUES (42, N'insert', N'DESKTOP-BKOIH1I\Jacquilin', N'DESKTOP-BKOIH1I', CAST(N'2021-07-13T22:41:31.557' AS DateTime), N'Venta')
+GO
+INSERT [dbo].[Venta_Productos] ([id], [operacion], [usuario], [host], [modificado], [tabla]) VALUES (43, N'insert', N'DESKTOP-BKOIH1I\Jacquilin', N'DESKTOP-BKOIH1I', CAST(N'2021-07-13T22:41:31.557' AS DateTime), N'Venta')
+GO
+INSERT [dbo].[Venta_Productos] ([id], [operacion], [usuario], [host], [modificado], [tabla]) VALUES (44, N'Insert', N'DESKTOP-BKOIH1I\Jacquilin', N'DESKTOP-BKOIH1I', CAST(N'2021-07-13T22:42:46.700' AS DateTime), N'Empleado')
+GO
+INSERT [dbo].[Venta_Productos] ([id], [operacion], [usuario], [host], [modificado], [tabla]) VALUES (45, N'Insert', N'DESKTOP-BKOIH1I\Jacquilin', N'DESKTOP-BKOIH1I', CAST(N'2021-07-13T22:42:46.707' AS DateTime), N'Venta')
+GO
+INSERT [dbo].[Venta_Productos] ([id], [operacion], [usuario], [host], [modificado], [tabla]) VALUES (46, N'insert', N'DESKTOP-BKOIH1I\Jacquilin', N'DESKTOP-BKOIH1I', CAST(N'2021-07-13T22:42:46.710' AS DateTime), N'Venta')
+GO
+INSERT [dbo].[Venta_Productos] ([id], [operacion], [usuario], [host], [modificado], [tabla]) VALUES (47, N'insert', N'DESKTOP-BKOIH1I\Jacquilin', N'DESKTOP-BKOIH1I', CAST(N'2021-07-13T22:42:46.710' AS DateTime), N'Venta')
+GO
+INSERT [dbo].[Venta_Productos] ([id], [operacion], [usuario], [host], [modificado], [tabla]) VALUES (48, N'insert', N'DESKTOP-BKOIH1I\Jacquilin', N'DESKTOP-BKOIH1I', CAST(N'2021-07-13T22:42:46.713' AS DateTime), N'Venta')
+GO
+INSERT [dbo].[Venta_Productos] ([id], [operacion], [usuario], [host], [modificado], [tabla]) VALUES (49, N'Insert', N'DESKTOP-BKOIH1I\Jacquilin', N'DESKTOP-BKOIH1I', CAST(N'2021-07-14T00:29:16.383' AS DateTime), N'Empleado')
+GO
+INSERT [dbo].[Venta_Productos] ([id], [operacion], [usuario], [host], [modificado], [tabla]) VALUES (50, N'Insert', N'DESKTOP-BKOIH1I\Jacquilin', N'DESKTOP-BKOIH1I', CAST(N'2021-07-14T00:29:16.383' AS DateTime), N'Venta')
+GO
+INSERT [dbo].[Venta_Productos] ([id], [operacion], [usuario], [host], [modificado], [tabla]) VALUES (51, N'insert', N'DESKTOP-BKOIH1I\Jacquilin', N'DESKTOP-BKOIH1I', CAST(N'2021-07-14T00:29:16.387' AS DateTime), N'Venta')
+GO
+INSERT [dbo].[Venta_Productos] ([id], [operacion], [usuario], [host], [modificado], [tabla]) VALUES (52, N'insert', N'DESKTOP-BKOIH1I\Jacquilin', N'DESKTOP-BKOIH1I', CAST(N'2021-07-14T00:29:16.387' AS DateTime), N'Venta')
+GO
+INSERT [dbo].[Venta_Productos] ([id], [operacion], [usuario], [host], [modificado], [tabla]) VALUES (53, N'insert', N'DESKTOP-BKOIH1I\Jacquilin', N'DESKTOP-BKOIH1I', CAST(N'2021-07-14T00:29:16.390' AS DateTime), N'Venta')
+GO
 SET IDENTITY_INSERT [dbo].[Venta_Productos] OFF
 GO
 SET ANSI_PADDING ON
 GO
-/****** Object:  Index [IDX_Calle]    Script Date: 07/07/2021 10:43:49 p. m. ******/
+/****** Object:  Index [IDX_Calle]    Script Date: 14/07/2021 05:09:15 a. m. ******/
 CREATE NONCLUSTERED INDEX [IDX_Calle] ON [dbo].[Calle]
 (
 	[nombre] ASC
@@ -1233,7 +1329,7 @@ CREATE NONCLUSTERED INDEX [IDX_Calle] ON [dbo].[Calle]
 GO
 SET ANSI_PADDING ON
 GO
-/****** Object:  Index [CK_Curp_Unica]    Script Date: 07/07/2021 10:43:49 p. m. ******/
+/****** Object:  Index [CK_Curp_Unica]    Script Date: 14/07/2021 05:09:15 a. m. ******/
 ALTER TABLE [dbo].[Cliente] ADD  CONSTRAINT [CK_Curp_Unica] UNIQUE NONCLUSTERED 
 (
 	[curp] ASC
@@ -1241,19 +1337,19 @@ ALTER TABLE [dbo].[Cliente] ADD  CONSTRAINT [CK_Curp_Unica] UNIQUE NONCLUSTERED
 GO
 SET ANSI_PADDING ON
 GO
-/****** Object:  Index [IDX_Colonia]    Script Date: 07/07/2021 10:43:49 p. m. ******/
+/****** Object:  Index [IDX_Colonia]    Script Date: 14/07/2021 05:09:15 a. m. ******/
 CREATE NONCLUSTERED INDEX [IDX_Colonia] ON [dbo].[Colonia]
 (
 	[nombre] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 GO
-/****** Object:  Index [IDX_FechaCompra]    Script Date: 07/07/2021 10:43:49 p. m. ******/
+/****** Object:  Index [IDX_FechaCompra]    Script Date: 14/07/2021 05:09:15 a. m. ******/
 CREATE NONCLUSTERED INDEX [IDX_FechaCompra] ON [dbo].[Compra]
 (
 	[fecha] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 GO
-/****** Object:  Index [IDX_TotalCompra]    Script Date: 07/07/2021 10:43:49 p. m. ******/
+/****** Object:  Index [IDX_TotalCompra]    Script Date: 14/07/2021 05:09:15 a. m. ******/
 CREATE NONCLUSTERED INDEX [IDX_TotalCompra] ON [dbo].[Compra]
 (
 	[total] ASC
@@ -1261,7 +1357,7 @@ CREATE NONCLUSTERED INDEX [IDX_TotalCompra] ON [dbo].[Compra]
 GO
 SET ANSI_PADDING ON
 GO
-/****** Object:  Index [IDX_NombreDia]    Script Date: 07/07/2021 10:43:49 p. m. ******/
+/****** Object:  Index [IDX_NombreDia]    Script Date: 14/07/2021 05:09:15 a. m. ******/
 CREATE NONCLUSTERED INDEX [IDX_NombreDia] ON [dbo].[Dia]
 (
 	[nombre] ASC
@@ -1269,7 +1365,7 @@ CREATE NONCLUSTERED INDEX [IDX_NombreDia] ON [dbo].[Dia]
 GO
 SET ANSI_PADDING ON
 GO
-/****** Object:  Index [IDX_Domicilio]    Script Date: 07/07/2021 10:43:49 p. m. ******/
+/****** Object:  Index [IDX_Domicilio]    Script Date: 14/07/2021 05:09:15 a. m. ******/
 CREATE NONCLUSTERED INDEX [IDX_Domicilio] ON [dbo].[Domicilio]
 (
 	[numeroExt] ASC
@@ -1277,7 +1373,7 @@ CREATE NONCLUSTERED INDEX [IDX_Domicilio] ON [dbo].[Domicilio]
 GO
 SET ANSI_PADDING ON
 GO
-/****** Object:  Index [CK_RFC_Unico]    Script Date: 07/07/2021 10:43:49 p. m. ******/
+/****** Object:  Index [CK_RFC_Unico]    Script Date: 14/07/2021 05:09:15 a. m. ******/
 ALTER TABLE [dbo].[Empleado] ADD  CONSTRAINT [CK_RFC_Unico] UNIQUE NONCLUSTERED 
 (
 	[rfc] ASC
@@ -1285,7 +1381,7 @@ ALTER TABLE [dbo].[Empleado] ADD  CONSTRAINT [CK_RFC_Unico] UNIQUE NONCLUSTERED
 GO
 SET ANSI_PADDING ON
 GO
-/****** Object:  Index [IDX_Localidad]    Script Date: 07/07/2021 10:43:49 p. m. ******/
+/****** Object:  Index [IDX_Localidad]    Script Date: 14/07/2021 05:09:15 a. m. ******/
 CREATE NONCLUSTERED INDEX [IDX_Localidad] ON [dbo].[Localidad]
 (
 	[nombre] ASC
@@ -1293,13 +1389,13 @@ CREATE NONCLUSTERED INDEX [IDX_Localidad] ON [dbo].[Localidad]
 GO
 SET ANSI_PADDING ON
 GO
-/****** Object:  Index [IDX_Municipio]    Script Date: 07/07/2021 10:43:49 p. m. ******/
+/****** Object:  Index [IDX_Municipio]    Script Date: 14/07/2021 05:09:15 a. m. ******/
 CREATE NONCLUSTERED INDEX [IDX_Municipio] ON [dbo].[Municipio]
 (
 	[nombre] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 GO
-/****** Object:  Index [IDX_PrecioPerdida]    Script Date: 07/07/2021 10:43:49 p. m. ******/
+/****** Object:  Index [IDX_PrecioPerdida]    Script Date: 14/07/2021 05:09:15 a. m. ******/
 CREATE NONCLUSTERED INDEX [IDX_PrecioPerdida] ON [dbo].[Perdida]
 (
 	[precio] ASC
@@ -1307,7 +1403,7 @@ CREATE NONCLUSTERED INDEX [IDX_PrecioPerdida] ON [dbo].[Perdida]
 GO
 SET ANSI_PADDING ON
 GO
-/****** Object:  Index [IDX_ApMaternoPersona]    Script Date: 07/07/2021 10:43:49 p. m. ******/
+/****** Object:  Index [IDX_ApMaternoPersona]    Script Date: 14/07/2021 05:09:15 a. m. ******/
 CREATE NONCLUSTERED INDEX [IDX_ApMaternoPersona] ON [dbo].[Persona]
 (
 	[apMaterno] ASC
@@ -1315,7 +1411,7 @@ CREATE NONCLUSTERED INDEX [IDX_ApMaternoPersona] ON [dbo].[Persona]
 GO
 SET ANSI_PADDING ON
 GO
-/****** Object:  Index [IDX_ApPaternoPersona]    Script Date: 07/07/2021 10:43:49 p. m. ******/
+/****** Object:  Index [IDX_ApPaternoPersona]    Script Date: 14/07/2021 05:09:15 a. m. ******/
 CREATE NONCLUSTERED INDEX [IDX_ApPaternoPersona] ON [dbo].[Persona]
 (
 	[apPaterno] ASC
@@ -1323,13 +1419,13 @@ CREATE NONCLUSTERED INDEX [IDX_ApPaternoPersona] ON [dbo].[Persona]
 GO
 SET ANSI_PADDING ON
 GO
-/****** Object:  Index [IDX_NombrePersona]    Script Date: 07/07/2021 10:43:49 p. m. ******/
+/****** Object:  Index [IDX_NombrePersona]    Script Date: 14/07/2021 05:09:15 a. m. ******/
 CREATE NONCLUSTERED INDEX [IDX_NombrePersona] ON [dbo].[Persona]
 (
 	[nombre] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 GO
-/****** Object:  Index [IDX_ExistenciaProducto]    Script Date: 07/07/2021 10:43:49 p. m. ******/
+/****** Object:  Index [IDX_ExistenciaProducto]    Script Date: 14/07/2021 05:09:15 a. m. ******/
 CREATE NONCLUSTERED INDEX [IDX_ExistenciaProducto] ON [dbo].[Productos]
 (
 	[existencia] ASC
@@ -1337,13 +1433,13 @@ CREATE NONCLUSTERED INDEX [IDX_ExistenciaProducto] ON [dbo].[Productos]
 GO
 SET ANSI_PADDING ON
 GO
-/****** Object:  Index [IDX_NombreProducto]    Script Date: 07/07/2021 10:43:49 p. m. ******/
+/****** Object:  Index [IDX_NombreProducto]    Script Date: 14/07/2021 05:09:15 a. m. ******/
 CREATE NONCLUSTERED INDEX [IDX_NombreProducto] ON [dbo].[Productos]
 (
 	[nombre] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 GO
-/****** Object:  Index [IDX_PrecioProducto]    Script Date: 07/07/2021 10:43:49 p. m. ******/
+/****** Object:  Index [IDX_PrecioProducto]    Script Date: 14/07/2021 05:09:15 a. m. ******/
 CREATE NONCLUSTERED INDEX [IDX_PrecioProducto] ON [dbo].[Productos]
 (
 	[precio] ASC
@@ -1351,7 +1447,7 @@ CREATE NONCLUSTERED INDEX [IDX_PrecioProducto] ON [dbo].[Productos]
 GO
 SET ANSI_PADDING ON
 GO
-/****** Object:  Index [IDX_NombreProveedor]    Script Date: 07/07/2021 10:43:49 p. m. ******/
+/****** Object:  Index [IDX_NombreProveedor]    Script Date: 14/07/2021 05:09:15 a. m. ******/
 CREATE NONCLUSTERED INDEX [IDX_NombreProveedor] ON [dbo].[Proveedor]
 (
 	[razonSocial] ASC
@@ -1359,7 +1455,7 @@ CREATE NONCLUSTERED INDEX [IDX_NombreProveedor] ON [dbo].[Proveedor]
 GO
 SET ANSI_PADDING ON
 GO
-/****** Object:  Index [IDX_NombrePuesto]    Script Date: 07/07/2021 10:43:49 p. m. ******/
+/****** Object:  Index [IDX_NombrePuesto]    Script Date: 14/07/2021 05:09:15 a. m. ******/
 CREATE NONCLUSTERED INDEX [IDX_NombrePuesto] ON [dbo].[Puesto]
 (
 	[nombre] ASC
@@ -1367,7 +1463,7 @@ CREATE NONCLUSTERED INDEX [IDX_NombrePuesto] ON [dbo].[Puesto]
 GO
 SET ANSI_PADDING ON
 GO
-/****** Object:  Index [IDX_NombreTipo]    Script Date: 07/07/2021 10:43:49 p. m. ******/
+/****** Object:  Index [IDX_NombreTipo]    Script Date: 14/07/2021 05:09:15 a. m. ******/
 CREATE NONCLUSTERED INDEX [IDX_NombreTipo] ON [dbo].[Tipo]
 (
 	[nombre] ASC
@@ -1375,7 +1471,7 @@ CREATE NONCLUSTERED INDEX [IDX_NombreTipo] ON [dbo].[Tipo]
 GO
 SET ANSI_PADDING ON
 GO
-/****** Object:  Index [IDX_NombreTurno]    Script Date: 07/07/2021 10:43:49 p. m. ******/
+/****** Object:  Index [IDX_NombreTurno]    Script Date: 14/07/2021 05:09:15 a. m. ******/
 CREATE NONCLUSTERED INDEX [IDX_NombreTurno] ON [dbo].[Turno]
 (
 	[nombre] ASC
@@ -1383,7 +1479,7 @@ CREATE NONCLUSTERED INDEX [IDX_NombreTurno] ON [dbo].[Turno]
 GO
 SET ANSI_PADDING ON
 GO
-/****** Object:  Index [IDX_NombreUnidad]    Script Date: 07/07/2021 10:43:49 p. m. ******/
+/****** Object:  Index [IDX_NombreUnidad]    Script Date: 14/07/2021 05:09:15 a. m. ******/
 CREATE NONCLUSTERED INDEX [IDX_NombreUnidad] ON [dbo].[Unidad]
 (
 	[nombre] ASC
@@ -1391,19 +1487,19 @@ CREATE NONCLUSTERED INDEX [IDX_NombreUnidad] ON [dbo].[Unidad]
 GO
 SET ANSI_PADDING ON
 GO
-/****** Object:  Index [IDX_NombreUsuario]    Script Date: 07/07/2021 10:43:49 p. m. ******/
+/****** Object:  Index [IDX_NombreUsuario]    Script Date: 14/07/2021 05:09:15 a. m. ******/
 CREATE NONCLUSTERED INDEX [IDX_NombreUsuario] ON [dbo].[Usuario]
 (
 	[nombre] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 GO
-/****** Object:  Index [IDX_FechaVenta]    Script Date: 07/07/2021 10:43:49 p. m. ******/
+/****** Object:  Index [IDX_FechaVenta]    Script Date: 14/07/2021 05:09:15 a. m. ******/
 CREATE NONCLUSTERED INDEX [IDX_FechaVenta] ON [dbo].[Venta]
 (
 	[fecha] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 GO
-/****** Object:  Index [IDX_TotalVenta]    Script Date: 07/07/2021 10:43:49 p. m. ******/
+/****** Object:  Index [IDX_TotalVenta]    Script Date: 14/07/2021 05:09:15 a. m. ******/
 CREATE NONCLUSTERED INDEX [IDX_TotalVenta] ON [dbo].[Venta]
 (
 	[total] ASC
@@ -1551,16 +1647,6 @@ REFERENCES [dbo].[Domicilio] ([idDomicilio])
 GO
 ALTER TABLE [dbo].[Persona] CHECK CONSTRAINT [FK_idDomicilioPersona]
 GO
-ALTER TABLE [dbo].[Productos]  WITH CHECK ADD  CONSTRAINT [FK_idTipo] FOREIGN KEY([idTipo])
-REFERENCES [dbo].[Tipo] ([idTipo])
-GO
-ALTER TABLE [dbo].[Productos] CHECK CONSTRAINT [FK_idTipo]
-GO
-ALTER TABLE [dbo].[Productos]  WITH CHECK ADD  CONSTRAINT [FK_idUnidad] FOREIGN KEY([idUnidad])
-REFERENCES [dbo].[Unidad] ([idUnidad])
-GO
-ALTER TABLE [dbo].[Productos] CHECK CONSTRAINT [FK_idUnidad]
-GO
 ALTER TABLE [dbo].[Proveedor]  WITH CHECK ADD  CONSTRAINT [FK_idDomicilioProveedor] FOREIGN KEY([idDomicilio])
 REFERENCES [dbo].[Domicilio] ([idDomicilio])
 GO
@@ -1626,10 +1712,6 @@ ALTER TABLE [dbo].[Persona]  WITH CHECK ADD  CONSTRAINT [CH_TelefonoPersona] CHE
 GO
 ALTER TABLE [dbo].[Persona] CHECK CONSTRAINT [CH_TelefonoPersona]
 GO
-ALTER TABLE [dbo].[Persona]  WITH CHECK ADD  CONSTRAINT [CK_FechaNac] CHECK  ((datediff(year,[fechaNac],getdate())>=(18) AND datediff(month,[fechaNac],getdate())>=(216) AND datediff(day,[fechaNac],getdate())>=(6575)))
-GO
-ALTER TABLE [dbo].[Persona] CHECK CONSTRAINT [CK_FechaNac]
-GO
 ALTER TABLE [dbo].[Productos]  WITH CHECK ADD  CONSTRAINT [CH_ContenidoNeto] CHECK  (([contenidoNeto]>(0)))
 GO
 ALTER TABLE [dbo].[Productos] CHECK CONSTRAINT [CH_ContenidoNeto]
@@ -1641,10 +1723,6 @@ GO
 ALTER TABLE [dbo].[Productos]  WITH CHECK ADD  CONSTRAINT [CH_PrecioProducto] CHECK  (([precio]>(0)))
 GO
 ALTER TABLE [dbo].[Productos] CHECK CONSTRAINT [CH_PrecioProducto]
-GO
-ALTER TABLE [dbo].[Productos]  WITH CHECK ADD  CONSTRAINT [CK_FechaCaducidad] CHECK  ((datediff(year,[fechaCaducidad],getdate())<=(0) AND datediff(month,[fechaCaducidad],getdate())<=(0) AND datediff(day,[fechaCaducidad],getdate())<=(0)))
-GO
-ALTER TABLE [dbo].[Productos] CHECK CONSTRAINT [CK_FechaCaducidad]
 GO
 ALTER TABLE [dbo].[Proveedor]  WITH CHECK ADD  CONSTRAINT [CH_TelefonoProveedor] CHECK  (([telefono] like '[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]'))
 GO
@@ -1690,7 +1768,7 @@ ALTER TABLE [dbo].[Venta]  WITH CHECK ADD  CONSTRAINT [CH_TotalVenta] CHECK  (([
 GO
 ALTER TABLE [dbo].[Venta] CHECK CONSTRAINT [CH_TotalVenta]
 GO
-/****** Object:  StoredProcedure [dbo].[Proc_Producto]    Script Date: 07/07/2021 10:43:49 p. m. ******/
+/****** Object:  StoredProcedure [dbo].[Proc_Producto]    Script Date: 14/07/2021 05:09:15 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1709,7 +1787,7 @@ print 'Los resultados fueron exitosos';
 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[PROC_Productos]    Script Date: 07/07/2021 10:43:49 p. m. ******/
+/****** Object:  StoredProcedure [dbo].[PROC_Productos]    Script Date: 14/07/2021 05:09:15 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1726,7 +1804,92 @@ Select * from Productos print 'Los resultados fueron exitosos';
 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[Sp_BusquedaClientes]    Script Date: 07/07/2021 10:43:49 p. m. ******/
+/****** Object:  StoredProcedure [dbo].[SP_ACTUALIZARPROVEEDOR]    Script Date: 14/07/2021 05:09:15 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROC [dbo].[SP_ACTUALIZARPROVEEDOR]
+@IdProveedor INT,
+@RazonSocial VARCHAR (25),
+@Telefono VARCHAR (10),
+@IdDomicilio INT
+AS
+UPDATE Proveedor SET razonSocial = @RazonSocial, telefono = @Telefono, idDomicilio = @IdDomicilio 
+WHERE idProveedor = @IdProveedor
+GO
+/****** Object:  StoredProcedure [dbo].[SP_BUSCARPRODUCTO]    Script Date: 14/07/2021 05:09:15 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROC [dbo].[SP_BUSCARPRODUCTO]
+@Nombre VARCHAR (25)
+AS
+SELECT Productos.nombre Nombre, Tipo.nombre as Tipo, Productos.precio as Precio, Productos.contenidoNeto as Contenido_Neto, Unidad.nombre as Nombre_Unidad, 
+       Productos.existencia as Existencia, Productos.fechaCaducidad as Fecha_Caducidad,Productos.status as Status
+FROM Productos INNER JOIN Tipo on Productos.idTipo = Tipo.idTipo 
+               INNER JOIN Unidad on Productos.idUnidad = Unidad.idUnidad
+WHERE Productos.nombre like '%' + @Nombre + '%'
+GO
+/****** Object:  StoredProcedure [dbo].[SP_BUSCARPRODUCTOPRECIO]    Script Date: 14/07/2021 05:09:15 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROC [dbo].[SP_BUSCARPRODUCTOPRECIO]
+@Precio decimal
+AS
+SELECT Productos.precio as Precio, Productos.nombre Nombre, Tipo.nombre as Tipo,  contenidoNeto as Contenido_Neto, Unidad.nombre as Nombre_Unidad, 
+       Productos.existencia as Existencia, Productos.fechaCaducidad as Fecha_Caducidad,Productos.status as Status
+FROM Productos INNER JOIN Tipo on Productos.idTipo = Tipo.idTipo 
+               INNER JOIN Unidad on Productos.idUnidad = Unidad.idUnidad
+WHERE Productos.nombre like '%' + @Precio + '%'
+GO
+/****** Object:  StoredProcedure [dbo].[SP_BUSCARPROVEEDOR]    Script Date: 14/07/2021 05:09:15 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROC [dbo].[SP_BUSCARPROVEEDOR]
+@RazonSocial VARCHAR (25)
+AS
+SELECT razonSocial as Razon_Social, telefono as Telefono, Municipio.nombre as Municipio, Localidad.nombre as Localidad, 
+       Colonia.nombre as Colonia, Calle.nombre as Calle, numeroExt as Número_Exterior, numeroInt as Número_Interior, Proveedor.status as Status
+FROM Proveedor INNER JOIN Domicilio on Proveedor.idDomicilio = Domicilio.idDomicilio
+               INNER JOIN Calle on Calle.idDomicilio = Domicilio.idDomicilio
+			   INNER JOIN Colonia on Calle.idColonia = Colonia.idColonia
+			   INNER JOIN Localidad on Colonia.idLocalidad = Localidad.idLocalidad
+			   INNER JOIN Municipio on Localidad.idMunicipio = Municipio.idMunicipio
+WHERE Proveedor.razonSocial like '%' + @RazonSocial + '%'
+GO
+/****** Object:  StoredProcedure [dbo].[SP_BUSCARTIPOPRODUCTO]    Script Date: 14/07/2021 05:09:15 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROC [dbo].[SP_BUSCARTIPOPRODUCTO]
+@Nombre VARCHAR (25)
+AS
+SELECT Tipo.nombre as Tipo, Productos.nombre Nombre, Productos.precio as Precio, Productos.contenidoNeto as Contenido_Neto, Unidad.nombre as Nombre_Unidad, 
+       Productos.existencia as Existencia, Productos.fechaCaducidad as Fecha_Caducidad,Productos.status as Status
+FROM Productos INNER JOIN Tipo on Productos.idTipo = Tipo.idTipo 
+               INNER JOIN Unidad on Productos.idUnidad = Unidad.idUnidad
+WHERE Productos.nombre like '%' + @Nombre + '%'
+GO
+/****** Object:  StoredProcedure [dbo].[SP_BUSCARUSUARIO]    Script Date: 14/07/2021 05:09:15 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROC [dbo].[SP_BUSCARUSUARIO]
+@Nombre VARCHAR (30)
+AS
+SELECT idUsuario, nombre, correo, contrasenia, status
+FROM Usuario
+WHERE nombre like '%' + @Nombre + '%'
+GO
+/****** Object:  StoredProcedure [dbo].[Sp_BusquedaClientes]    Script Date: 14/07/2021 05:09:15 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1739,7 +1902,7 @@ As
 	INNER JOIN Domicilio on Persona.idDomicilio = Domicilio.idDomicilio
    where nombre like '%'+ @nombreCliente +'%' --Se mostrará el nombre como el del parámetro de entrada @nombreCliente*/
 GO
-/****** Object:  StoredProcedure [dbo].[Sp_BusquedaProveedores]    Script Date: 07/07/2021 10:43:49 p. m. ******/
+/****** Object:  StoredProcedure [dbo].[Sp_BusquedaProveedores]    Script Date: 14/07/2021 05:09:15 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1752,7 +1915,240 @@ As
 	from Proveedor INNER JOIN Domicilio on Proveedor.idDomicilio = Domicilio.idDomicilio
    where razonSocial like '%'+ @razonSocial +'%' --Se mostrará la razonSocial como el del parámetro de entrada @razonSocial
 GO
-/****** Object:  StoredProcedure [dbo].[Sp_nuevoCliente]    Script Date: 07/07/2021 10:43:49 p. m. ******/
+/****** Object:  StoredProcedure [dbo].[SP_INSERTARCIENTES]    Script Date: 14/07/2021 05:09:15 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROC [dbo].[SP_INSERTARCIENTES]
+@Nombre VARCHAR (25),
+@ApPaterno VARCHAR (25),
+@ApMaterno VARCHAR (25),
+@FechaNac datetime, 
+@Telefono VARCHAR (10),
+@IdDomicilio INT,
+@CURP VARCHAR (18),
+@Status BIT
+AS
+INSERT INTO Persona VALUES (@Nombre, @ApPaterno, @ApMaterno, @FechaNac, @Telefono, @IdDomicilio)
+INSERT INTO Cliente VALUES (@@IDENTITY, @CURP, @Status)
+GO
+/****** Object:  StoredProcedure [dbo].[SP_INSERTARPRODUCTOS]    Script Date: 14/07/2021 05:09:15 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[SP_INSERTARPRODUCTOS]
+@Nombre VARCHAR (30),
+@Precio DECIMAL,
+@ContenidoNeto DECIMAL,
+@IdUnidad INT,
+@Existencia INT,  
+@FechaCaducidad DATETIME,
+@IdTipo INT,
+@Status BIT
+AS
+INSERT INTO Productos values (@Nombre, @Precio, @ContenidoNeto, @IdUnidad, @Existencia, @FechaCaducidad, @IdTipo, @Status);
+GO
+/****** Object:  StoredProcedure [dbo].[SP_INSERTARPROVEEDORES]    Script Date: 14/07/2021 05:09:15 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROC [dbo].[SP_INSERTARPROVEEDORES]
+@RazonSocial VARCHAR (25),
+@Telefono VARCHAR (10),
+@IdDomicilio Int,
+@Status BIT
+AS
+INSERT INTO Proveedor VALUES (@RazonSocial, @Telefono, @IdDomicilio, @Status)
+GO
+/****** Object:  StoredProcedure [dbo].[SP_INSERTARTIPOPRODUCTO]    Script Date: 14/07/2021 05:09:15 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROC [dbo].[SP_INSERTARTIPOPRODUCTO]
+@NombreTipo   VARCHAR (25),
+@Descripcion  VARCHAR (100),
+@Status BIT
+AS
+INSERT INTO Tipo VALUES (@NombreTipo, @Descripcion, @Status)
+GO
+/****** Object:  StoredProcedure [dbo].[SP_INSERTARUNIDADES]    Script Date: 14/07/2021 05:09:15 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROC [dbo].[SP_INSERTARUNIDADES]
+@NombreUnidad  VARCHAR (25),
+@Descripcion  VARCHAR (100),
+@Status BIT
+AS
+INSERT INTO Tipo VALUES (@NombreUnidad, @Descripcion, @Status)
+GO
+/****** Object:  StoredProcedure [dbo].[SP_MOSTRARCLIENTE]    Script Date: 14/07/2021 05:09:15 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROC [dbo].[SP_MOSTRARCLIENTE]
+AS
+SELECT Cliente.idPersona, Persona.nombre as Nombre, Persona.apPaterno as Apellido_Paterno, Persona.apMaterno as Apellido_Materno, 
+       Persona.fechaNac as Fecha_Nacimiento, Persona.telefono as Telefono, 
+       Cliente.curp as CURP, Municipio.nombre as Municipio, Localidad.nombre as Localidad, 
+       Colonia.nombre as Colonia, Calle.nombre as Calle, numeroExt as Número_Exterior, numeroInt as Número_Interior
+FROM Persona INNER JOIN Cliente on Persona.idPersona = Cliente.idPersona 
+             INNER JOIN Domicilio on Persona.idDomicilio = Domicilio.idDomicilio
+               INNER JOIN Calle on Calle.idDomicilio = Domicilio.idDomicilio
+			   INNER JOIN Colonia on Calle.idColonia = Colonia.idColonia
+			   INNER JOIN Localidad on Colonia.idLocalidad = Localidad.idLocalidad
+			   INNER JOIN Municipio on Localidad.idMunicipio = Municipio.idMunicipio
+GO
+/****** Object:  StoredProcedure [dbo].[SP_MOSTRARDETALLE]    Script Date: 14/07/2021 05:09:15 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROC [dbo].[SP_MOSTRARDETALLE]
+AS
+SELECT Venta.idVenta, Persona.nombre as Nombre_Cliente, Persona.nombre as Nombre_Empleado, Productos.nombre as Nombre_Producto, 
+       Detalle_Venta_Productos.precio as Precio, Detalle_Venta_Productos.cantidad as Cantidad, Venta.subtotal as Subtotal, 
+	   Venta.iva as IVA, Venta.total as Total
+FROM Venta INNER JOIN Cliente on Venta.idPersonaCliente = Cliente.idPersona 
+           INNER JOIN Empleado on  Venta.idPersonaEmpleado = Empleado.idPersona
+		   INNER JOIN Persona on Persona.idPersona = Cliente.idPersona
+           INNER JOIN Detalle_Venta_Productos on Venta.idVenta = Detalle_Venta_Productos.idVenta 
+		   INNER JOIN Productos on Detalle_Venta_Productos.idProducto = Productos.idProducto
+		   INNER JOIN Persona as Employee on Employee.idPersona = Empleado.idPersona
+GO
+/****** Object:  StoredProcedure [dbo].[SP_MOSTRARDVENTAPROCESO]    Script Date: 14/07/2021 05:09:15 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROC [dbo].[SP_MOSTRARDVENTAPROCESO] 
+AS
+SELECT Venta.idVenta, Persona.nombre as Nombre_Cliente, Persona.nombre as Nombre_Empleado, Productos.nombre as Nombre_Producto, 
+       Detalle_Venta_Productos.precio as Precio, Detalle_Venta_Productos.cantidad as Cantidad, Venta.subtotal as Subtotal, 
+	   Venta.iva as IVA, Venta.total as Total
+FROM Venta INNER JOIN Cliente on Venta.idPersonaCliente = Cliente.idPersona 
+           INNER JOIN Empleado on  Venta.idPersonaEmpleado = Empleado.idPersona
+		   INNER JOIN Persona on Persona.idPersona = Cliente.idPersona
+           INNER JOIN Detalle_Venta_Productos on Venta.idVenta = Detalle_Venta_Productos.idVenta 
+		   INNER JOIN Productos on Detalle_Venta_Productos.idProducto = Productos.idProducto
+		   INNER JOIN Persona as Employee on Employee.idPersona = Empleado.idPersona
+WHERE Venta.idVenta = (select max(idVenta) from Venta)
+GO
+/****** Object:  StoredProcedure [dbo].[SP_MOSTRARPRODUCTOS]    Script Date: 14/07/2021 05:09:15 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROC [dbo].[SP_MOSTRARPRODUCTOS]
+AS 
+SELECT idProducto, Productos.nombre as Nombre, Tipo.nombre as Tipo, Productos.precio as Precio, Productos.contenidoNeto as Contenido_Neto, 
+       Unidad.nombre as Unidad, Productos.existencia as Existencia, Productos.fechaCaducidad as Fecha_Caducidad, Productos.status as Status
+FROM Productos INNER JOIN Tipo on Productos.idTipo = Tipo.idTipo 
+               INNER JOIN Unidad on Productos.idUnidad = Unidad.idUnidad
+GO
+/****** Object:  StoredProcedure [dbo].[SP_MOSTRARPROVEEDORES]    Script Date: 14/07/2021 05:09:15 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROC [dbo].[SP_MOSTRARPROVEEDORES]
+AS 
+SELECT idProveedor, razonSocial as Razon_Social, telefono as Telefono, Municipio.nombre as Municipio, Localidad.nombre as Localidad, 
+       Colonia.nombre as Colonia, Calle.nombre as Calle, numeroExt as Número_Exterior, numeroInt as Número_Interior, Proveedor.status as Status
+FROM Proveedor INNER JOIN Domicilio on Proveedor.idDomicilio = Domicilio.idDomicilio
+               INNER JOIN Calle on Calle.idDomicilio = Domicilio.idDomicilio
+			   INNER JOIN Colonia on Calle.idColonia = Colonia.idColonia
+			   INNER JOIN Localidad on Colonia.idLocalidad = Localidad.idLocalidad
+			   INNER JOIN Municipio on Localidad.idMunicipio = Municipio.idMunicipio
+GO
+/****** Object:  StoredProcedure [dbo].[SP_MOSTRARTIPOPRODUCTO]    Script Date: 14/07/2021 05:09:15 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROC [dbo].[SP_MOSTRARTIPOPRODUCTO]
+AS
+SELECT idTipo, nombre, descripcion, status 
+FROM Tipo
+GO
+/****** Object:  StoredProcedure [dbo].[SP_MOSTRARUSUARIOS]    Script Date: 14/07/2021 05:09:15 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROC [dbo].[SP_MOSTRARUSUARIOS]
+AS 
+SELECT idUsuario, nombre, correo, contrasenia, status 
+FROM Usuario
+GO
+/****** Object:  StoredProcedure [dbo].[SP_MOSTRARVENTA]    Script Date: 14/07/2021 05:09:15 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROC [dbo].[SP_MOSTRARVENTA] 
+AS
+SELECT Venta.idVenta, Persona.nombre as Nombre_Cliente, Persona.nombre as Nombre_Empleado, Productos.nombre as Nombre_Producto, 
+       Detalle_Venta_Productos.precio as Precio, Detalle_Venta_Productos.cantidad as Cantidad, Venta.subtotal as Subtotal, 
+	   Venta.iva as IVA, Venta.total as Total
+FROM Venta INNER JOIN Cliente on Venta.idPersonaCliente = Cliente.idPersona 
+           INNER JOIN Empleado on  Venta.idPersonaEmpleado = Empleado.idPersona
+		   INNER JOIN Persona on Persona.idPersona = Cliente.idPersona
+           INNER JOIN Detalle_Venta_Productos on Venta.idVenta = Detalle_Venta_Productos.idVenta 
+		   INNER JOIN Productos on Detalle_Venta_Productos.idProducto = Productos.idProducto
+		   INNER JOIN Persona as Employee on Employee.idPersona = Empleado.idPersona
+GO
+/****** Object:  StoredProcedure [dbo].[SP_MOSTRARVENTAPROCESO]    Script Date: 14/07/2021 05:09:15 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROC [dbo].[SP_MOSTRARVENTAPROCESO] 
+AS
+SELECT Venta.idVenta, Persona.nombre as Nombre_Cliente, Persona.nombre as Nombre_Empleado, Productos.nombre as Nombre_Producto, 
+       Detalle_Venta_Productos.precio as Precio, Detalle_Venta_Productos.cantidad as Cantidad, Venta.subtotal as Subtotal, 
+	   Venta.iva as IVA, Venta.total as Total
+FROM Venta INNER JOIN Cliente on Venta.idPersonaCliente = Cliente.idPersona 
+           INNER JOIN Empleado on  Venta.idPersonaEmpleado = Empleado.idPersona
+		   INNER JOIN Persona on Persona.idPersona = Cliente.idPersona
+           INNER JOIN Detalle_Venta_Productos on Venta.idVenta = Detalle_Venta_Productos.idVenta 
+		   INNER JOIN Productos on Detalle_Venta_Productos.idProducto = Productos.idProducto
+		   INNER JOIN Persona as Employee on Employee.idPersona = Empleado.idPersona
+WHERE Venta.idVenta = (select max(idVenta) from Venta)
+GO
+/****** Object:  StoredProcedure [dbo].[SP_MOSTRARVENTAS]    Script Date: 14/07/2021 05:09:15 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROC [dbo].[SP_MOSTRARVENTAS]
+AS
+SELECT Venta.idVenta, Detalle_Venta_Productos.idProducto, Detalle_Venta_Productos.precio, Detalle_Venta_Productos.cantidad, 
+       Detalle_Venta_Productos.subtotal,Venta.iva, Venta.total, Venta.fecha
+FROM Venta INNER JOIN Detalle_Venta_Productos on Venta.idVenta = Detalle_Venta_Productos.idVenta
+GO
+/****** Object:  StoredProcedure [dbo].[SP_MOSTRARVENTITAS]    Script Date: 14/07/2021 05:09:15 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROC [dbo].[SP_MOSTRARVENTITAS] 
+AS
+SELECT Venta.idVenta, Cliente.curp as CURP_Cliente, Empleado.rfc as RFC_Empleado, Productos.nombre as Nombre_Producto, 
+       Detalle_Venta_Productos.precio as Precio, Detalle_Venta_Productos.cantidad as Cantidad, Venta.subtotal as Subtotal, 
+	   Venta.iva as IVA, Venta.total as Total
+FROM Venta INNER JOIN Cliente on Venta.idPersonaCliente = Cliente.idPersona 
+           INNER JOIN Empleado on  Venta.idPersonaEmpleado = Empleado.idPersona
+           INNER JOIN Detalle_Venta_Productos on Venta.idVenta = Detalle_Venta_Productos.idVenta 
+		   INNER JOIN Productos on Detalle_Venta_Productos.idProducto = Productos.idProducto
+GO
+/****** Object:  StoredProcedure [dbo].[Sp_nuevoCliente]    Script Date: 14/07/2021 05:09:15 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1800,7 +2196,7 @@ End --Fin del if
 Else --Si no pasa lo que hay dentro del if
   commit --entonces el commit confirma las inserciones previas y las guarda de manera permanente en sus respectivas tablas
 GO
-/****** Object:  StoredProcedure [dbo].[Sp_nuevoEmpleado]    Script Date: 07/07/2021 10:43:49 p. m. ******/
+/****** Object:  StoredProcedure [dbo].[Sp_nuevoEmpleado]    Script Date: 14/07/2021 05:09:15 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1868,7 +2264,7 @@ End --Fin del if
 Else --Si no pasa lo que hay dentro del if
   commit --entonces el commit confirma las inserciones previas y las guarda de manera permanente en sus respectivas tablas
 GO
-/****** Object:  StoredProcedure [dbo].[Sp_nuevoProveedor]    Script Date: 07/07/2021 10:43:49 p. m. ******/
+/****** Object:  StoredProcedure [dbo].[Sp_nuevoProveedor]    Script Date: 14/07/2021 05:09:15 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1909,7 +2305,7 @@ End --Fin del if
 Else --Si no pasa lo que hay dentro del if
   commit --entonces el commit confirma las inserciones previas y las guarda de manera permanente en sus respectivas tablas
 GO
-/****** Object:  StoredProcedure [dbo].[SP_Productos]    Script Date: 07/07/2021 10:43:49 p. m. ******/
+/****** Object:  StoredProcedure [dbo].[SP_Productos]    Script Date: 14/07/2021 05:09:15 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1933,7 +2329,47 @@ Select * from Productos print 'Los resultados fueron exitosos';
 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[SP_ReporteCompras]    Script Date: 07/07/2021 10:43:49 p. m. ******/
+/****** Object:  StoredProcedure [dbo].[SP_REALIZARVENTA]    Script Date: 14/07/2021 05:09:15 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROC [dbo].[SP_REALIZARVENTA]
+@IdProducto INT,
+@Cantidad INT,
+@IdEmpleado INT,
+@IdCliente INT
+AS
+BEGIN
+	DECLARE @IdVenta INT
+	INSERT INTO Venta VALUES (@IdCliente, @IdEmpleado, 2 , 1, 4, GETDATE(), 1)
+
+SET @IdVenta = SCOPE_IDENTITY()
+	
+	DECLARE @PrecioVenta FLOAT, @Subtotal FLOAT
+
+SET @PrecioVenta = (select precio from Productos where idProducto = @IdProducto)
+set @Subtotal = (@Cantidad * @PrecioVenta)
+
+	INSERT into Detalle_Venta_Productos values (@IdVenta, @IdProducto , @PrecioVenta, @Cantidad, @Subtotal)
+
+	DECLARE @Iva FLOAT
+
+SET @Iva = (@Subtotal * .16)
+
+	UPDATE Venta 
+SET subtotal = @Subtotal, iva = @Iva, total = (@Subtotal + @Iva)
+	WHERE idVenta = @IdVenta
+
+If(@@error<>0)
+begin
+   rollback tran
+end
+
+end
+
+GO
+/****** Object:  StoredProcedure [dbo].[SP_ReporteCompras]    Script Date: 14/07/2021 05:09:15 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1946,7 +2382,7 @@ FROM Compra INNER JOIN Detalle_Compra_Productos on Compra.idCompra = Detalle_Com
 		    INNER JOIN Proveedor on Proveedor.idProveedor = Compra.idProveedor
 order by Productos.nombre
 GO
-/****** Object:  StoredProcedure [dbo].[SP_ReporteVenta]    Script Date: 07/07/2021 10:43:49 p. m. ******/
+/****** Object:  StoredProcedure [dbo].[SP_ReporteVenta]    Script Date: 14/07/2021 05:09:15 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1962,7 +2398,7 @@ FROM Venta INNER JOIN Detalle_Venta_Productos on Venta.idVenta = Detalle_Venta_P
 WHERE (Venta.fecha between @fechaInicio and @fechaFin)
 order by Productos.nombre
 GO
-/****** Object:  StoredProcedure [dbo].[SP_ReporteVentas]    Script Date: 07/07/2021 10:43:49 p. m. ******/
+/****** Object:  StoredProcedure [dbo].[SP_ReporteVentas]    Script Date: 14/07/2021 05:09:15 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1978,7 +2414,42 @@ FROM Venta INNER JOIN Detalle_Venta_Productos on Venta.idVenta = Detalle_Venta_P
 --WHERE (Venta.fecha between @fechaInicio and @fechaFin)
 order by Productos.nombre
 GO
-/****** Object:  Trigger [dbo].[Tr_Compra_Delete]    Script Date: 07/07/2021 10:43:49 p. m. ******/
+/****** Object:  StoredProcedure [dbo].[SP_SELECCIONARTIPOPRODUCTO]    Script Date: 14/07/2021 05:09:15 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROC [dbo].[SP_SELECCIONARTIPOPRODUCTO]
+AS
+SELECT idTipo, nombre
+FROM Tipo order by nombre asc 
+GO
+/****** Object:  StoredProcedure [dbo].[SP_USUARIOS]    Script Date: 14/07/2021 05:09:15 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROC [dbo].[SP_USUARIOS] 
+@nombreUser VARCHAR (30),
+@Contrasenia VARCHAR (50)
+AS 
+SELECT Persona.idPersona, Concat (Persona.nombre, + ' ', Persona.apPaterno, + ' ', Persona.apMaterno) as Nombre, idPuesto
+FROM Persona INNER JOIN Empleado on Persona.idPersona = Empleado.idPersona
+             INNER JOIN Usuario on Empleado.idUsuario = Usuario.idUsuario
+Where Usuario.nombre = @nombreUser and Usuario.contrasenia = @Contrasenia
+GO
+/****** Object:  StoredProcedure [dbo].[SP_VENTAMOSTRARCLIENTE]    Script Date: 14/07/2021 05:09:15 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROC [dbo].[SP_VENTAMOSTRARCLIENTE]
+AS 
+SELECT Persona.idPersona, Persona.nombre as Nombre, Persona.apPaterno as Apellido_Paterno, 
+       Persona.apMaterno as Apellido_Materno, Cliente.curp as Cliente, Cliente.status as Status
+FROM Persona INNER JOIN Cliente on Persona.idPersona = Cliente.idPersona
+GO
+/****** Object:  Trigger [dbo].[Tr_Compra_Delete]    Script Date: 14/07/2021 05:09:15 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1994,7 +2465,7 @@ end
 GO
 ALTER TABLE [dbo].[Compra] ENABLE TRIGGER [Tr_Compra_Delete]
 GO
-/****** Object:  Trigger [dbo].[Tr_Compra_Insert]    Script Date: 07/07/2021 10:43:50 p. m. ******/
+/****** Object:  Trigger [dbo].[Tr_Compra_Insert]    Script Date: 14/07/2021 05:09:16 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2006,11 +2477,11 @@ as
 begin 
   insert into Compra_Auditado (host, usuario, operacion, modificado, tabla)
          values (@@SERVERNAME, SUSER_NAME(), 'insert', GETDATE(), 'Compra');
-End 
+End
 GO
 ALTER TABLE [dbo].[Compra] ENABLE TRIGGER [Tr_Compra_Insert]
 GO
-/****** Object:  Trigger [dbo].[Tr_Compra_Update]    Script Date: 07/07/2021 10:43:50 p. m. ******/
+/****** Object:  Trigger [dbo].[Tr_Compra_Update]    Script Date: 14/07/2021 05:09:16 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2026,7 +2497,7 @@ end
 GO
 ALTER TABLE [dbo].[Compra] ENABLE TRIGGER [Tr_Compra_Update]
 GO
-/****** Object:  Trigger [dbo].[Tr_Aumentar_Existencia]    Script Date: 07/07/2021 10:43:50 p. m. ******/
+/****** Object:  Trigger [dbo].[Tr_Aumentar_Existencia]    Script Date: 14/07/2021 05:09:16 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2053,7 +2524,7 @@ End --Fin del trigger
 GO
 ALTER TABLE [dbo].[Detalle_Compra_Productos] ENABLE TRIGGER [Tr_Aumentar_Existencia]
 GO
-/****** Object:  Trigger [dbo].[Tr_Cancelar_ProductoCompra]    Script Date: 07/07/2021 10:43:50 p. m. ******/
+/****** Object:  Trigger [dbo].[Tr_Cancelar_ProductoCompra]    Script Date: 14/07/2021 05:09:16 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2077,7 +2548,7 @@ End--Fin del trigger
 GO
 ALTER TABLE [dbo].[Detalle_Compra_Productos] ENABLE TRIGGER [Tr_Cancelar_ProductoCompra]
 GO
-/****** Object:  Trigger [dbo].[Tr_Cancelar_Producto]    Script Date: 07/07/2021 10:43:50 p. m. ******/
+/****** Object:  Trigger [dbo].[Tr_Cancelar_Producto]    Script Date: 14/07/2021 05:09:16 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2101,7 +2572,7 @@ End--Fin del trigger
 GO
 ALTER TABLE [dbo].[Detalle_Venta_Productos] ENABLE TRIGGER [Tr_Cancelar_Producto]
 GO
-/****** Object:  Trigger [dbo].[Tr_Disminuir_Existencia]    Script Date: 07/07/2021 10:43:50 p. m. ******/
+/****** Object:  Trigger [dbo].[Tr_Disminuir_Existencia]    Script Date: 14/07/2021 05:09:16 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2140,7 +2611,7 @@ End --Fin del trigger
 GO
 ALTER TABLE [dbo].[Detalle_Venta_Productos] ENABLE TRIGGER [Tr_Disminuir_Existencia]
 GO
-/****** Object:  Trigger [dbo].[Tr_veenta]    Script Date: 07/07/2021 10:43:50 p. m. ******/
+/****** Object:  Trigger [dbo].[Tr_veenta]    Script Date: 14/07/2021 05:09:16 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2157,7 +2628,7 @@ END
 GO
 ALTER TABLE [dbo].[Venta] ENABLE TRIGGER [Tr_veenta]
 GO
-/****** Object:  Trigger [dbo].[Tr_vent]    Script Date: 07/07/2021 10:43:50 p. m. ******/
+/****** Object:  Trigger [dbo].[Tr_vent]    Script Date: 14/07/2021 05:09:16 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2174,7 +2645,7 @@ END
 GO
 ALTER TABLE [dbo].[Venta] ENABLE TRIGGER [Tr_vent]
 GO
-/****** Object:  Trigger [dbo].[TR_Venta]    Script Date: 07/07/2021 10:43:51 p. m. ******/
+/****** Object:  Trigger [dbo].[TR_Venta]    Script Date: 14/07/2021 05:09:16 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2191,7 +2662,7 @@ END
 GO
 ALTER TABLE [dbo].[Venta] ENABLE TRIGGER [TR_Venta]
 GO
-/****** Object:  Trigger [dbo].[Tr_Venta_Delete]    Script Date: 07/07/2021 10:43:51 p. m. ******/
+/****** Object:  Trigger [dbo].[Tr_Venta_Delete]    Script Date: 14/07/2021 05:09:16 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2207,7 +2678,7 @@ end
 GO
 ALTER TABLE [dbo].[Venta] ENABLE TRIGGER [Tr_Venta_Delete]
 GO
-/****** Object:  Trigger [dbo].[Tr_Venta_Insert]    Script Date: 07/07/2021 10:43:51 p. m. ******/
+/****** Object:  Trigger [dbo].[Tr_Venta_Insert]    Script Date: 14/07/2021 05:09:16 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2223,7 +2694,7 @@ end
 GO
 ALTER TABLE [dbo].[Venta] ENABLE TRIGGER [Tr_Venta_Insert]
 GO
-/****** Object:  Trigger [dbo].[Tr_Venta_Update]    Script Date: 07/07/2021 10:43:51 p. m. ******/
+/****** Object:  Trigger [dbo].[Tr_Venta_Update]    Script Date: 14/07/2021 05:09:16 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2239,7 +2710,7 @@ end
 GO
 ALTER TABLE [dbo].[Venta] ENABLE TRIGGER [Tr_Venta_Update]
 GO
-/****** Object:  Trigger [dbo].[Tr_Venta_Updatei]    Script Date: 07/07/2021 10:43:51 p. m. ******/
+/****** Object:  Trigger [dbo].[Tr_Venta_Updatei]    Script Date: 14/07/2021 05:09:16 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2255,7 +2726,7 @@ end
 GO
 ALTER TABLE [dbo].[Venta] ENABLE TRIGGER [Tr_Venta_Updatei]
 GO
-/****** Object:  Trigger [dbo].[Tr_Venta1]    Script Date: 07/07/2021 10:43:52 p. m. ******/
+/****** Object:  Trigger [dbo].[Tr_Venta1]    Script Date: 14/07/2021 05:09:16 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2271,7 +2742,7 @@ end
 GO
 ALTER TABLE [dbo].[Venta] ENABLE TRIGGER [Tr_Venta1]
 GO
-/****** Object:  Trigger [dbo].[TR_ventas]    Script Date: 07/07/2021 10:43:53 p. m. ******/
+/****** Object:  Trigger [dbo].[TR_ventas]    Script Date: 14/07/2021 05:09:16 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2288,7 +2759,7 @@ END
 GO
 ALTER TABLE [dbo].[Venta] ENABLE TRIGGER [TR_ventas]
 GO
-/****** Object:  Trigger [dbo].[TR_ventass]    Script Date: 07/07/2021 10:43:54 p. m. ******/
+/****** Object:  Trigger [dbo].[TR_ventass]    Script Date: 14/07/2021 05:09:16 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON

@@ -8,11 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using Business;
 
 namespace Punto_Venta_Abarrotes
 {
     public partial class frmInterfazPrincipal : Form
     {
+        private B_OperacionesEmpleados bEmpleado = new B_OperacionesEmpleados();
+
         public frmInterfazPrincipal()
         {
             InitializeComponent();
@@ -87,6 +90,13 @@ namespace Punto_Venta_Abarrotes
         private void btnVentas_Click(object sender, EventArgs e)
         {
             AbrirFormulario(new frmVentas());
+
+            frmVentas f1 = Application.OpenForms.OfType<frmVentas>().SingleOrDefault();
+            if (f1 != null)
+            {
+                f1.txtIdEmpleado.Text = lblIdEmpleadoRes.Text;
+                f1.txtNombreEmpleado.Text = lblNombreEmpleadoRes.Text;
+            }
         }
 
         private void btnProveedores_Click(object sender, EventArgs e)
@@ -206,5 +216,6 @@ namespace Punto_Venta_Abarrotes
         }
 
         #endregion
+
     }
 }

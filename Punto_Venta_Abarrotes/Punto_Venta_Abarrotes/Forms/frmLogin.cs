@@ -8,13 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
-
+using Business;
 
 namespace Punto_Venta_Abarrotes
 {
     public partial class frmLogin : Form
     {
-        public string usuario = ""; /*Varible global*/
+        private B_OperacionesEmpleados bEmpleado = new B_OperacionesEmpleados();
 
         public frmLogin()
         {
@@ -28,12 +28,6 @@ namespace Punto_Venta_Abarrotes
             this.tltHelp.SetToolTip(this.linkLblContrasenia, "De click en caso de que haya olvidado su contraseña");
             this.tltHelp.SetToolTip(this.ptbClose, "De click para cerrar el programa");
             this.tltHelp.SetToolTip(this.ptbMinimix, "De click para miximizar la pantalla");
-        }
-
-        private void frmLogin_Load(object sender, EventArgs e)
-        {
-           // Conexion conex = new Conexion();
-            //conex.abrir();
         }
 
         #region Mover formulario
@@ -141,23 +135,19 @@ namespace Punto_Venta_Abarrotes
             }
             erpLogin.SetError(txtContrasenia, "");
 
-            if (txtUsuario.Text == "ADMIN")
+            var IdUsuario = bEmpleado.validarUsuario(txtUsuario.Text, txtContrasenia.Text);
+
+            if (Convert.ToInt32(IdUsuario.Rows[0][0].ToString()) != 0)
             {
-                if (txtContrasenia.Text == "Admin")
-                {
-                    frmInterfazPrincipal inter = new frmInterfazPrincipal();
-                    inter.Show();
-                    this.Hide();
-                    usuario = txtUsuario.Text;
-                }
-                else
-                {
-                    MessageBox.Show("Contraseña no válida", "Login");
-                }
+                frmInterfazPrincipal frmIntPrincipal = new frmInterfazPrincipal();
+                frmIntPrincipal.lblIdEmpleadoRes.Text = IdUsuario.Rows[0][0].ToString();
+                frmIntPrincipal.lblNombreEmpleadoRes.Text = IdUsuario.Rows[0][1].ToString();
+                frmIntPrincipal.Show();
+                this.Hide();
             }
             else
             {
-                MessageBox.Show("Usuario no válido", "Login");
+                MessageBox.Show("Contraseña o usuario no válido", "LOGIN", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -189,30 +179,23 @@ namespace Punto_Venta_Abarrotes
         {
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
-                if (txtUsuario.Text == "ADMIN")
+                var IdUsuario = bEmpleado.validarUsuario(txtUsuario.Text, txtContrasenia.Text);
+
+                if (Convert.ToInt32(IdUsuario.Rows[0][0].ToString()) != 0)
                 {
-                    if (txtContrasenia.Text == "Admin")
-                    {
-                        frmInterfazPrincipal inter = new frmInterfazPrincipal();
-                        inter.Show();
-                        this.Hide();
-                        usuario = txtUsuario.Text;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Contraseña no válida", "Login");
-                        txtContrasenia.Clear();
-                    }
+                    frmInterfazPrincipal frmIntPrincipal = new frmInterfazPrincipal();
+                    frmIntPrincipal.lblIdEmpleadoRes.Text = IdUsuario.Rows[0][0].ToString();
+                    frmIntPrincipal.lblNombreEmpleadoRes.Text = IdUsuario.Rows[0][1].ToString();
+                    frmIntPrincipal.Show();
+                    this.Hide();
                 }
                 else
                 {
-                    MessageBox.Show("Usuario no válido", "Login");
-                    txtUsuario.Clear();
+                    MessageBox.Show("Contraseña o usuario no válido", "LOGIN", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
 
         #endregion
-
     }
 }

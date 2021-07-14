@@ -8,18 +8,39 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
+using Business;
 
 namespace Punto_Venta_Abarrotes
 {
     public partial class frmProveedores : Form
     {
+        #region Objetos
+
+        private B_OperacionesProveedor bProveedor = new B_OperacionesProveedor();
+        private B_OperacionesProveedor bMunicipio = new B_OperacionesProveedor();
+        private B_OperacionesProveedor bLocalidad = new B_OperacionesProveedor();
+        private B_OperacionesProveedor bColonia = new B_OperacionesProveedor();
+        private B_OperacionesProveedor bCalle = new B_OperacionesProveedor();
+        private B_OperacionesProveedor bDomicilio = new B_OperacionesProveedor();
+
+        #endregion
+
+        #region Variables globales
+
+        string razonSocial, telefono;
+        int idProveedor, idDomicilio, status;
+
+        #endregion
+
         public frmProveedores()
         {
             InitializeComponent();
 
-            /*Mensajes de acciones de cada herramienta*/
-            this.tltBuscar.SetToolTip(this.txtRazonSocialBuscar, "Buscar razón social por nombre");
-            this.tltBuscar.SetToolTip(this.txtEstatus, "1 activo y 0 inactivo");
+            seleccionarMunicipio();
+            seleccionarLocalidad();
+            seleccionarColonia();
+            seleccionarCalle();
+            seleccionarDomicilio();
         }
 
         #region Mostrar Fecha Y hora
@@ -33,27 +54,18 @@ namespace Punto_Venta_Abarrotes
 
         #endregion
 
-        #region Validaciones 
+        #region Registrar proveedor
 
         private void btnRegistrarEntidades_Click(object sender, EventArgs e)
         {
-            Regex reRazonSocial = new Regex("^[a-zA-Z]*$", RegexOptions.Compiled);
-            if (!reRazonSocial.IsMatch(txtRazonSocial.Text))
-            {
-                erpProveedores.SetError(txtRazonSocial, "Debe colocar un nombre válido");
-                txtRazonSocial.Focus();
-                return;
-            }
-            erpProveedores.SetError(txtRazonSocial, "");
-
             Regex reTelefono = new Regex("[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]", RegexOptions.Compiled);
-            if (!reTelefono.IsMatch(txtTelefonoEmpleado.Text))
+            if (!reTelefono.IsMatch(txtTelefonoProveedor.Text))
             {
-                erpProveedores.SetError(txtTelefonoEmpleado, "Debe colocar un telefono valido");
-                txtTelefonoEmpleado.Focus();
+                erpProveedores.SetError(txtTelefonoProveedor, "Debe colocar un telefono valido");
+                txtTelefonoProveedor.Focus();
                 return;
             }
-            erpProveedores.SetError(txtTelefonoEmpleado, "");
+            erpProveedores.SetError(txtTelefonoProveedor, "");
 
             if (txtRazonSocial.Text == "")
             {
@@ -63,54 +75,152 @@ namespace Punto_Venta_Abarrotes
             }
             erpProveedores.SetError(txtRazonSocial, "");
 
-            if (txtIdDomicilioEntidad.Text == "")
+            if (txtTelefonoProveedor.Text == "")
             {
-                erpProveedores.SetError(txtIdDomicilioEntidad, "Favor de ingresar el id del domicilio de la entidad");
-                txtIdDomicilioEntidad.Focus();
+                erpProveedores.SetError(txtTelefonoProveedor, "Favor de ingresar el teléfono de la entidad");
+                txtTelefonoProveedor.Focus();
                 return;
             }
-            erpProveedores.SetError(txtIdDomicilioEntidad, "");
+            erpProveedores.SetError(txtTelefonoProveedor, "");
 
-            if (txtTelefonoEmpleado.Text == "")
-            {
-                erpProveedores.SetError(txtTelefonoEmpleado, "Favor de ingresar el teléfono de la entidad");
-                txtTelefonoEmpleado.Focus();
-                return;
-            }
-            erpProveedores.SetError(txtTelefonoEmpleado, "");
-
-            if (txtEstatus.Text == "")
-            {
-                erpProveedores.SetError(txtEstatus, "Favor de ingresar el estatus de la entidad");
-                txtEstatus.Focus();
-                return;
-            }
-            erpProveedores.SetError(txtEstatus, "");
-
+            //INSERTAR PROVEEDORES
+            conversionesProveedor();
+            MessageBox.Show(bProveedor.insertarProveedor(razonSocial, telefono, idDomicilio, status));
 
             txtRazonSocial.Clear();
-            txtIdDomicilioEntidad.Clear();
-            txtTelefonoEmpleado.Clear();
-            txtEstatus.Clear();
-        }
-
-        private void btnBuscarEntidades_Click(object sender, EventArgs e)
-        {
-            txtRazonSocialBuscar.Clear();
+            txtTelefonoProveedor.Clear();
         }
 
         #endregion
 
-        #region Validaciones de solo letras o números 
+        #region Mostrar proveedores en el dgv
 
-        private void txtIdDomicilioEntidad_KeyPress(object sender, KeyPressEventArgs e)
+        private void btnVerEntidades_Click(object sender, EventArgs e)
         {
-            if ((e.KeyChar >= 32 && e.KeyChar <= 45) || (e.KeyChar >= 58 && e.KeyChar <= 255))
+            mostrarProveedores();
+        }
+
+        #endregion
+
+        #region Buscar proveedores
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            if (txtRazonSocialBuscar.Text != "")
             {
-                MessageBox.Show("Solo se permiten números", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                e.Handled = true;
-                return;
+                razonSocial = txtRazonSocialBuscar.Text;
+                dgvProveedores.DataSource = bProveedor.BuscarProveedor(razonSocial);
             }
+            else
+            {
+                mostrarProveedores();
+            }
+
+            /*razonSocial = txtRazonSocialBuscar.Text;
+            dgvProveedores.DataSource = bProveedor.BuscarProveedor(razonSocial);
+
+            txtRazonSocialBuscar.Clear();*/
+        }
+
+        #endregion
+
+        #region Actualizar proveedores
+
+        private void btnActualizarEntidades_Click(object sender, EventArgs e)
+        {
+            conversionesProveedor();
+            idProveedor = Convert.ToInt32(lblIdProveedor.Text);
+            MessageBox.Show(bProveedor.actualizarProveedor(idProveedor, razonSocial, telefono, idDomicilio), "Proveedores", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            dgvProveedores.DataSource = bProveedor.mostrarProveedor();
+        }
+
+        #endregion
+
+        #region Conversiones 
+
+        private void conversionesProveedor()
+        {
+            
+            razonSocial = txtRazonSocial.Text.ToUpper();
+            telefono = txtTelefonoProveedor.Text.ToUpper();
+            idDomicilio = Convert.ToInt32(cmbNumExt.SelectedValue);
+            idDomicilio = Convert.ToInt32(cmbNumInt.SelectedValue);
+
+            status = 1;
+        }
+
+        #endregion
+
+        #region Métodos para mostrar la información en los cmb
+
+        public void seleccionarMunicipio()
+        {
+            var lista = bMunicipio.seleccionarMunicipios();
+            cmbMunicipios.DataSource = lista;
+            cmbMunicipios.DisplayMember = "nombre";
+            cmbMunicipios.ValueMember = "idMunicipio";
+        }
+
+        public void seleccionarLocalidad()
+        {
+            var lista = bLocalidad.seleccionarLocalidades();
+            cmbLocalidades.DataSource = lista;
+            cmbLocalidades.DisplayMember = "nombre";
+            cmbLocalidades.ValueMember = "idLocalidad";
+        }
+
+        public void seleccionarColonia()
+        {
+            var lista = bColonia.seleccionarColonias();
+            cmbColonias.DataSource = lista;
+            cmbColonias.DisplayMember = "nombre";
+            cmbColonias.ValueMember = "idColonia";
+        }
+
+        public void seleccionarCalle()
+        {
+            var lista = bCalle.seleccionarCalles();
+            cmbCalles.DataSource = lista;
+            cmbCalles.DisplayMember = "nombre";
+            cmbCalles.ValueMember = "idCalle";
+        }
+
+        public void seleccionarDomicilio()
+        {
+            var lista = bDomicilio.seleccionarDomicilios();
+            cmbNumExt.DataSource = lista;
+            cmbNumInt.DataSource = lista;
+            cmbNumExt.DisplayMember = "numeroExt";
+            cmbNumInt.DisplayMember = "numeroInt";
+            cmbNumExt.ValueMember = "idDomicilio";
+            cmbNumInt.ValueMember = "idDomicilio";
+        }
+
+        #endregion
+
+        #region Evento para mostrar la columna del dgv en los controles
+
+        private void dgvProveedores_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            lblIdProveedor.Text = dgvProveedores.CurrentRow.Cells[0].Value.ToString();
+            txtRazonSocial.Text = dgvProveedores.CurrentRow.Cells[1].Value.ToString();
+            txtTelefonoProveedor.Text = dgvProveedores.CurrentRow.Cells[2].Value.ToString();
+            cmbMunicipios.Text = dgvProveedores.CurrentRow.Cells[3].Value.ToString();
+            cmbLocalidades.Text = dgvProveedores.CurrentRow.Cells[4].Value.ToString();
+            cmbColonias.Text = dgvProveedores.CurrentRow.Cells[5].Value.ToString();
+            cmbCalles.Text = dgvProveedores.CurrentRow.Cells[6].Value.ToString();
+            cmbNumExt.Text = dgvProveedores.CurrentRow.Cells[7].Value.ToString();
+            cmbNumInt.Text = dgvProveedores.CurrentRow.Cells[8].Value.ToString();
+        }
+
+        #endregion
+
+        #region Método para mostrar los proveedores
+
+        public void mostrarProveedores()
+        {
+            dgvProveedores.DataSource = bProveedor.mostrarProveedor();
+            dgvProveedores.Columns["idProveedor"].Visible = false;
         }
 
         #endregion

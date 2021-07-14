@@ -10,13 +10,23 @@ namespace DAL
 {
     public class D_Usuario
     {
+        #region Objeto conexión
+
         private D_Conexion Conexion = new D_Conexion();
+
+        #endregion
+
+        #region Propiedades
 
         public int IdUsuario { get; set; }
         public string Nombre { get; set; }
         public string Correo { get; set; }
         public string Contrasenia { get; set; }
         public int Status { get; set; }
+
+        #endregion
+
+        #region Método para insertar
 
         public bool Insertar()
         {
@@ -45,25 +55,27 @@ namespace DAL
             return sucess;
         }
 
+        #endregion
+
+        #region Método para mostrar
+
         public DataTable Mostrar()
         {
-            var dgvRazonSocial = new DataTable();
+            var tablaMostrarUsuario = new DataTable();
+
             try
             {
                 Conexion.abrir();
-                string sql = "select idUsuario, nombre, correo, contrasenia, status '%" + Nombre + "%'";
 
-                var cmd = new SqlCommand("SP_BUSQUEDAUSUARIO", Conexion.conexion);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@NombreBuscado", Nombre);
+                var cmd = new SqlCommand("SP_MOSTRARUSUARIOS", Conexion.conexion);
                 var reader = cmd.ExecuteReader();
 
                 if (reader.HasRows == false)
                 {
+                    reader.Close();
                     return null;
                 }
-
-                dgvRazonSocial.Load(reader);
+                tablaMostrarUsuario.Load(reader);
 
                 Conexion.cerrar();
             }
@@ -71,17 +83,50 @@ namespace DAL
             {
                 throw;
             }
-            return dgvRazonSocial;
+            return tablaMostrarUsuario;
         }
+
+        #endregion
+
+        #region Método para buscar
+
+        public DataTable Buscar()
+        {
+            var tablaBuscarUsuario = new DataTable();
+
+            try
+            {
+                Conexion.abrir();
+
+                var cmd = new SqlCommand("SP_BUSCARUSUARIO", Conexion.conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Nombre", Nombre);
+                var reader = cmd.ExecuteReader();
+
+                if (reader.HasRows == false)
+                {
+                    return null;
+                }
+                tablaBuscarUsuario.Load(reader);
+
+                Conexion.cerrar();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return tablaBuscarUsuario;
+        }
+
+        #endregion
+
+        #region Método para actualizar 
 
         public void Actualizar()
         {
 
         }
 
-        public void Borrar()
-        {
-
-        }
+        #endregion
     }
 }

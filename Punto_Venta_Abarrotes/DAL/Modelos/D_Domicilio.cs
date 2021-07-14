@@ -3,34 +3,44 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace DAL
 {
-    class D_Domicilio
+    public class D_Domicilio
     {
+        private D_Conexion Conexion = new D_Conexion();
+
         public int idDomicilio { get; set; }
         public string numExterior { get; set; }
         public string numInterior { get; set; }
         public int status { get; set; }
 
-        public void Insertar()
+        public DataTable seleccionarDomicilio()
         {
+            var tablaDomicilio = new DataTable();
 
-        }
+            try
+            {
+                Conexion.abrir();
+                string sql = "Select idDomicilio, numeroExt, numeroInt from Domicilio";
 
-        public void Mostrar()
-        {
+                var cmd = new SqlCommand(sql, Conexion.conexion);
+                var reader = cmd.ExecuteReader();
 
-        }
-
-        public void Actualizar()
-        {
-
-        }
-
-        public void Borrar()
-        {
-
+                if (reader.HasRows == false)
+                {
+                    return null;
+                }
+                tablaDomicilio.Load(reader);
+                Conexion.cerrar();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return tablaDomicilio;
         }
     }
 }

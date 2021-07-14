@@ -36,6 +36,7 @@
             this.ptbMaximizar = new System.Windows.Forms.PictureBox();
             this.panelMenu = new System.Windows.Forms.Panel();
             this.panelSubmenuRepor = new System.Windows.Forms.Panel();
+            this.btnReporteCompras = new System.Windows.Forms.Button();
             this.brnReportesVentas = new System.Windows.Forms.Button();
             this.btnReportes = new System.Windows.Forms.Button();
             this.btnPerdidas = new System.Windows.Forms.Button();
@@ -49,9 +50,12 @@
             this.btnClientes = new System.Windows.Forms.Button();
             this.btnProductos = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
+            this.lblNombreEmpleadoRes = new System.Windows.Forms.Label();
+            this.lblNombreEmpleado = new System.Windows.Forms.Label();
+            this.lblIdEmpleadoRes = new System.Windows.Forms.Label();
+            this.lblIdEmpleado = new System.Windows.Forms.Label();
             this.ptbLogo = new System.Windows.Forms.PictureBox();
             this.panelContenedor = new System.Windows.Forms.Panel();
-            this.btnReporteCompras = new System.Windows.Forms.Button();
             this.panelBarraTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbRestaurar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbCerrar)).BeginInit();
@@ -158,10 +162,28 @@
             this.panelSubmenuRepor.Controls.Add(this.btnReporteCompras);
             this.panelSubmenuRepor.Controls.Add(this.brnReportesVentas);
             this.panelSubmenuRepor.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelSubmenuRepor.Location = new System.Drawing.Point(0, 585);
+            this.panelSubmenuRepor.Location = new System.Drawing.Point(0, 584);
             this.panelSubmenuRepor.Name = "panelSubmenuRepor";
             this.panelSubmenuRepor.Size = new System.Drawing.Size(227, 115);
             this.panelSubmenuRepor.TabIndex = 61;
+            // 
+            // btnReporteCompras
+            // 
+            this.btnReporteCompras.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(40)))));
+            this.btnReporteCompras.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnReporteCompras.FlatAppearance.BorderSize = 0;
+            this.btnReporteCompras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReporteCompras.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReporteCompras.ForeColor = System.Drawing.Color.LightGray;
+            this.btnReporteCompras.Location = new System.Drawing.Point(0, 44);
+            this.btnReporteCompras.Name = "btnReporteCompras";
+            this.btnReporteCompras.Padding = new System.Windows.Forms.Padding(75, 0, 0, 0);
+            this.btnReporteCompras.Size = new System.Drawing.Size(227, 44);
+            this.btnReporteCompras.TabIndex = 5;
+            this.btnReporteCompras.Text = "Reporte Compras";
+            this.btnReporteCompras.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReporteCompras.UseVisualStyleBackColor = false;
+            this.btnReporteCompras.Click += new System.EventHandler(this.btnReporteCompras_Click_1);
             // 
             // brnReportesVentas
             // 
@@ -191,7 +213,7 @@
             this.btnReportes.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnReportes.Image = ((System.Drawing.Image)(resources.GetObject("btnReportes.Image")));
             this.btnReportes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReportes.Location = new System.Drawing.Point(0, 540);
+            this.btnReportes.Location = new System.Drawing.Point(0, 539);
             this.btnReportes.Name = "btnReportes";
             this.btnReportes.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
             this.btnReportes.Size = new System.Drawing.Size(227, 45);
@@ -210,7 +232,7 @@
             this.btnPerdidas.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnPerdidas.Image = global::Punto_Venta_Abarrotes.Properties.Resources.perdida__1_;
             this.btnPerdidas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPerdidas.Location = new System.Drawing.Point(0, 496);
+            this.btnPerdidas.Location = new System.Drawing.Point(0, 495);
             this.btnPerdidas.Name = "btnPerdidas";
             this.btnPerdidas.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
             this.btnPerdidas.Size = new System.Drawing.Size(227, 44);
@@ -231,7 +253,7 @@
             this.ibtnDomicilio.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ibtnDomicilio.IconSize = 45;
             this.ibtnDomicilio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ibtnDomicilio.Location = new System.Drawing.Point(0, 451);
+            this.ibtnDomicilio.Location = new System.Drawing.Point(0, 450);
             this.ibtnDomicilio.Name = "ibtnDomicilio";
             this.ibtnDomicilio.Padding = new System.Windows.Forms.Padding(36, 0, 0, 0);
             this.ibtnDomicilio.Size = new System.Drawing.Size(227, 45);
@@ -250,7 +272,7 @@
             this.btnUsuario.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnUsuario.Image = global::Punto_Venta_Abarrotes.Properties.Resources.usuario;
             this.btnUsuario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUsuario.Location = new System.Drawing.Point(0, 407);
+            this.btnUsuario.Location = new System.Drawing.Point(0, 406);
             this.btnUsuario.Name = "btnUsuario";
             this.btnUsuario.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
             this.btnUsuario.Size = new System.Drawing.Size(227, 44);
@@ -269,7 +291,7 @@
             this.btnPuestosHoararios.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnPuestosHoararios.Image = global::Punto_Venta_Abarrotes.Properties.Resources.estacion_de_trabajo;
             this.btnPuestosHoararios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPuestosHoararios.Location = new System.Drawing.Point(0, 363);
+            this.btnPuestosHoararios.Location = new System.Drawing.Point(0, 362);
             this.btnPuestosHoararios.Name = "btnPuestosHoararios";
             this.btnPuestosHoararios.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
             this.btnPuestosHoararios.Size = new System.Drawing.Size(227, 44);
@@ -288,7 +310,7 @@
             this.btnCompras.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnCompras.Image = ((System.Drawing.Image)(resources.GetObject("btnCompras.Image")));
             this.btnCompras.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCompras.Location = new System.Drawing.Point(0, 318);
+            this.btnCompras.Location = new System.Drawing.Point(0, 317);
             this.btnCompras.Name = "btnCompras";
             this.btnCompras.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
             this.btnCompras.Size = new System.Drawing.Size(227, 45);
@@ -307,7 +329,7 @@
             this.btnProveedores.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnProveedores.Image = ((System.Drawing.Image)(resources.GetObject("btnProveedores.Image")));
             this.btnProveedores.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProveedores.Location = new System.Drawing.Point(0, 273);
+            this.btnProveedores.Location = new System.Drawing.Point(0, 272);
             this.btnProveedores.Name = "btnProveedores";
             this.btnProveedores.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
             this.btnProveedores.Size = new System.Drawing.Size(227, 45);
@@ -326,7 +348,7 @@
             this.btnVentas.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnVentas.Image = ((System.Drawing.Image)(resources.GetObject("btnVentas.Image")));
             this.btnVentas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVentas.Location = new System.Drawing.Point(0, 228);
+            this.btnVentas.Location = new System.Drawing.Point(0, 227);
             this.btnVentas.Name = "btnVentas";
             this.btnVentas.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
             this.btnVentas.Size = new System.Drawing.Size(227, 45);
@@ -345,7 +367,7 @@
             this.btnEmpleados.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnEmpleados.Image = ((System.Drawing.Image)(resources.GetObject("btnEmpleados.Image")));
             this.btnEmpleados.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEmpleados.Location = new System.Drawing.Point(0, 183);
+            this.btnEmpleados.Location = new System.Drawing.Point(0, 182);
             this.btnEmpleados.Name = "btnEmpleados";
             this.btnEmpleados.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
             this.btnEmpleados.Size = new System.Drawing.Size(227, 45);
@@ -364,7 +386,7 @@
             this.btnClientes.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnClientes.Image = ((System.Drawing.Image)(resources.GetObject("btnClientes.Image")));
             this.btnClientes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClientes.Location = new System.Drawing.Point(0, 138);
+            this.btnClientes.Location = new System.Drawing.Point(0, 137);
             this.btnClientes.Name = "btnClientes";
             this.btnClientes.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
             this.btnClientes.Size = new System.Drawing.Size(227, 45);
@@ -383,7 +405,7 @@
             this.btnProductos.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnProductos.Image = ((System.Drawing.Image)(resources.GetObject("btnProductos.Image")));
             this.btnProductos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProductos.Location = new System.Drawing.Point(0, 93);
+            this.btnProductos.Location = new System.Drawing.Point(0, 92);
             this.btnProductos.Name = "btnProductos";
             this.btnProductos.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
             this.btnProductos.Size = new System.Drawing.Size(227, 45);
@@ -394,17 +416,67 @@
             // 
             // panelLogo
             // 
+            this.panelLogo.Controls.Add(this.lblNombreEmpleadoRes);
+            this.panelLogo.Controls.Add(this.lblNombreEmpleado);
+            this.panelLogo.Controls.Add(this.lblIdEmpleadoRes);
+            this.panelLogo.Controls.Add(this.lblIdEmpleado);
             this.panelLogo.Controls.Add(this.ptbLogo);
             this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelLogo.Location = new System.Drawing.Point(0, 0);
             this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(227, 93);
+            this.panelLogo.Size = new System.Drawing.Size(227, 92);
             this.panelLogo.TabIndex = 0;
+            // 
+            // lblNombreEmpleadoRes
+            // 
+            this.lblNombreEmpleadoRes.AutoSize = true;
+            this.lblNombreEmpleadoRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombreEmpleadoRes.ForeColor = System.Drawing.Color.White;
+            this.lblNombreEmpleadoRes.Location = new System.Drawing.Point(12, 145);
+            this.lblNombreEmpleadoRes.Name = "lblNombreEmpleadoRes";
+            this.lblNombreEmpleadoRes.Size = new System.Drawing.Size(0, 18);
+            this.lblNombreEmpleadoRes.TabIndex = 88;
+            this.lblNombreEmpleadoRes.Visible = false;
+            // 
+            // lblNombreEmpleado
+            // 
+            this.lblNombreEmpleado.AutoSize = true;
+            this.lblNombreEmpleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombreEmpleado.ForeColor = System.Drawing.Color.Thistle;
+            this.lblNombreEmpleado.Location = new System.Drawing.Point(12, 118);
+            this.lblNombreEmpleado.Name = "lblNombreEmpleado";
+            this.lblNombreEmpleado.Size = new System.Drawing.Size(160, 18);
+            this.lblNombreEmpleado.TabIndex = 87;
+            this.lblNombreEmpleado.Text = "Nombre del Empleado:";
+            this.lblNombreEmpleado.Visible = false;
+            // 
+            // lblIdEmpleadoRes
+            // 
+            this.lblIdEmpleadoRes.AutoSize = true;
+            this.lblIdEmpleadoRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIdEmpleadoRes.ForeColor = System.Drawing.Color.White;
+            this.lblIdEmpleadoRes.Location = new System.Drawing.Point(106, 89);
+            this.lblIdEmpleadoRes.Name = "lblIdEmpleadoRes";
+            this.lblIdEmpleadoRes.Size = new System.Drawing.Size(0, 18);
+            this.lblIdEmpleadoRes.TabIndex = 86;
+            this.lblIdEmpleadoRes.Visible = false;
+            // 
+            // lblIdEmpleado
+            // 
+            this.lblIdEmpleado.AutoSize = true;
+            this.lblIdEmpleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIdEmpleado.ForeColor = System.Drawing.Color.Thistle;
+            this.lblIdEmpleado.Location = new System.Drawing.Point(12, 89);
+            this.lblIdEmpleado.Name = "lblIdEmpleado";
+            this.lblIdEmpleado.Size = new System.Drawing.Size(97, 18);
+            this.lblIdEmpleado.TabIndex = 85;
+            this.lblIdEmpleado.Text = "ID Empleado:";
+            this.lblIdEmpleado.Visible = false;
             // 
             // ptbLogo
             // 
             this.ptbLogo.Image = global::Punto_Venta_Abarrotes.Properties.Resources._4891328874_8fa2d91b_78f1_4a00_8da8_33624cb14079;
-            this.ptbLogo.Location = new System.Drawing.Point(22, 22);
+            this.ptbLogo.Location = new System.Drawing.Point(22, 19);
             this.ptbLogo.Name = "ptbLogo";
             this.ptbLogo.Size = new System.Drawing.Size(202, 56);
             this.ptbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -420,24 +492,6 @@
             this.panelContenedor.Name = "panelContenedor";
             this.panelContenedor.Size = new System.Drawing.Size(1056, 615);
             this.panelContenedor.TabIndex = 2;
-            // 
-            // btnReporteCompras
-            // 
-            this.btnReporteCompras.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(40)))));
-            this.btnReporteCompras.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnReporteCompras.FlatAppearance.BorderSize = 0;
-            this.btnReporteCompras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReporteCompras.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReporteCompras.ForeColor = System.Drawing.Color.LightGray;
-            this.btnReporteCompras.Location = new System.Drawing.Point(0, 44);
-            this.btnReporteCompras.Name = "btnReporteCompras";
-            this.btnReporteCompras.Padding = new System.Windows.Forms.Padding(75, 0, 0, 0);
-            this.btnReporteCompras.Size = new System.Drawing.Size(227, 44);
-            this.btnReporteCompras.TabIndex = 5;
-            this.btnReporteCompras.Text = "Reporte Compras";
-            this.btnReporteCompras.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReporteCompras.UseVisualStyleBackColor = false;
-            this.btnReporteCompras.Click += new System.EventHandler(this.btnReporteCompras_Click_1);
             // 
             // frmInterfazPrincipal
             // 
@@ -460,6 +514,7 @@
             this.panelMenu.ResumeLayout(false);
             this.panelSubmenuRepor.ResumeLayout(false);
             this.panelLogo.ResumeLayout(false);
+            this.panelLogo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbLogo)).EndInit();
             this.ResumeLayout(false);
 
@@ -490,5 +545,9 @@
         private System.Windows.Forms.Button brnReportesVentas;
         private System.Windows.Forms.Button btnReportes;
         private System.Windows.Forms.Button btnReporteCompras;
+        public System.Windows.Forms.Label lblNombreEmpleadoRes;
+        public System.Windows.Forms.Label lblNombreEmpleado;
+        public System.Windows.Forms.Label lblIdEmpleadoRes;
+        public System.Windows.Forms.Label lblIdEmpleado;
     }
 }

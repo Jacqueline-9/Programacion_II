@@ -6,13 +6,15 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    class D_DetalleVentaProductos
+    public class D_DetalleVentaProductos
     {
-        public int idVenta { get; set; }
-        public int idProducto { get; set; }
-        public decimal precio { get; set; }
-        public int cantidad { get; set; }
-        public decimal subtotal { get; set; }
+        private D_Conexion Conexion = new D_Conexion();
+
+        public int IdVenta { get; set; }
+        public int IdProducto { get; set; }
+        public decimal Precio { get; set; }
+        public int Cantidad { get; set; }
+        public decimal Subtotal { get; set; }
 
         public void Insertar()
         {

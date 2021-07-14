@@ -8,20 +8,45 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
+using Business;
 
 namespace Punto_Venta_Abarrotes
 {
     public partial class frmClientes : Form
     {
+        #region Objetos
+
+        private B_OperacionesClientes bCliente = new B_OperacionesClientes();
+        private B_OperacionesClientes bMunicipio = new B_OperacionesClientes();
+        private B_OperacionesClientes bLocalidad = new B_OperacionesClientes();
+        private B_OperacionesClientes bColonia = new B_OperacionesClientes();
+        private B_OperacionesClientes bCalle = new B_OperacionesClientes();
+        private B_OperacionesClientes bDomicilio = new B_OperacionesClientes();
+
+        #endregion
+
+        #region Variables globales
+
+        string nombre, apPaterno, apMaterno, telefono, curp;
+        DateTime fechaNac;
+        int idCliente, idDomicilio, status;
+
+        #endregion
+
         public frmClientes()
         {
             InitializeComponent();
+
+            seleccionarMunicipio();
+            seleccionarLocalidad();
+            seleccionarColonia();
+            seleccionarCalle();
+            seleccionarDomicilio();
 
             /*Mensajes de acciones de cada herramienta*/
             this.tltBuscar.SetToolTip(this.txtNombreBuscar, "Buscar cliente por nombre");
             this.tltBuscar.SetToolTip(this.txtApePatCliente, "Buscar cliente por apellido paterno");
             this.tltBuscar.SetToolTip(this.txtApeMatBuscar, "Buscar cliente por apellido materno");
-            this.tltBuscar.SetToolTip(this.txtEstatus, "1 activo y 0 inactivo");
         }
 
         #region Mostrar Fecha y Hora
@@ -34,19 +59,10 @@ namespace Punto_Venta_Abarrotes
 
         #endregion
 
-        #region Validaciones 
+        #region RegistrarCliente 
 
         private void btnRegistrarClientes_Click(object sender, EventArgs e)
         {
-            Regex reNombre = new Regex("^[a-zA-Z]*$", RegexOptions.Compiled);
-            if (!reNombre.IsMatch(txtNombreCliente.Text))
-            {
-                erpClientes.SetError(txtNombreCliente, "Debe colocar un nombre válido");
-                txtNombreCliente.Focus();
-                return;
-            }
-            erpClientes.SetError(txtNombreCliente, "");
-
             if (txtNombreCliente.Text == "")
             {
                 erpClientes.SetError(txtNombreCliente, "Favor de ingresar el nombre del cliente");
@@ -54,16 +70,7 @@ namespace Punto_Venta_Abarrotes
                 return;
             }
             erpClientes.SetError(txtNombreCliente, "");
-
-            Regex reApellido = new Regex("^[a-zA-Z]*$", RegexOptions.Compiled);
-            if (!reApellido.IsMatch(txtApePatCliente.Text))
-            {
-                erpClientes.SetError(txtApePatCliente, "Debe colocar un apellido válido");
-                txtApePatCliente.Focus();
-                return;
-            }
-            erpClientes.SetError(txtApePatCliente, "");
-
+          
             if (txtApePatCliente.Text == "")
             {
                 erpClientes.SetError(txtApePatCliente, "Favor de ingresar el apellido paterno del cliente");
@@ -72,12 +79,6 @@ namespace Punto_Venta_Abarrotes
             }
             erpClientes.SetError(txtApePatCliente, "");
 
-            if (!reApellido.IsMatch(txtApeMatCliente.Text))
-            {
-                erpClientes.SetError(txtApeMatCliente, "Debe colocar un apellido válido");
-                txtApeMatCliente.Focus();
-                return;
-            }
             erpClientes.SetError(txtApeMatCliente, "");
 
             Regex reTelefono = new Regex("[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]", RegexOptions.Compiled);
@@ -114,29 +115,15 @@ namespace Punto_Venta_Abarrotes
             }
             erpClientes.SetError(txtCurp, "");
 
-            if (txtIdDomicilioCliente.Text == "")
-            {
-                erpClientes.SetError(txtIdDomicilioCliente, "Favor de ingresar el domicilio del cliente");
-                txtIdDomicilioCliente.Focus();
-                return;
-            }
-            erpClientes.SetError(txtIdDomicilioCliente, "");
-
-            if (txtEstatus.Text == "")
-            {
-                erpClientes.SetError(txtEstatus, "Favor de ingresar el estatus del cliente");
-                txtEstatus.Focus();
-                return;
-            }
-            erpClientes.SetError(txtEstatus, "");
+            //INSERTAR CLIENTES
+            conversionesCliente();
+            MessageBox.Show(bCliente.insertarCliente(nombre, apPaterno, apMaterno, fechaNac, telefono, idDomicilio, curp, status));
 
             txtNombreCliente.Clear();
             txtApePatCliente.Clear();
             txtApeMatCliente.Clear();
             txtTelefonoCliente.Clear();
             txtCurp.Clear();
-            txtIdDomicilioCliente.Clear();
-            txtEstatus.Clear();
         }
 
         private void btnBuscarClientes_Click(object sender, EventArgs e)
@@ -194,6 +181,90 @@ namespace Punto_Venta_Abarrotes
                 e.Handled = true;
                 return;
             }
+        }
+
+        #endregion
+
+        #region Mostrar clientes en el dgv 
+
+        private void btnVerClientes_Click(object sender, EventArgs e)
+        {
+            mostrarClientes();
+        }
+
+        #endregion
+
+        #region Método para mostrar clientes
+
+        public void mostrarClientes()
+        {
+            dgvClientes.DataSource = bCliente.mostrarClientes();
+            dgvClientes.Columns["idPersona"].Visible = false;
+        }
+
+        #endregion
+
+        #region Métodos para mostrar la información en los cmb
+
+        public void seleccionarMunicipio()
+        {
+            var lista = bMunicipio.seleccionarMunicipios();
+            cmbMunicipios.DataSource = lista;
+            cmbMunicipios.DisplayMember = "nombre";
+            cmbMunicipios.ValueMember = "idMunicipio";
+        }
+
+        public void seleccionarLocalidad()
+        {
+            var lista = bLocalidad.seleccionarLocalidades();
+            cmbLocalidades.DataSource = lista;
+            cmbLocalidades.DisplayMember = "nombre";
+            cmbLocalidades.ValueMember = "idLocalidad";
+        }
+
+        public void seleccionarColonia()
+        {
+            var lista = bColonia.seleccionarColonias();
+            cmbColonias.DataSource = lista;
+            cmbColonias.DisplayMember = "nombre";
+            cmbColonias.ValueMember = "idColonia";
+        }
+
+        public void seleccionarCalle()
+        {
+            var lista = bCalle.seleccionarCalles();
+            cmbCalles.DataSource = lista;
+            cmbCalles.DisplayMember = "nombre";
+            cmbCalles.ValueMember = "idCalle";
+        }
+
+        public void seleccionarDomicilio()
+        {
+            var lista = bDomicilio.seleccionarDomicilios();
+            cmbNumExt.DataSource = lista;
+            cmbNumInt.DataSource = lista;
+            cmbNumExt.DisplayMember = "numeroExt";
+            cmbNumInt.DisplayMember = "numeroInt";
+            cmbNumExt.ValueMember = "idDomicilio";
+            cmbNumInt.ValueMember = "idDomicilio";
+        }
+
+        #endregion
+
+        #region Conversiones 
+
+        private void conversionesCliente()
+        {
+
+            nombre = txtNombreCliente.Text.ToUpper();
+            apPaterno = txtApePatCliente.Text.ToUpper();
+            apMaterno = txtApeMatCliente.Text.ToUpper();
+            fechaNac = dtpFechaNac.Value;
+            telefono = txtTelefonoCliente.Text.ToUpper();
+            idDomicilio = Convert.ToInt32(cmbNumExt.SelectedValue);
+            idDomicilio = Convert.ToInt32(cmbNumInt.SelectedValue);
+            curp = txtCurp.Text.ToUpper();
+            status = 1;
         }
 
         #endregion
